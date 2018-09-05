@@ -1,0 +1,66 @@
+DROP DATABASE  BD_SupOn;
+CREATE DATABASE BD_SupOn;
+
+USE BD_SupOn;
+
+CREATE TABLE  Cliente(
+	nome VARCHAR(80) NOT NULL,
+    endereco VARCHAR(255) NOT NULL,
+    cpf INT NOT NULL,
+    login VARCHAR(25) NOT NULL,
+    senha VARCHAR(25) NOT NULL,
+    PRIMARY KEY(cpf)
+);
+
+CREATE TABLE Supermercado(
+	nomeF VARCHAR(80) NOT NULL,
+    nomeO VARCHAR(80) NOT NULL,
+    cnpj INT NOT NULL,
+    endereco VARCHAR(255) NOT NULL,
+    valorMaximoDistancia FLOAT NOT NULL,
+    valorMinimoPreco FLOAT NOT NULL,
+    login VARCHAR(80) NOT NULL,
+    senha VARCHAR(80) NOT NULL,
+    PRIMARY KEY(cnpj)
+);
+
+CREATE TABLE Pedido(
+	codigo INT AUTO_INCREMENT NOT NULL,
+    valorTotal FLOAT NOT NULL,
+    cpfCliente INT NOT NULL,
+    PRIMARY KEY(codigo),
+    FOREIGN KEY(cpfCliente) REFERENCES Cliente(cpf)
+);
+
+CREATE TABLE Produto(
+	codigo INT AUTO_INCREMENT NOT NULL,
+    nome VARCHAR(80) NOT NULL,
+    marca VARCHAR(80) NOT NULL,
+    preco FLOAT NOT NULL,
+    descricao VARCHAR(80) NOT NULL,
+    cnpj INT,
+    PRIMARY KEY(codigo),
+    FOREIGN KEY(cnpj) REFERENCES Supermercado(cnpj)
+);
+
+CREATE TABLE Pagamento(
+	codigo INT AUTO_INCREMENT NOT NULL,
+    valor FLOAT  NOT NULL,
+    dataDeEmissao DATE NOT NULL,
+    dataDeQuitacao DATE NOT NULL,
+    cpfCliente INT,
+    PRIMARY KEY(codigo),
+    FOREIGN KEY(cpfCliente) REFERENCES Cliente(cpf)
+);
+
+CREATE TABLE Item_Produto(
+	codigoPedido INT NOT NULL,
+    quantidade INT NOT NULL,
+    valaorUnidade FLOAT NOT NULL,
+    valorTotal FLOAT NOT NULL,
+    codigoProduto INT NOT NULL,
+    PRIMARY KEY(codigoPedido),
+    FOREIGN KEY(codigoPedido) REFERENCES Pedido(codigo),
+    FOREIGN KEY(codigoProduto) REFERENCES Produto(codigo)
+);
+
