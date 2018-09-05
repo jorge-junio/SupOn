@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<?php include("conexao.php"); ?>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <!--Import Google Icon Font-->
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="css/materialize.min.css" rel="stylesheet" type="text/css">
+        <title>SupOn</title>
+        <style type="text/css">
+            html{
+                min-height: 100%;
+                background-image: linear-gradient(to bottom, rgba(49,79,79, 0.85), rgba(220,220,220, 0.85));
+            }
+            
+            .forms {
+                margin-top: 10%;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div class="container" >
+            <div class="row forms">
+                <div class="panel col s6 offset-s3 white">
+                    <form class="col s12" action="listar_fun.php" method="get">
+                        <div class="row">
+                            <div class="col s12">
+                                <h1 class="center white-text" style="padding: 60px; background: #EE6363;">SupOn</h1>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="login" type="text" class="validate" name="cpf" required />
+                                <label>Cpf</label>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="senha" type="password" class="validate" name="senha" required />
+                                <label>Senha</label>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <button class="btn waves-effect waves-light col s6 offset-s3" type="submit" name="action" >
+                                Logar<i class="material-icons right">send</i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    
+    <!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+      
+      </body>
+</html>
