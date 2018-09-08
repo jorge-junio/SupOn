@@ -1,4 +1,4 @@
-DROP DATABASE  BD_SupOn;
+DROP DATABASE IF EXISTS BD_SupOn;
 CREATE DATABASE BD_SupOn;
 
 USE BD_SupOn;
@@ -6,7 +6,7 @@ USE BD_SupOn;
 CREATE TABLE  Cliente(
 	nome VARCHAR(80) NOT NULL,
     endereco VARCHAR(255) NOT NULL,
-    cpf INT NOT NULL,
+    cpf BIGINT NOT NULL,
     login VARCHAR(25) NOT NULL,
     senha VARCHAR(25) NOT NULL,
     PRIMARY KEY(cpf)
@@ -27,7 +27,7 @@ CREATE TABLE Supermercado(
 CREATE TABLE Pedido(
 	codigo INT AUTO_INCREMENT NOT NULL,
     valorTotal FLOAT NOT NULL,
-    cpfCliente INT NOT NULL,
+    cpfCliente BIGINT NOT NULL,
     PRIMARY KEY(codigo),
     FOREIGN KEY(cpfCliente) REFERENCES Cliente(cpf)
 );
@@ -48,7 +48,7 @@ CREATE TABLE Pagamento(
     valor FLOAT  NOT NULL,
     dataDeEmissao DATE NOT NULL,
     dataDeQuitacao DATE NOT NULL,
-    cpfCliente INT,
+    cpfCliente BIGINT,
     PRIMARY KEY(codigo),
     FOREIGN KEY(cpfCliente) REFERENCES Cliente(cpf)
 );
@@ -64,3 +64,4 @@ CREATE TABLE Item_Produto(
     FOREIGN KEY(codigoProduto) REFERENCES Produto(codigo)
 );
 
+insert into Cliente(nome, endereco, cpf, login, senha) values ('Chico', 'Rua tal e tal', 12312312312, 'qwe', 'qwe');
