@@ -32,7 +32,7 @@
 
         if ($cpf != 0){
             $consulta = "INSERT INTO Cliente(cpf, nome, endereco, login, senha) VALUES
-            ('$cpf', '$nome', '$endereco', '$login' '$senha')";
+            ('$cpf', '$nome', '$endereco', '$login', '$senha')";
             $con = $dao->query($consulta) or die($dao->error);
         }
         ?>
