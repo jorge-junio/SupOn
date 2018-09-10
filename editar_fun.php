@@ -25,12 +25,10 @@
         $nome = isset($_GET["nome"])?$_GET["nome"]:"";
         $cpf = (INT) isset($_GET["cpf"])?$_GET["cpf"]: 0;
         $endereco = isset($_GET["endereco"])?$_GET["endereco"]:"";
-        $login = isset($_GET["login"])?$_GET["login"]:"";
         $senha = isset($_GET["senha"])?$_GET["senha"]:"";
 
         $consulta = "UPDATE Cliente SET cpf = '$cpf', nome = '$nome', 
-endereco = '$endereco', 
-            login = '$login', senha = '$senha' WHERE cpf = '$cpf' ";
+            endereco = '$endereco', senha = '$senha' WHERE cpf = '$cpf' ";
 
         if($cpf != 0)
             $con = $dao->query($consulta) or die($dao->error);
@@ -252,7 +250,7 @@ endereco = '$endereco',
                         <label class="active" for="telefone"><i class="material-icons left">phone</i>Telefone</label>
                     </div>
                 </div>-->
-                
+
                 <div class="row">
                     <div class="input-field col s12">
                         <input id="senha" type="password" class="validate" name="senha">
