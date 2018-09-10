@@ -28,7 +28,7 @@
         $login = isset($_GET["login"])?$_GET["login"]:"";
         $senha = isset($_GET["senha"])?$_GET["senha"]:"";
 
-        $consulta = "UPDATE funcionario SET cpf = '$cpf', nome = '$nome', 
+        $consulta = "UPDATE Cliente SET cpf = '$cpf', nome = '$nome', 
 endereco = '$endereco', 
             login = '$login', senha = '$senha' WHERE cpf = '$cpf' ";
 

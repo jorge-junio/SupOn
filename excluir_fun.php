@@ -24,7 +24,7 @@
 
             $cpf = (INT) isset($_GET["cpf"])?$_GET["cpf"]: 0;
 
-            $consulta = "DELETE FROM funcionario WHERE cpf = '$cpf'";
+            $consulta = "DELETE FROM Cliente WHERE cpf = '$cpf'";
             
             if($cpf > 0)
                 $con = $dao->query($consulta) or die($dao->error);
