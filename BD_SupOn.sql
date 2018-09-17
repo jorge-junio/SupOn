@@ -1,9 +1,10 @@
-DROP DATABASE IF EXISTS BD_SupOn;
+-- DROP DATABASE IF EXISTS BD_SupOn;
 CREATE DATABASE BD_SupOn;
 
 USE BD_SupOn;
 
 CREATE TABLE  Cliente(
+	tipo VARCHAR(3) NOT NULL,
 	nome VARCHAR(80) NOT NULL,
     endereco VARCHAR(255) NOT NULL,
     cpf BIGINT NOT NULL,
@@ -64,4 +65,4 @@ CREATE TABLE Item_Produto(
     FOREIGN KEY(codigoProduto) REFERENCES Produto(codigo)
 );
 
-insert into Cliente(nome, endereco, cpf, login, senha) values ('Chico', 'Rua tal e tal', 12312312312, 'qwe', 'qwe');
+insert into Cliente(tipo, nome, endereco, cpf, login, senha) values ('adm', 'Chico', 'Rua tal e tal', 12312312312, 'qwe', 'qwe');
