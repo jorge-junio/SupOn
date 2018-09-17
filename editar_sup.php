@@ -150,7 +150,7 @@
         <nav style="background: #455a64;"><div class="container center"><div class="nav-wrapper">
             <div class="col s12">
                 <a href="listar_fun.php" class="breadcrumb">Home</a>
-                <a href="cadastrar_fun.php" class="breadcrumb">Cadastrar Cliente</a>
+                <a href="editar_sup.php" class="breadcrumb">Editar Supermercados</a>
             </div>
                 </div></div></nav>
         <div class="section"></div>
@@ -159,78 +159,77 @@
         <!-- Page Content goes here --> 
         <div class="row white darken-2">
             <div class="section"></div>
-            <form class="col s8 offset-s2" method="get" action="cadastrar_fun.php">
+            <form class="col s8 offset-s2" method="get" action="editar_fun.php" id="for_fun">
                 
                 <!--<div class="row">
                     <div class="input-field col s12">
-                        <select id="tipo" name="tipo" required />
+                        <select id="tipo" name="tipo" required="">
                             <option value="" disabled selected>Opções:</option>
-                            <option value="0">Funcionário</option>
                             <option value="1">Administrador</option>
+                            <option value="2">Funcionário</option>
                         </select>
-                        <label><i class="material-icons left">supervisor_account</i>Tipo:</label>
+                        <label for="tipo"><i class="material-icons left">supervisor_account</i>Tipo:</label>
                     </div>
                 </div>-->
                 
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="nome" type="text" class="validate" name="nome" required="" />
-                        <label><i class="material-icons left">person_pin</i>Nome</label>
-                    </div>
-                </div>
-                
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input id="cpf" type="text" class="validate" name="cpf" required />
-                        <label><i class="material-icons left">verified_user</i>CPF</label>
-                    </div>
-                </div>
-                
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input id="endereco" type="text" class="validate" name="endereco" required />
-                        <label><i class="material-icons left">location_on</i>Endereço</label>
-                    </div>
-                </div>
-                
-                <!--<div class="row">
-                    <div class="input-field col s12">
-                        <input id="salario" type="text" class="validate" name="salario" required />
-                        <label><i class="material-icons left">work</i>Salário</label>
-                    </div>
-                </div>
-                
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input id="email" type="email" class="validate" name="email" required>
-                        <label><i class="material-icons left">email</i>Email</label>
-                    </div>
-                </div>-->
-                
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input id="telefone" type="text" class="validate" name="login" required>
-                        <label><i class="material-icons left">account_box</i>login</label>
+                        <input id="cpf" type="text" class="validate" name="cpf" required="" />
+                        <label class="active" for="cpf"><i class="material-icons left">verified_user</i>CPF</label>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="senha" type="tel" class="validate" name="senha" required>
-                        <label><i class="material-icons left">vpn_key</i>Senha</label>
+                        <input id="nome" type="text" class="validate" name="nome" />
+                        <label class="active" for="nome"><i class="material-icons left">person_pin</i>Nome</label>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input  id="endereco" type="text" class="validate" name="endereco" />
+                        <label class="active" for="endereco"><i class="material-icons left">location_on</i>Endereço</label>
+                    </div>
+                </div>
+                
+                <!--<div class="row">
+                    <div class="input-field col s12">
+                        <input id="salario" type="text" class="validate" name="salario" />
+                        <label class="active" for="salario"><i class="material-icons left">work</i>Salário</label>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="email" type="email" class="validate" name="email">
+                        <label class="active" for="email"><i class="material-icons left">email</i>Email</label>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="telefone" type="tel" class="validate" name="telefone">
+                        <label class="active" for="telefone"><i class="material-icons left">phone</i>Telefone</label>
+                    </div>
+                </div>-->
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="senha" type="password" class="validate" name="senha">
+                        <label class="active" for="senha"><i class="material-icons left">lock</i>Senha</label>
                     </div>
                 </div>
                 
                 <div class="row">
                     <button class="btn waves-effect waves-light col s6 offset-s3" type="submit" name="action" >
-                        Cadastrar<i class="material-icons right">send</i>
+                        Atualizar<i class="material-icons right">send</i>
                     </button>
                 </div>
                 
                 <div class="section"></div>
-
+                
             </form>
-
             <div class="section"></div>
         </div>
         <div class="section"></div>
@@ -251,7 +250,17 @@
         <script type="text/javascript"> $(".button-collapse").sideNav(); </script>
         <!--<script type="text/javascript"> $(document).ready(function(){$('.collapsible').collapsible();});</script>-->
         <script type="text/javascript">$(document).ready(function() {$('select').material_select();});</script>
-      
+        <!--<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
+        -->
+        <!--<SCRIPT language="javascript">
+         $(document).ready(function () {
+            $('#telefone').mask('(99) 9 9999-9999');
+            $('#cpf').mask('999.999.999-99');
+            return false;
+        });
+        </SCRIPT>-->
+        
         
     </body>
 </html>

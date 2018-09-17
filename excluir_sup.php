@@ -150,7 +150,7 @@
         <nav style="background: #455a64;"><div class="container center"><div class="nav-wrapper">
             <div class="col s12">
                 <a href="listar_fun.php" class="breadcrumb">Home</a>
-                <a href="cadastrar_fun.php" class="breadcrumb">Cadastrar Cliente</a>
+                <a href="excluir_sup.php" class="breadcrumb">Remover Supermercados</a>
             </div>
                 </div></div></nav>
         <div class="section"></div>
@@ -159,78 +159,23 @@
         <!-- Page Content goes here --> 
         <div class="row white darken-2">
             <div class="section"></div>
-            <form class="col s8 offset-s2" method="get" action="cadastrar_fun.php">
-                
-                <!--<div class="row">
-                    <div class="input-field col s12">
-                        <select id="tipo" name="tipo" required />
-                            <option value="" disabled selected>Opções:</option>
-                            <option value="0">Funcionário</option>
-                            <option value="1">Administrador</option>
-                        </select>
-                        <label><i class="material-icons left">supervisor_account</i>Tipo:</label>
-                    </div>
-                </div>-->
-                
+            <form class="col s8 offset-s2" method="get" action="excluir_sup.php" id="for_fun">
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="nome" type="text" class="validate" name="nome" required="" />
-                        <label><i class="material-icons left">person_pin</i>Nome</label>
-                    </div>
-                </div>
-                
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input id="cpf" type="text" class="validate" name="cpf" required />
-                        <label><i class="material-icons left">verified_user</i>CPF</label>
-                    </div>
-                </div>
-                
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input id="endereco" type="text" class="validate" name="endereco" required />
-                        <label><i class="material-icons left">location_on</i>Endereço</label>
-                    </div>
-                </div>
-                
-                <!--<div class="row">
-                    <div class="input-field col s12">
-                        <input id="salario" type="text" class="validate" name="salario" required />
-                        <label><i class="material-icons left">work</i>Salário</label>
-                    </div>
-                </div>
-                
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input id="email" type="email" class="validate" name="email" required>
-                        <label><i class="material-icons left">email</i>Email</label>
-                    </div>
-                </div>-->
-                
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input id="telefone" type="text" class="validate" name="login" required>
-                        <label><i class="material-icons left">account_box</i>login</label>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input id="senha" type="tel" class="validate" name="senha" required>
-                        <label><i class="material-icons left">vpn_key</i>Senha</label>
+                        <input id="cnpj" type="text" class="validate" name="cnpj" required="" />
+                        <label class="active" for="cpf"><i class="material-icons left">verified_user</i>CNPJ</label>
                     </div>
                 </div>
                 
                 <div class="row">
                     <button class="btn waves-effect waves-light col s6 offset-s3" type="submit" name="action" >
-                        Cadastrar<i class="material-icons right">send</i>
+                        Excluir<i class="material-icons right">send</i>
                     </button>
                 </div>
                 
                 <div class="section"></div>
-
+                
             </form>
-
             <div class="section"></div>
         </div>
         <div class="section"></div>
@@ -251,7 +196,17 @@
         <script type="text/javascript"> $(".button-collapse").sideNav(); </script>
         <!--<script type="text/javascript"> $(document).ready(function(){$('.collapsible').collapsible();});</script>-->
         <script type="text/javascript">$(document).ready(function() {$('select').material_select();});</script>
-      
+        <!--<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
+        -->
+        <!--<SCRIPT language="javascript">
+         $(document).ready(function () {
+            $('#telefone').mask('(99) 9 9999-9999');
+            $('#cpf').mask('999.999.999-99');
+            return false;
+        });
+        </SCRIPT>-->
+        
         
     </body>
 </html>

@@ -144,13 +144,14 @@
                     </ul>
                 </div>
             </div>
-        </nav>
+        </nav> 
+       
         
         
         <nav style="background: #455a64;"><div class="container center"><div class="nav-wrapper">
             <div class="col s12">
                 <a href="listar_fun.php" class="breadcrumb">Home</a>
-                <a href="cadastrar_fun.php" class="breadcrumb">Cadastrar Cliente</a>
+                <a href="cadastrar_sup.php" class="breadcrumb">Cadastrar Supermercados</a>
             </div>
                 </div></div></nav>
         <div class="section"></div>
@@ -159,7 +160,7 @@
         <!-- Page Content goes here --> 
         <div class="row white darken-2">
             <div class="section"></div>
-            <form class="col s8 offset-s2" method="get" action="cadastrar_fun.php">
+            <form class="col s8 offset-s2" method="get" action="cadastrar_sup.php">
                 
                 <!--<div class="row">
                     <div class="input-field col s12">
@@ -174,15 +175,22 @@
                 
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="nome" type="text" class="validate" name="nome" required="" />
-                        <label><i class="material-icons left">person_pin</i>Nome</label>
+                        <input id="nomeF" type="text" class="validate" name="nomeF" required="" />
+                        <label><i class="material-icons left">person_pin</i>Nome Fantasia</label>
+                    </div>
+                </div>
+				
+				<div class="row">
+                    <div class="input-field col s12">
+                        <input id="nomeO" type="text" class="validate" name="nomeO" required="" />
+                        <label><i class="material-icons left">person</i>Nome Oficial</label>
                     </div>
                 </div>
                 
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="cpf" type="text" class="validate" name="cpf" required />
-                        <label><i class="material-icons left">verified_user</i>CPF</label>
+                        <input id="cpf" type="text" class="validate" name="cnpj" required />
+                        <label><i class="material-icons left">verified_user</i>CNPJ</label>
                     </div>
                 </div>
                 
@@ -192,20 +200,6 @@
                         <label><i class="material-icons left">location_on</i>Endereço</label>
                     </div>
                 </div>
-                
-                <!--<div class="row">
-                    <div class="input-field col s12">
-                        <input id="salario" type="text" class="validate" name="salario" required />
-                        <label><i class="material-icons left">work</i>Salário</label>
-                    </div>
-                </div>
-                
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input id="email" type="email" class="validate" name="email" required>
-                        <label><i class="material-icons left">email</i>Email</label>
-                    </div>
-                </div>-->
                 
                 <div class="row">
                     <div class="input-field col s12">
@@ -221,6 +215,20 @@
                     </div>
                 </div>
                 
+				<div class="row">
+                    <div class="input-field col s12">
+                        <input id="valorMaximoDistancia" type="text" class="validate" name="valorMaximoDistancia" required />
+                        <label><i class="material-icons left">explore</i>Distância Máxima de Entrega</label>
+                    </div>
+                </div>
+				
+				<div class="row">
+                    <div class="input-field col s12">
+                        <input id="valorMinimoPreco" type="text" class="validate" name="valorMinimoPreco" required />
+                        <label><i class="material-icons left">work</i>Valor Mínimo de Entrega</label>
+                    </div>
+                </div>
+				
                 <div class="row">
                     <button class="btn waves-effect waves-light col s6 offset-s3" type="submit" name="action" >
                         Cadastrar<i class="material-icons right">send</i>
