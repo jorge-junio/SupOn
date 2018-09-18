@@ -20,21 +20,14 @@
             
         </style>
         <?php
-            include("conexao.php");
+            include ("conexao.php");
 
-        //$cargo = isset($_GET["tipo"])?$_GET["tipo"]:null;
-        $nome = isset($_GET["nome"])?$_GET["nome"]:"";
-        $cpf = (INT) isset($_GET["cpf"])?$_GET["cpf"]: 0;
-        $endereco = isset($_GET["endereco"])?$_GET["endereco"]:"";
-        $login = isset($_GET["login"])?$_GET["login"]:"";
-        //$login = (INT) isset($_GET["login"])?$_GET["login"]:0;
-        $senha = isset($_GET["senha"])?$_GET["senha"]:"";
+            $cpf = (INT) isset($_GET["cpf"])?$_GET["cpf"]: 0;
 
-        if ($cpf != 0){
-            $consulta = "INSERT INTO Cliente(cpf, nome, endereco, login, senha) VALUES
-            ('$cpf', '$nome', '$endereco', '$login', '$senha')";
-            $con = $dao->query($consulta) or die($dao->error);
-        }
+            $consulta = "DELETE FROM Cliente WHERE cpf = '$cpf'";
+            
+            if($cpf > 0)
+                $con = $dao->query($consulta) or die($dao->error);
         ?>
     </head>
     <body>
