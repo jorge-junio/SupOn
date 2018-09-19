@@ -8,17 +8,21 @@
 		
         <?php
         include ("conexao.php");
-
-        $nome = isset($_GET["nome"])?$_GET["nome"]:"";
-        $cpf = (INT) isset($_GET["cpf"])?$_GET["cpf"]: 0;
+               
+        $nomeF = isset($_GET["nomeF"])?$_GET["nomeF"]:"";
+        $nomeO = isset($_GET["nomeO"])?$_GET["nomeO"]:"";
+        $cnpj = (INT) isset($_GET["cnpj"])?$_GET["cnpj"]: 0;
         $endereco = isset($_GET["endereco"])?$_GET["endereco"]:"";
+        $valorMaximoDistancia = isset($_GET["valorMaximoDistancia"])?$_GET["valorMaximoDistancia"]:"";
+        $valorMinimoPreco = isset($_GET["valorMinimoPreco"])?$_GET["valorMinimoPreco"]:"";
         $senha = isset($_GET["senha"])?$_GET["senha"]:"";
 
-        $consulta = "UPDATE Cliente SET cpf = '$cpf', nome = '$nome', 
-            endereco = '$endereco', senha = '$senha' WHERE cpf = '$cpf' ";
+        $consulta = "UPDATE Supermercado SET cnpj = '$cnpj', nomeF = '$nomeF', nomeO = '$nomeO', 
+            endereco = '$endereco', valorMaximoDistancia = '$valorMaximoDistancia',valorMinimoPreco = '$valorMinimoPreco', senha = '$senha' WHERE cnpj = '$cnpj' ";
 
-        if($cpf != 0)
-            $con = $dao->query($consulta) or die($dao->error);
+        if ($cnpj != 0) {
+        $con = $dao->query($consulta) or die($dao->error);
+        }
         ?>
     </head>
     <body>
