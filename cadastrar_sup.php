@@ -10,16 +10,19 @@
             include("conexao.php");
 
         //$cargo = isset($_GET["tipo"])?$_GET["tipo"]:null;
-        $nome = isset($_GET["nome"])?$_GET["nome"]:"";
-        $cpf = (INT) isset($_GET["cpf"])?$_GET["cpf"]: 0;
+        $nomeFantasia = isset($_GET["nomeF"])?$_GET["nomeF"]:"";
+        $nomeOficial = isset($_GET["nomeO"])?$_GET["nomeO"]:"";
+        $cnpj = (INT) isset($_GET["cnpj"])?$_GET["cnpj"]: 0;
         $endereco = isset($_GET["endereco"])?$_GET["endereco"]:"";
         $login = isset($_GET["login"])?$_GET["login"]:"";
         //$login = (INT) isset($_GET["login"])?$_GET["login"]:0;
         $senha = isset($_GET["senha"])?$_GET["senha"]:"";
+        $valorMaximoDistancia = (FLOAT) isset($_GET["valorMaximoDistancia"])?$_GET["valorMaximoDistancia"]: 0;
+        $valorMinimoPreco = (FLOAT) isset($_GET["valorMinimoPreco"])?$_GET["valorMinimoPreco"]: 0;
 
-        if ($cpf != 0){
-            $consulta = "INSERT INTO Cliente(cpf, nome, endereco, login, senha) VALUES
-            ('$cpf', '$nome', '$endereco', '$login', '$senha')";
+        if ($cnpj != 0){
+            $consulta = "INSERT INTO Supermercado(cnpj, nomeO, nomeF, endereco, login, senha, valorMaximoDistancia, valorMinimoPreco) VALUES
+            ('$cnpj', '$nomeOficial', '$nomeFantasia', '$endereco', '$login', '$senha', '$valorMaximoDistancia', '$valorMinimoPreco');";
             $con = $dao->query($consulta) or die($dao->error);
         }
         ?>
@@ -60,7 +63,7 @@
                 
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="cpf" type="text" class="validate" name="cnpj" required />
+                        <input id="cnpj" type="text" class="validate" name="cnpj" required />
                         <label><i class="material-icons left">verified_user</i>CNPJ</label>
                     </div>
                 </div>
@@ -74,7 +77,7 @@
                 
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="telefone" type="text" class="validate" name="login" required>
+                        <input id="login" type="text" class="validate" name="login" required>
                         <label><i class="material-icons left">account_box</i>login</label>
                     </div>
                 </div>
