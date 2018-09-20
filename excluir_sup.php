@@ -9,11 +9,11 @@
         <?php
             include ("conexao.php");
 
-            $cpf = (INT) isset($_GET["cpf"])?$_GET["cpf"]: 0;
+            $cnpj = (INT) isset($_GET["cnpj"])?$_GET["cnpj"]: 0;
 
-            $consulta = "DELETE FROM Cliente WHERE cpf = '$cpf'";
+            $consulta = "DELETE FROM Supermercado WHERE cnpj = '$cnpj'";
             
-            if($cpf > 0)
+            if($cnpj > 0)
                 $con = $dao->query($consulta) or die($dao->error);
         ?>
     </head>
