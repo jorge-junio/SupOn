@@ -23,13 +23,13 @@
 			include "menuAdm.php";
 		?>    
         
-		<nav style="background: #455a64;"><div class="container center"><div class="nav-wrapper">
+        <nav style="background: #455a64;"><div class="container center"><div class="nav-wrapper">
             <div class="col s12">
                 <a href="listar_fun.php" class="breadcrumb">Home</a>
-                <a href="#" class="breadcrumb">Remover Supermercado</a>
+                <a href="#" class="breadcrumb">Remover Produto</a>
             </div>
                 </div></div></nav>
-        
+				
         <div class="section"></div>
         <div class="section"></div>
     <div class="container">  
@@ -40,7 +40,7 @@
                 <div class="row">
                     <div class="input-field col s12">
                         <input id="cnpj" type="text" class="validate" name="cnpj" required="" />
-                        <label class="active" for="cpf"><i class="material-icons left">verified_user</i>CNPJ</label>
+                        <label class="active" for="cpf"><i class="material-icons left">verified_user</i>Código</label>
                     </div>
                 </div>
                 

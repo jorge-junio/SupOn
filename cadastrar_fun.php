@@ -33,7 +33,7 @@
         <nav style="background: #455a64;"><div class="container center"><div class="nav-wrapper">
             <div class="col s12">
                 <a href="listar_fun.php" class="breadcrumb">Home</a>
-                <a href="cadastrar_fun.php" class="breadcrumb">Cadastrar Cliente</a>
+                <a href="#" class="breadcrumb">Cadastrar Cliente</a>
             </div>
                 </div></div></nav>
         <div class="section"></div>
@@ -121,8 +121,8 @@
     </div>
         
     <?php
-		include "footerAdm.php";
-	?> 
+			include "scriptsFim.php";
+		?>
         
     </body>
 </html>

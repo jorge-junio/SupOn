@@ -36,7 +36,7 @@
 		<nav style="background: #455a64;"><div class="container center"><div class="nav-wrapper">
             <div class="col s12">
                 <a href="listar_fun.php" class="breadcrumb">Home</a>
-                <a href="#" class="breadcrumb">Cadastrar Supermercado</a>
+                <a href="#" class="breadcrumb">Cadastrar Produto</a>
             </div>
                 </div></div></nav>
         
@@ -51,58 +51,32 @@
                 <div class="row">
                     <div class="input-field col s12">
                         <input id="nomeF" type="text" class="validate" name="nomeF" required="" />
-                        <label><i class="material-icons left">person_pin</i>Nome Fantasia</label>
+                        <label><i class="material-icons left">shopping_basket</i>Nome</label>
                     </div>
                 </div>
 				
 				<div class="row">
                     <div class="input-field col s12">
                         <input id="nomeO" type="text" class="validate" name="nomeO" required="" />
-                        <label><i class="material-icons left">person</i>Nome Oficial</label>
+                        <label><i class="material-icons left">receipt</i>Marca</label>
                     </div>
                 </div>
                 
                 <div class="row">
                     <div class="input-field col s12">
                         <input id="cnpj" type="text" class="validate" name="cnpj" required />
-                        <label><i class="material-icons left">verified_user</i>CNPJ</label>
+                        <label><i class="material-icons left">insert_comment</i>Descrição</label>
                     </div>
                 </div>
                 
                 <div class="row">
                     <div class="input-field col s12">
                         <input id="endereco" type="text" class="validate" name="endereco" required />
-                        <label><i class="material-icons left">location_on</i>Endereço</label>
+                        <label><i class="material-icons left">monetization_on</i>Valor</label>
                     </div>
                 </div>
                 
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input id="login" type="text" class="validate" name="login" required>
-                        <label><i class="material-icons left">account_box</i>login</label>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input id="senha" type="tel" class="validate" name="senha" required>
-                        <label><i class="material-icons left">vpn_key</i>Senha</label>
-                    </div>
-                </div>
                 
-				<div class="row">
-                    <div class="input-field col s12">
-                        <input id="valorMaximoDistancia" type="text" class="validate" name="valorMaximoDistancia" required />
-                        <label><i class="material-icons left">explore</i>Distância Máxima de Entrega</label>
-                    </div>
-                </div>
-				
-				<div class="row">
-                    <div class="input-field col s12">
-                        <input id="valorMinimoPreco" type="text" class="validate" name="valorMinimoPreco" required />
-                        <label><i class="material-icons left">work</i>Valor Mínimo de Entrega</label>
-                    </div>
-                </div>
 				
                 <div class="row">
                     <button class="btn waves-effect waves-light col s6 offset-s3" type="submit" name="action" >

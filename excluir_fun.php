@@ -23,12 +23,13 @@
 			include "menuAdm.php";
 		?>
         
-        <nav style="background: #455a64;"><div class="container center"><div class="nav-wrapper">
+		<nav style="background: #455a64;"><div class="container center"><div class="nav-wrapper">
             <div class="col s12">
                 <a href="listar_fun.php" class="breadcrumb">Home</a>
-                <a href="excluir_fun.php" class="breadcrumb">Remover Cliente</a>
+                <a href="#" class="breadcrumb">Remover Cliente</a>
             </div>
                 </div></div></nav>
+        
         <div class="section"></div>
         <div class="section"></div>
     <div class="container">  
@@ -58,9 +59,9 @@
 		<div class="section"></div>
     </div>
         
-    <?php
-		include "footerAdm.php";
-	?> 
+		<?php
+			include "scriptsFim.php";
+		?>
         
     </body>
 </html>

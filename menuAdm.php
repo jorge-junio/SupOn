@@ -17,6 +17,16 @@
             <li class="divider"></li><li class="divider"></li>
             <li><a href="excluir_sup.php">Remover</a></li> 
         </ul>
+		
+		<ul id="dropdown2" class="dropdown-content">
+            <li><a href="cadastrar_pro.php">Cadastrar</a></li>
+            <li class="divider"></li>
+            <li><a href="editar_pro.php">Editar</a></li>
+            <li class="divider"></li>
+            <li><a href="listar_pro.php">Listar</a></li>
+            <li class="divider"></li><li class="divider"></li>
+            <li><a href="excluir_pro.php">Remover</a></li> 
+        </ul>
         
         <ul id="dropdown4" class="dropdown-content">
             <li><a href="index.html">Sair</a></li>
@@ -34,6 +44,7 @@
                             echo '<li><a class="dropdown-button" href="#" data-activates="dropdown1">Clientes<i class="material-icons right">arrow_drop_down</i></a></li>';
                         ?>
                         <li><a class="dropdown-button" href="#" data-activates="dropdown2">Supermercados<i class="material-icons right">arrow_drop_down</i></a></li>
+                        <li><a class="dropdown-button" href="#" data-activates="dropdown2">Produtos<i class="material-icons right">arrow_drop_down</i></a></li>
                         
                         <li><a class="dropdown-button" href="index.html" data-activates="dropdown4">Perfil<i class="material-icons right">arrow_drop_down</i></a></li>
                     </ul>
@@ -83,6 +94,26 @@
                                             </li>
                                             <li>
                                                 <a href="excluir_sup.php">Remover</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+								
+								<li class="bold">
+                                    <a class="collapsible-header waves-effect waves-teal white-text">Produtos<i class="material-icons right white-text">arrow_drop_down</i></a>
+                                    <div class="collapsible-body" style="display: none;">
+                                        <ul>
+                                            <li>
+                                                <a href="cadastrar_pro.php">Cadastrar</a>
+                                            </li>
+                                            <li>
+                                                <a href="editar_pro.php">Editar</a>
+                                            </li>
+                                            <li>
+                                                <a href="listar_pro.php">Listar</a>
+                                            </li>
+                                            <li>
+                                                <a href="excluir_pro.php">Remover</a>
                                             </li>
                                         </ul>
                                     </div>
