@@ -10,19 +10,14 @@
             include("conexao.php");
 
         //$cargo = isset($_GET["tipo"])?$_GET["tipo"]:null;
-        $nomeFantasia = isset($_GET["nomeF"])?$_GET["nomeF"]:"";
-        $nomeOficial = isset($_GET["nomeO"])?$_GET["nomeO"]:"";
-        $cnpj = (INT) isset($_GET["cnpj"])?$_GET["cnpj"]: 0;
-        $endereco = isset($_GET["endereco"])?$_GET["endereco"]:"";
-        $login = isset($_GET["login"])?$_GET["login"]:"";
-        //$login = (INT) isset($_GET["login"])?$_GET["login"]:0;
-        $senha = isset($_GET["senha"])?$_GET["senha"]:"";
-        $valorMaximoDistancia = (FLOAT) isset($_GET["valorMaximoDistancia"])?$_GET["valorMaximoDistancia"]: 0;
-        $valorMinimoPreco = (FLOAT) isset($_GET["valorMinimoPreco"])?$_GET["valorMinimoPreco"]: 0;
+        $nome = isset($_GET["nome"])?$_GET["nome"]:"";
+        $marca = isset($_GET["marca"])?$_GET["marca"]:"";
+        $descricao = isset($_GET["descricao"])?$_GET["descricao"]:"";
+        $preco = (FLOAT) isset($_GET["valor"])?$_GET["valor"]: 0;
 
-        if ($cnpj != 0){
-            $consulta = "INSERT INTO Supermercado(cnpj, nomeO, nomeF, endereco, login, senha, valorMaximoDistancia, valorMinimoPreco) VALUES
-            ('$cnpj', '$nomeOficial', '$nomeFantasia', '$endereco', '$login', '$senha', '$valorMaximoDistancia', '$valorMinimoPreco');";
+        if ($nome != " "){
+            $consulta = "INSERT INTO Produto(nome, marca, preco, descricao) VALUES
+            ('$nome', '$marca', '$preco', '$descricao');";
             $con = $dao->query($consulta) or die($dao->error);
         }
         ?>
@@ -46,32 +41,32 @@
         <!-- Page Content goes here --> 
         <div class="row white darken-2">
             <div class="section"></div>
-            <form class="col s8 offset-s2" method="get" action="cadastrar_sup.php">
+            <form class="col s8 offset-s2" method="get" action="cadastrar_pro.php">
                 
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="nomeF" type="text" class="validate" name="nomeF" required="" />
+                        <input id="nome" type="text" class="validate" name="nome" required="" />
                         <label><i class="material-icons left">shopping_basket</i>Nome</label>
                     </div>
                 </div>
 				
 				<div class="row">
                     <div class="input-field col s12">
-                        <input id="nomeO" type="text" class="validate" name="nomeO" required="" />
+                        <input id="marca" type="text" class="validate" name="marca" required="" />
                         <label><i class="material-icons left">receipt</i>Marca</label>
                     </div>
                 </div>
                 
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="cnpj" type="text" class="validate" name="cnpj" required />
+                        <input id="descricao" type="text" class="validate" name="descricao" required />
                         <label><i class="material-icons left">insert_comment</i>Descrição</label>
                     </div>
                 </div>
                 
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="endereco" type="text" class="validate" name="endereco" required />
+                        <input id="valor" type="text" class="validate" name="valor" required />
                         <label><i class="material-icons left">monetization_on</i>Valor</label>
                     </div>
                 </div>
