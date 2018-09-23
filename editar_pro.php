@@ -8,19 +8,16 @@
 		
         <?php
         include ("conexao.php");
-               
-        $nomeF = isset($_GET["nomeF"])?$_GET["nomeF"]:"";
-        $nomeO = isset($_GET["nomeO"])?$_GET["nomeO"]:"";
-        $cnpj = (INT) isset($_GET["cnpj"])?$_GET["cnpj"]: 0;
-        $endereco = isset($_GET["endereco"])?$_GET["endereco"]:"";
-        $valorMaximoDistancia = isset($_GET["valorMaximoDistancia"])?$_GET["valorMaximoDistancia"]:"";
-        $valorMinimoPreco = isset($_GET["valorMinimoPreco"])?$_GET["valorMinimoPreco"]:"";
-        $senha = isset($_GET["senha"])?$_GET["senha"]:"";
+	    
+	$nome = isset($_GET["nome"])?$_GET["nome"]:"";
+        $marca = isset($_GET["marca"])?$_GET["marca"]:"";
+        $descricao = isset($_GET["descricao"])?$_GET["descricao"]:"";
+        $preco = (FLOAT) isset($_GET["valor"])?$_GET["valor"]: 0;
 
-        $consulta = "UPDATE Supermercado SET cnpj = '$cnpj', nomeF = '$nomeF', nomeO = '$nomeO', 
-            endereco = '$endereco', valorMaximoDistancia = '$valorMaximoDistancia',valorMinimoPreco = '$valorMinimoPreco', senha = '$senha' WHERE cnpj = '$cnpj' ";
+        $consulta = "UPDATE Produto SET nome = '$nome', marca = '$marca', descricao = '$descricao', 
+            preco = '$preco', WHERE nome = '$nome' ";
 
-        if ($cnpj != 0) {
+        if ($nome != " ")  {
         $con = $dao->query($consulta) or die($dao->error);
         }
         ?>
