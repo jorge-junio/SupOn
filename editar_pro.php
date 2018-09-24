@@ -9,13 +9,13 @@
         <?php
         include ("conexao.php");
 	    
-	$nome = isset($_GET["nome"])?$_GET["nome"]:"";
+	    $nome = isset($_GET["nome"])?$_GET["nome"]:"";
         $marca = isset($_GET["marca"])?$_GET["marca"]:"";
         $descricao = isset($_GET["descricao"])?$_GET["descricao"]:"";
         $preco = (FLOAT) isset($_GET["valor"])?$_GET["valor"]: 0;
 
         $consulta = "UPDATE Produto SET nome = '$nome', marca = '$marca', descricao = '$descricao', 
-            preco = '$preco', WHERE nome = '$nome' ";
+            preco = '$preco' WHERE nome = '$nome' ";
 
         if ($nome != " ")  {
         $con = $dao->query($consulta) or die($dao->error);
