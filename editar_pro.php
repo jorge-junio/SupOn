@@ -41,7 +41,7 @@
         <!-- Page Content goes here --> 
         <div class="row white darken-2">
             <div class="section"></div>
-            <form class="col s8 offset-s2" method="get" action="cadastrar_pro.php">
+            <form class="col s8 offset-s2" method="get" action="editar_pro.php">
                 
                 <div class="row">
                     <div class="input-field col s12">
