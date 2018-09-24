@@ -41,32 +41,32 @@
         <!-- Page Content goes here --> 
         <div class="row white darken-2">
             <div class="section"></div>
-            <form class="col s8 offset-s2" method="get" action="cadastrar_sup.php">
+            <form class="col s8 offset-s2" method="get" action="cadastrar_pro.php">
                 
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="nomeF" type="text" class="validate" name="nomeF" required="" />
+                        <input id="nome" type="text" class="validate" name="nome" required="" />
                         <label><i class="material-icons left">shopping_basket</i>Nome</label>
                     </div>
                 </div>
 				
 				<div class="row">
                     <div class="input-field col s12">
-                        <input id="nomeO" type="text" class="validate" name="nomeO" required="" />
+                        <input id="marca" type="text" class="validate" name="marca" required="" />
                         <label><i class="material-icons left">receipt</i>Marca</label>
                     </div>
                 </div>
                 
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="cnpj" type="text" class="validate" name="cnpj" required />
+                        <input id="descricao" type="text" class="validate" name="descricao" required />
                         <label><i class="material-icons left">insert_comment</i>Descrição</label>
                     </div>
                 </div>
                 
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="endereco" type="text" class="validate" name="endereco" required />
+                        <input id="valor" type="text" class="validate" name="valor" required />
                         <label><i class="material-icons left">monetization_on</i>Valor</label>
                     </div>
                 </div>
