@@ -9,8 +9,8 @@
         <?php
             include("conexao.php");
 
-            $consulta = "SELECT cnpj, nomeF, nomeO, endereco, login, senha, valorMaximoDistancia, valorMinimoPreco FROM Supermercado";
-
+            $consulta = "SELECT codigo, nome, marca, preco, descricao FROM Produto";
+            //lembrar de por o atributo cnpj depois que fazer a sessão
 
             $con = $dao->query($consulta) or die($dao->error);
         ?>
@@ -51,12 +51,11 @@
                         <tbody>
                             <?php while ($dado = $con->fetch_array()) { ?>
                             <tr class="hoverable">
-                                <td><?php echo $dado["cnpj"]; ?></td>
-                                <td><?php echo $dado["nomeF"]; ?></td>
-                                <td><?php echo $dado["nomeO"]; ?></td>
-                                <td><?php echo $dado["endereco"]; ?></td>
-                                <td><?php echo $dado["login"]; ?></td>
-                                <td><?php echo $dado["senha"]; ?></td>
+                                <td><?php echo $dado["codigo"]; ?></td>
+                                <td><?php echo $dado["nome"]; ?></td>
+                                <td><?php echo $dado["marca"]; ?></td>
+                                <td><?php echo $dado["descricao"]; ?></td>
+                                <td><?php echo $dado["preco"]; ?></td>
 								
                             </tr>
                             <?php } ?> 
