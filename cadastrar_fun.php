@@ -18,8 +18,8 @@
         $senha = isset($_GET["senha"])?$_GET["senha"]:"";
 
         if ($cpf != 0){
-            $consulta = "INSERT INTO Cliente(cpf, nome, endereco, login, senha) VALUES
-            ('$cpf', '$nome', '$endereco', '$login', '$senha')";
+            $consulta = "INSERT INTO Cliente(tipo, cpf, nome, endereco, login, senha) VALUES
+            ('cli','$cpf', '$nome', '$endereco', '$login', '$senha')";
             $con = $dao->query($consulta) or die($dao->error);
         }
         ?>
