@@ -21,12 +21,6 @@
 			include "menuAdm.php";
 		?>
 		
-		<nav style="background: #455a64;"><div class="container center"><div class="nav-wrapper">
-            <div class="col s12">
-                <a href="listar_fun.php" class="breadcrumb">Home</a>
-                <a href="#" class="breadcrumb">Listar Clientes</a>
-            </div>
-                </div></div></nav>
        
         <div class="container">
             <div class="section"></div>
@@ -34,7 +28,8 @@
             <div class="row white darken-4 ">
                 <div class="container">
                     <div class="section"></div>
-                    <div class="section"></div>
+                    <div class="section" style="text-align: center; font-size: 25px;">Listar Clientes</div>
+                    <div class="section" style="text-align: right; font-size: 16px; "><a href="#" style="color: #00dd00;">Cadastrar <i class=" material-icons">person_add</i></a> </div>
                     <table class="highlight centered waves-teal ">
                         <thead>
                             <tr>
@@ -44,7 +39,7 @@
                                 <th>Endereço</th>
                                 <th>login</th>
                                 <th>senha</th>
-                                
+                                <th>Ações</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -56,6 +51,8 @@
                                 <td><?php echo $dado["endereco"]; ?></td>
                                 <td><?php echo $dado["login"]; ?></td>
                                 <td><?php echo $dado["senha"]; ?></td>
+                                <td><a href="#"><i class="material-icons prefix">edit</i></a>    
+                                    <a href="#" style="color: #dd0000;"><i class="material-icons prefix">delete</i></a></td>
                                 
                             </tr>
                             <?php } ?> 
