@@ -19,7 +19,7 @@
                         ?>
                         <li><a href="listar_sup.php">Supermercados</a></li>
                         <li><a href="listar_pro.php">Produtos</a></li>
-                        <li><a href="buscar_adm.php">Buscar</a></li>
+                        <li><a href="buscar_adm.php?q_b=&tipo_b=0&action=#">Buscar</a></li>
                         <li><a class="dropdown-button" href="index.html" data-activates="dropdown4">Perfil<i class="material-icons right">arrow_drop_down</i></a></li>
                     </ul>
                     
