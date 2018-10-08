@@ -28,19 +28,18 @@
 			include "menuAdm.php";
 		?>
  
-        <nav style="background: #455a64;"><div class="container center"><div class="nav-wrapper">
-            <div class="col s12">
-                <a href="listar_fun.php" class="breadcrumb">Home</a>
-                <a href="#" class="breadcrumb">Editar Produto</a>
-            </div>
-                </div></div></nav>
-				
         <div class="section"></div>
         <div class="section"></div>
     <div class="container">  
         <!-- Page Content goes here --> 
         <div class="row white darken-2">
             <div class="section"></div>
+			
+			<div class="section" style="text-align: center; font-size: 25px;">Editar Produtos</div>
+			<div class="raw" style="text-align: right; font-size: 16px; ">
+				<div class="section"></div><div class="section"></div>
+			</div>
+
             <form class="col s8 offset-s2" method="get" action="editar_pro.php">
                 
                 <div class="row">

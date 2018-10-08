@@ -26,8 +26,6 @@
             <div class="section"></div>
             <div class="row white darken-4 ">
                 <div class="container">
-                    <div class="section"></div>
-                    <div class="section"></div>
                     
 					<?php
 						include "titulo_sup.php";

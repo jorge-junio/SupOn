@@ -7,6 +7,7 @@
 			<th>Descrição</th>
 			<th>Valor</th>
 			<th>Supermercado</th>
+			<th>Ações</th>
 			
 			
 		</tr>
@@ -19,6 +20,11 @@
 			<td><?php echo $dado["marca"]; ?></td>
 			<td><?php echo $dado["descricao"]; ?></td>
 			<td><?php echo $dado["preco"]; ?></td>
+			<td> </td>
+			<td><a href="editar_pro.php"><i class="material-icons prefix" title="Editar Cliente">edit</i></a>    
+                                    <a href="excluir_pro.php" style="color: #dd0000;"><i class="material-icons prefix" title="Excluir Cliente">delete</i></a></td>
+                                
+                            </tr>
 			
 		</tr>
 		<?php } ?> 

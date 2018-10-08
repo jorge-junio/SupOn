@@ -9,6 +9,7 @@
 			<th>Senha</th>
 			<th>Distancia Max. Entrega</th>
 			<th>Valor Min. de Entrega</th>
+			<th>Ações</th>
 			
 		</tr>
 	</thead>
@@ -23,7 +24,9 @@
 			<td><?php echo $dado["senha"]; ?></td>
 			<td><?php echo $dado["valorMaximoDistancia"]; ?></td>
 			<td><?php echo $dado["valorMinimoPreco"]; ?></td>
-			
+			<td><a href="editar_sup.php"><i class="material-icons prefix" title="Editar Cliente">edit</i></a>    
+                                    <a href="excluir_sup.php" style="color: #dd0000;"><i class="material-icons prefix" title="Excluir Cliente">delete</i></a></td>
+                                
 		</tr>
 		<?php } ?> 
 	</tbody>
