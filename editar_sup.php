@@ -95,9 +95,13 @@
                 </div>
                 
                 <div class="row">
-                    <button class="btn waves-effect waves-light col s6 offset-s3" type="submit" name="action" >
-                        Atualizar<i class="material-icons right">send</i>
+                    <button class="btn waves-effect waves-light col s4 offset-s1" type="submit" name="action" >
+                        Confirmar<i class="material-icons right">done</i>
                     </button>
+                    
+                        <a href="listar_fun.php" class="btn waves-effect waves-light col s4 offset-s2" >
+                            Voltar<i class="material-icons right">close</i>
+                        </a>
                 </div>
                 
                 <div class="section"></div>
