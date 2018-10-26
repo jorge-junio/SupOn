@@ -12,8 +12,8 @@
 				<div class="input-field col s5">
 					<select name="tipo_b">
 						<option value="0" disabled selected>Escolha uma opção:</option>
-						<option value="1">Supermercados</option>
 						<option value="2">Produtos</option>
+						<option value="1">Supermercados</option>
 					</select>
 					<label> </label>
 					<div class="section"></div>

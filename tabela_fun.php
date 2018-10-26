@@ -19,9 +19,11 @@
                                 <td><?php echo $dado["endereco"]; ?></td>
                                 <td><?php echo $dado["login"]; ?></td>
                                 <td><?php echo $dado["senha"]; ?></td>
-                                <td><a href="editar_fun.php"><i class="material-icons prefix" title="Editar Cliente">edit</i></a>    
-                                    <a href="excluir_fun.php" style="color: #dd0000;"><i class="material-icons prefix" title="Excluir Cliente">delete</i></a></td>
+
                                 
+
+                                <td><a href="editar_fun.php"><i class="material-icons prefix" title="Editar Cliente">edit</i></a>    
+                                    <a href="excluir_fun.php?" style="color: #dd0000;"><i class="material-icons prefix" title="Excluir Cliente">delete</i></a></td>
                             </tr>
                             <?php } ?> 
                         </tbody>
