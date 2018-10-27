@@ -29,7 +29,7 @@ if ($dados != NULL) {
 	echo $_SESSION["id_usuario"];
 	echo $_SESSION["nome_usuario"];
 
-	exit('<script>location.href = "listar_fun.php"</script>');
+	exit('<script>location.href = "view/adm/listar_fun.php"</script>');
 	
 }else{
 	exit('<script>location.href = "index.html"</script>');
