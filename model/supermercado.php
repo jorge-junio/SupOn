@@ -2,9 +2,12 @@
 
 class supermercado{
     
-   private $nomeFantasia, $nomeOficial, $endereco, $login, $senha, $distanciaMax, $valorMinimo;
+   private $cnpj, $nomeFantasia, $nomeOficial, $endereco, $login, $senha, $distanciaMax, $valorMinimo;
    
-   function getNomeFantasia() {
+    function getCnpj() {
+        return $this->cnpj;
+    }
+    function getNomeFantasia() {
         return $this->nomeFantasia;
     }
     function getNomeOficial() {
@@ -26,6 +29,9 @@ class supermercado{
         return $this->valorMinimo;
     }
     
+    function setCnpj($cnpj) {
+        $this->cnpj = $cnpj;
+    }
     function setNomeFantasia($nomeFantasia) {
         $this->nomeFantasia = $nomeFantasia;
     }

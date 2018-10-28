@@ -21,8 +21,24 @@ class supermercadoDAO{
     }
     
     function listar(conexao $con){
-         $consulta = "SELECT cnpj, nomeF, nomeO, endereco, login, senha, valorMaximoDistancia, valorMinimoPreco FROM Supermercado";
-        mysqli_query($con->conecta(), $consulta);
+        $consulta = "SELECT cnpj, nomeF, nomeO, endereco, login, senha, valorMaximoDistancia, valorMinimoPreco FROM Supermercado";
+        $con = mysqli_query($con->conecta(), $consulta);
+
+        while ($dado = $con->fetch_array()) { ?>
+            <tr class="hoverable">
+                <td><?php echo $dado["cnpj"]; ?></td>
+                <td><?php echo $dado["nomeF"]; ?></td>
+                <td><?php echo $dado["nomeO"]; ?></td>
+                <td><?php echo $dado["endereco"]; ?></td>
+                <td><?php echo $dado["login"]; ?></td>
+                <td><?php echo $dado["senha"]; ?></td>
+                <td><?php echo $dado["valorMaximoDistancia"]; ?></td>
+                <td><?php echo $dado["valorMinimoPreco"]; ?></td>
+                <td><a href="editar_sup.php"><i class="material-icons prefix" title="Editar Cliente">edit</i></a>    
+                    <a href="excluir_sup.php" style="color: #dd0000;"><i class="material-icons prefix" title="Excluir Cliente">delete</i></a></td>
+
+            </tr>
+        <?php }
     }
     
     function alterar(conexao $con, supermercado $sup){

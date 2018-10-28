@@ -93,7 +93,7 @@ class ClienteController {
         $cliente->setLogin($login);
         $cliente->setSenha($senha);
         $clienteDAO = new clienteDAO();
-        $clienteDAO->alterar($conexao, $policial);
+        $clienteDAO->alterar($conexao, $cliente);
     }
 }
 
