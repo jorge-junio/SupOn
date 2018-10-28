@@ -3,15 +3,9 @@
 <html>
     <head>
         <?php
-        include "../includes/headTop.html";
-        ?>
-
-        <?php
-        include "../../conexao.php";
-
-        $consulta = "SELECT cpf, nome, endereco, login, senha FROM Cliente";
-
-        $con = $dao->query($consulta) or die($dao->error);
+            include "../includes/headTop.html";
+            include "../../DAO/conexao.php";
+            include "../../controller/ClienteController.php";
         ?>
     </head>
     <body>
@@ -27,10 +21,26 @@
                 <div class="container">
 
                     <?php
-                    include "titulo_fun.php";
-                    include "tabela_fun.php";
+                        include "titulo_fun.php";
                     ?>
-
+                    <table class="highlight centered waves-teal ">
+                        <thead>
+                            <tr>
+                                <th>Cpf</th>
+                                <th>Nome</th>
+                                <th>Endereço</th>
+                                <th>Login</th>
+                                <th>Senha</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                                $ClienteController = new ClienteController();
+                                $ClienteController->listaCliente();
+                            ?>
+                        </tbody>
+                    </table>
                 </div>
                 <div class="section"></div>
             </div>

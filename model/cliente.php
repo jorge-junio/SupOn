@@ -1,9 +1,12 @@
 <?php
 
 class cliente{
-    public $cpf, $nome, $endereco, $login, $senha;
+    public $tipo, $cpf, $nome, $endereco, $login, $senha;
     
-     function getCpf() {
+    function getTipo(){
+        return $this->tipo;
+    }
+    function getCpf() {
         return $this->cpf;
     }
     function getNome() {
@@ -19,6 +22,9 @@ class cliente{
         return $this->senha;
     }
    
+    function setTipo(){
+        $this->tipo = $tipo;
+    }
     function setCpf($cpf) {
         $this->cpf = $cpf;
     }

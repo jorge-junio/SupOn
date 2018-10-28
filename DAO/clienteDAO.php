@@ -22,7 +22,21 @@ class clienteDAO{
     
     function listar(conexao $con){
         $consulta = "SELECT cpf, nome, endereco, login, senha FROM Cliente";
-        mysqli_query($con->conecta(), $consulta);
+        $con = mysqli_query($con->conecta(), $consulta);
+
+        while ($dado = $con->fetch_array()) { ?>
+            <tr class="hoverable">
+                <td><?php echo $dado["cpf"]; ?></td>
+                <td><?php echo $dado["nome"]; ?></td>
+
+                <td><?php echo $dado["endereco"]; ?></td>
+                <td><?php echo $dado["login"]; ?></td>
+                <td><?php echo $dado["senha"]; ?></td>
+                <td><a href="editar_fun.php"><i class="material-icons prefix" title="Editar Cliente">edit</i></a>    
+                    <a href="excluir_fun.php" style="color: #dd0000;"><i class="material-icons prefix" title="Excluir Cliente">delete</i></a></td>
+
+            </tr>
+        <?php } 
     }
     
     function alterar(conexao $con, cliente $cli){
@@ -31,4 +45,3 @@ class clienteDAO{
         mysqli_query($con->conecta(), $consulta);
     }
 }
-
