@@ -3,6 +3,8 @@
 <html>
     <head>
         <?php
+            include "../../valida.php";
+            
             include "../includes/headTop.html";
         ?>
 

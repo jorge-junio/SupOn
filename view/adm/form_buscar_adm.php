@@ -1,3 +1,5 @@
+<?php include "../../valida.php"; ?>
+
 <form class="col s8 offset-s2" action="#">
 
     <div class="row">

@@ -2,8 +2,10 @@
 <html>
     <head>
         <?php
-        include "../includes/headTop.html";
-        include "../../conexao.php";
+            include "../../valida.php";
+            
+            include "../includes/headTop.html";
+            include "../../conexao.php";
         ?>
     </head>
     <body>
