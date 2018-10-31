@@ -95,5 +95,16 @@ class ClienteController {
         $clienteDAO = new clienteDAO();
         $clienteDAO->alterar($conexao, $cliente);
     }
+
+    public function selecionaCliente() {
+
+        $cpf = filter_input(INPUT_POST,"cpf",FILTER_SANITIZE_STRING);
+
+        $conexao = new conexao();
+        $cliente = new cliente();
+        $cliente->setCpf($cpf);
+        $clienteDAO = new clienteDAO();
+        $clienteDAO->selecionarCliente($conexao, $cliente);
+    }
 }
 

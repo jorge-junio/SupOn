@@ -22,7 +22,32 @@
 
         if ($cnpj != 0) {
             $con = $dao->query($consulta) or die($dao->error);
+            exit('<script>location.href = "listar_sup.php"</script>');
         }
+
+        //pega a cnpj que passei via post pelo botão da tabela
+        $cnpj = filter_input(INPUT_POST, "cnpj", FILTER_SANITIZE_STRING);
+
+        //cria a consulta para pegar os dados do Supermercado que tem essa cnpf que peguei no post
+        $consulta = "SELECT cnpj, nomeF, nomeO, endereco, valorMaximoDistancia, valorMinimoPreco, senha FROM Supermercado 
+            WHERE cnpj = '$cnpj' ";
+
+        //executa a query
+        $result = mysqli_query($dao, $consulta);
+
+        //verifica se foi encontrada algum Supermercado no banco que tenha essa cnpj e pega seus dados e joga em variáveis
+        if (mysqli_num_rows($result) > 0) {
+            while ($row = mysqli_fetch_assoc($result)) { 
+                $nomeF = $row["nomeF"];
+                $nomeO = $row["nomeO"];
+                $endereco = $row["endereco"];
+                $valorMaximoDistancia = $row["valorMaximoDistancia"];
+                $valorMinimoPreco = $row["valorMinimoPreco"];
+                $senha = $row["senha"];
+            }
+
+        }
+
         ?>
     </head>
     <body>
@@ -47,49 +72,49 @@
 
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="nomeF" type="text" class="validate" name="nomeF" required="" />
+                            <input id="nomeF" type="text" class="validate" name="nomeF" required="" value="<?php echo $nomeF; ?>"/>
                             <label><i class="material-icons left">person_pin</i>Nome Fantasia</label>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="nomeO" type="text" class="validate" name="nomeO" required="" />
+                            <input id="nomeO" type="text" class="validate" name="nomeO" required="" value="<?php echo $nomeO; ?>" />
                             <label><i class="material-icons left">person</i>Nome Oficial</label>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="cpf" type="text" class="validate" name="cnpj" required />
+                            <input id="cnpj" type="text" class="validate" name="cnpj" required="" value="<?php echo $cnpj; ?>" />
                             <label><i class="material-icons left">verified_user</i>CNPJ</label>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="endereco" type="text" class="validate" name="endereco" required />
+                            <input id="endereco" type="text" class="validate" name="endereco" required="" value="<?php echo $endereco; ?>" />
                             <label><i class="material-icons left">location_on</i>Endereço</label>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="senha" type="tel" class="validate" name="senha" required>
+                            <input id="senha" type="tel" class="validate" name="senha" required="" value="<?php echo $senha; ?>" >
                             <label><i class="material-icons left">vpn_key</i>Senha</label>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="valorMaximoDistancia" type="text" class="validate" name="valorMaximoDistancia" required />
+                            <input id="valorMaximoDistancia" type="text" class="validate" name="valorMaximoDistancia" required="" value="<?php echo $valorMaximoDistancia; ?>"  />
                             <label><i class="material-icons left">explore</i>Distância Máxima de Entrega</label>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="valorMinimoPreco" type="text" class="validate" name="valorMinimoPreco" required />
+                            <input id="valorMinimoPreco" type="text" class="validate" name="valorMinimoPreco" required="" value="<?php echo $valorMinimoPreco; ?>"  />
                             <label><i class="material-icons left">work</i>Valor Mínimo de Entrega</label>
                         </div>
                     </div>

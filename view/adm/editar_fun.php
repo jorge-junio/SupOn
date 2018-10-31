@@ -3,23 +3,51 @@
 <html>
     <head>
         <?php
-        include "../includes/headTop.html";
+            include "../includes/headTop.html";
         ?>
 
         <?php
         include "../../conexao.php";
 
+        //pega os dados que são enviados para essa mesma página
         $nome = isset($_GET["nome"]) ? $_GET["nome"] : "";
         $cpf = (INT) isset($_GET["cpf"]) ? $_GET["cpf"] : 0;
         $endereco = isset($_GET["endereco"]) ? $_GET["endereco"] : "";
         $senha = isset($_GET["senha"]) ? $_GET["senha"] : "";
 
+        //cria a consulta de update no bd
         $consulta = "UPDATE Cliente SET cpf = '$cpf', nome = '$nome', 
             endereco = '$endereco', senha = '$senha' WHERE cpf = '$cpf' ";
 
-        if ($cpf != 0)
-            $con = $dao->query($consulta) or die($dao->error);
+        //verifica se cpf é diferente de 0 e se sim ele realiza o update no banco e redireciona para a página de listar funcionario
+        if ($cpf != 0){
+            $con1 = $dao->query($consulta) or die($dao->error);
+            exit('<script>location.href = "listar_fun.php"</script>');
+        }
+
+
+        //pega o cpf que passei via post pelo botão da tabela
+        $cpf = filter_input(INPUT_POST, "cpf", FILTER_SANITIZE_STRING);
+
+        //cria a consulta para pegar os dados do cliente que tem esse cpf que peguei no post
+        $consulta = "SELECT cpf, nome, endereco, senha FROM Cliente WHERE cpf = '$cpf' ";
+
+        //executa a query
+        $result = mysqli_query($dao, $consulta);
+
+        //verifica se foi encontrada algum Cliente no banco que tenha esse cpf e pega seus dados e joga em variáveis
+        if (mysqli_num_rows($result) > 0) {
+            while ($row = mysqli_fetch_assoc($result)) { 
+                $nome = $row["nome"];
+                $endereco = $row["endereco"];
+                $senha = $row["senha"];
+            }
+
+        }
+
         ?>
+
+
     </head>
     <body>
 
@@ -54,21 +82,22 @@
 
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="cpf" type="text" class="validate" name="cpf" required="" />
+                            <input id="cpf" type="text" class="validate" name="cpf" required="" value="<?php echo $cpf; ?>" />
                             <label class="active" for="cpf"><i class="material-icons left">verified_user</i>CPF</label>
+
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="nome" type="text" class="validate" name="nome" />
+                            <input id="nome" type="text" class="validate" name="nome" value="<?php echo $nome; ?>" />
                             <label class="active" for="nome"><i class="material-icons left">person_pin</i>Nome</label>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field col s12">
-                            <input  id="endereco" type="text" class="validate" name="endereco" />
+                            <input  id="endereco" type="text" class="validate" name="endereco" value="<?php echo $endereco; ?>" />
                             <label class="active" for="endereco"><i class="material-icons left">location_on</i>Endereço</label>
                         </div>
                     </div>
@@ -96,7 +125,7 @@
 
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="senha" type="password" class="validate" name="senha">
+                            <input id="senha" type="password" class="validate" name="senha" value="<?php echo $senha; ?>">
                             <label class="active" for="senha"><i class="material-icons left">lock</i>Senha</label>
                         </div>
                     </div>

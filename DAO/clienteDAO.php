@@ -1,6 +1,6 @@
 <?php
 
-session_start();
+//session_start();
 
 class clienteDAO{
     
@@ -22,26 +22,82 @@ class clienteDAO{
     
     function listar(conexao $con){
         $consulta = "SELECT cpf, nome, endereco, login, senha FROM Cliente";
-        $con = mysqli_query($con->conecta(), $consulta);
 
-        while ($dado = $con->fetch_array()) { ?>
-            <tr class="hoverable">
-                <td><?php echo $dado["cpf"]; ?></td>
-                <td><?php echo $dado["nome"]; ?></td>
+        $result = mysqli_query($con->conecta(), $consulta);
 
-                <td><?php echo $dado["endereco"]; ?></td>
-                <td><?php echo $dado["login"]; ?></td>
-                <td><?php echo $dado["senha"]; ?></td>
-                <td><a href="editar_fun.php"><i class="material-icons prefix" title="Editar Cliente">edit</i></a>    
-                    <a href="excluir_fun.php" style="color: #dd0000;"><i class="material-icons prefix" title="Excluir Cliente">delete</i></a></td>
+        if (mysqli_num_rows($result) > 0) {
+            while ($row = mysqli_fetch_assoc($result)) { 
+                echo '<tr class="hoverable">';
+                    echo '<td>' . $row["cpf"] . '</td>';
+                    echo '<td>' . $row["nome"] . '</td>';
+                    echo '<td>' . $row["endereco"] . '</td>';
+                    echo '<td>' . $row["login"] . '</td>';
+                    echo '<td>' . $row["senha"] . '</td>';
+                    
+                    echo '<td align="center">
+                             <form name="formItem1" action="../adm/editar_fun.php" method="POST">
+                                    <button type="submit" name="editar1" value="" class="btn btn-primary btn-xs"><i class="material-icons prefix" title="Editar Cliente">edit</i></button>
+                                    <input type="hidden" name="cpf" value="'.$row["cpf"].'">
+                                    </form>
+                                 ';
 
-            </tr>
-        <?php } 
-    }
+                    echo        '                                
+                        <button name="excluir" value="" class="btn btn-danger btn-xs"
+                        type="button" data-toggle="modal" data-target="#modalDeleteItem'.$row["cpf"].$row["nome"].'"><i class="material-icons prefix" title="Excluir Cliente">delete</i></button>                                    
+                     </td>';
     
+                    //Modal para confirmar a exclusão dos itens selecionados
+                    //Devemos passar tanto o ID como a SIGLA para que o modal possa exibir e exluir o item
+                    echo        '<!-- Modal -->
+                                <div class="modal fade" id="modalDeleteItem'.$row["cpf"].$row["nome"].'" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="TituloModalCentralizado">Aviso de exclusão</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                                        <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Deseja realmente excluir o item <strong>'.$row["nome"].'</strong>?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                        <form name="formunidade2" action="../controller/ItemController.php" method="POST">
+                                            <button type="submit" name="excluir" value="" class="btn btn-danger">Excluir</button>
+                                            <input type="hidden" name="cpf" value="'.$row["cpf"].'">
+                                        </form>
+                                    </div>
+                                    </div>
+                                </div>
+                                </div>';
+                    echo    '</tr>';                  
+                }
+        } else {
+            echo "0 results";
+        }  
+        
+    }
+
     function alterar(conexao $con, cliente $cli){
         $consulta = "UPDATE Cliente SET cpf = '{$cli->getCpf()}', nome = '{$cli->getNome()}', 
             endereco = '{$cli->getEndereco}', senha = '{$cli->getSenha}' WHERE cpf = '{$cli->getCpf}' ";
         mysqli_query($con->conecta(), $consulta);
+    }
+
+    function selecionarCliente(conexao $con, cliente $cli){
+        $consulta = "SELECT cpf, nome, endereco, senha FROM Cliente WHERE cpf = '{$cli->getCpf()}' ";
+
+        $result = mysqli_query($con->conecta(), $consulta);
+
+        if (mysqli_num_rows($result) > 0) {
+            while ($row = mysqli_fetch_assoc($result)) { 
+                $cli->setNome($row["nome"]);
+                $endereco = $row["endereco"];
+                $senha = $row["senha"];
+            }
+
+        }
+        return $cli;
     }
 }
