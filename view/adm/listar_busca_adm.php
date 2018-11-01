@@ -2,6 +2,9 @@
 
 
 <?php
+
+include "../../valida.php";
+
 $b_nome = ' ';
 $b_lista = 1;
 $b_nome = $_GET['q_b'];

@@ -5,23 +5,7 @@ include_once '../../DAO/conexao.php';
 include_once '../../model/cliente.php';
 
 class ClienteController {
-    /*
-    //done
-    public function listaOptions() {
-        $conexao = new conexao();
-        $policialDao = new PolicialDao();
-        $policialDao->listaSelect($conexao);
-    }
-
-    //done
-    public function listaOptionsEdicao($idSubunidade) {
-        $conexao = new conexao();
-        $policialDao = new PolicialDao();
-        $policialDao->listaSelectEdicao($conexao, $idSubunidade);
-    }
-*/
-
-    //done
+    
     public function insereCliente() {
         //recuperando os dados do formulário
         //$tipo = filter_input(INPUT_POST,"tipo",FILTER_SANITIZE_STRING);
@@ -50,13 +34,13 @@ class ClienteController {
         $clienteDAO = new clienteDAO();
         $clientelDAO->adicionar($conexao, $cliente);
     }
-    //done
+    
     public function listaCliente() {
         $conexao = new conexao();
         $clienteDAO = new clienteDAO();
         $clienteDAO->listar($conexao);
     }
-    //done
+
     public function excluiCliente() {
         if($_POST['cpf'] != ""){
             $cpf = $_POST['cpf'];
@@ -70,19 +54,11 @@ class ClienteController {
     }
     
     public function editaCliente() {
-
-        //$tipo = filter_input(INPUT_POST,"tipo",FILTER_SANITIZE_STRING);
-        //var_dump($email);
         $cpf = filter_input(INPUT_POST,"cpf",FILTER_SANITIZE_STRING);
-        //var_dump($situacao);
         $nome = filter_input(INPUT_POST,"nome",FILTER_SANITIZE_STRING);
-        //var_dump($nome);
         $endereco = filter_input(INPUT_POST,"endereco",FILTER_SANITIZE_STRING);
-        //var_dump($patente);
         $login = filter_input(INPUT_POST,"login",FILTER_SANITIZE_STRING);
-        //var_dump($nome_funcional);
         $senha = filter_input(INPUT_POST,"senha",FILTER_SANITIZE_STRING);
-        //var_dump($matricula);
         
         $conexao = new conexao();       
         $cliente = new cliente();

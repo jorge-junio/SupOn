@@ -1,7 +1,5 @@
 <?php
 
-//session_start();
-
 class clienteDAO{
     
     function adicionar(conexao $con, cliente $cli){
