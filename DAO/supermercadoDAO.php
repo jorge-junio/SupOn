@@ -38,14 +38,14 @@ class supermercadoDAO{
 
                  echo '<td align="center">
                              <form name="formItem1" action="../adm/editar_sup.php" method="POST">
-                                    <button type="submit" name="editar1" value="" class="btn btn-primary btn-xs"><i class="material-icons prefix" title="Editar Cliente">edit</i></button>
+                                    <button type="submit" name="editar1" value="" class="btn-primary" style="color: #4488FF;"><i class="material-icons prefix" title="Editar Cliente">edit</i></button>
                                     <input type="hidden" name="cnpj" value="'.$row["cnpj"].'">
                                     </form>
-                                 ';
+                                 </td>';
 
                     echo        '                                
-                        <button name="excluir" value="" class="btn btn-danger btn-xs"
-                        type="button" data-toggle="modal" data-target="#modalDeleteItem'.$row["cnpj"].$row["nomeF"].'"><i class="material-icons prefix" title="Excluir Cliente">delete</i></button>                                    
+                        <td><button name="excluir" value="" class="btn-primary"
+                        type="button" data-toggle="modal" data-target="#modalDeleteItem'.$row["cnpj"].$row["nomeF"].'" style="color: #FF0000;"><i class="material-icons prefix" title="Excluir Cliente">delete</i></button>                                    
                      </td>';
     
                     //Modal para confirmar a exclusão dos itens selecionados

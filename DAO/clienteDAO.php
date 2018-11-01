@@ -36,20 +36,20 @@ class clienteDAO{
                     
                     echo '<td align="center">
                              <form name="formItem1" action="../adm/editar_fun.php" method="POST">
-                                    <button type="submit" name="editar1" value="" class="btn btn-primary btn-xs"><i class="material-icons prefix" title="Editar Cliente">edit</i></button>
+                                    <button type="submit" name="editar1" value="" class="btn-primary" style="color: #4488FF;"><i class="material-icons prefix" title="Editar Cliente">edit</i></button>
                                     <input type="hidden" name="cpf" value="'.$row["cpf"].'">
                                     </form>
-                                 ';
+                                 </td>';
 
                     echo        '                                
-                        <button name="excluir" value="" class="btn btn-danger btn-xs"
-                        type="button" data-toggle="modal" data-target="#modalDeleteItem'.$row["cpf"].$row["nome"].'"><i class="material-icons prefix" title="Excluir Cliente">delete</i></button>                                    
+                        <td><button name="excluir" value="" class="btn-primary"
+                        type="button" data-toggle="modal" data-target="#modalDelCliente'.$row["cpf"].$row["nome"].'" style="color: #FF0000;"><i class="material-icons prefix" title="Excluir Cliente">delete</i></button>                                    
                      </td>';
     
                     //Modal para confirmar a exclusão dos itens selecionados
                     //Devemos passar tanto o ID como a SIGLA para que o modal possa exibir e exluir o item
                     echo        '<!-- Modal -->
-                                <div class="modal fade" id="modalDeleteItem'.$row["cpf"].$row["nome"].'" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+                                <div class="modal fade" id="modalDelCliente'.$row["cpf"].$row["nome"].'" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered" role="document">
                                     <div class="modal-content">
                                     <div class="modal-header">
@@ -63,7 +63,7 @@ class clienteDAO{
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                        <form name="formunidade2" action="../controller/ItemController.php" method="POST">
+                                        <form name="formunidade2" action="../controller/ClienteController.php" method="POST">
                                             <button type="submit" name="excluir" value="" class="btn btn-danger">Excluir</button>
                                             <input type="hidden" name="cpf" value="'.$row["cpf"].'">
                                         </form>

@@ -5,7 +5,7 @@
         <?php
             include "../includes/headTop.html";
             include "../../DAO/conexao.php";
-            include "../../controller/SupermercadoController.php";
+            include_once "../../controller/SupermercadoController.php";
         ?>
     </head>
     <body>
@@ -22,28 +22,9 @@
 
                     <?php
                         include "titulo_sup.php";
+                        include './tabela_sup.php';
                     ?>
-                    <table class="highlight centered waves-teal ">
-                        <thead>
-                            <tr>
-                                <th>CNPJ</th>
-                                <th>Nome Fantasia</th>
-                                <th>Nome Oficial</th>
-                                <th>Endereço</th>
-                                <th>Login</th>
-                                <th>Senha</th>
-                                <th>Distancia Max. Entrega</th>
-                                <th>Valor Min. de Entrega</th>
-                                <th>Ações</th>
-
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                                $SupermercadoController = new SupermercadoController();
-                                $SupermercadoController->listaSupermercado();
-                            ?>
-                        </tbody>
+                    
                 </div>
                 <div class="section"></div>
             </div>

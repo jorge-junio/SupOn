@@ -2,8 +2,10 @@
 <html>
     <head>
         <?php
-        include "../includes/headTop.html";
-        include "../../conexao.php";
+            include "../includes/headTop.html";
+            include "../../DAO/conexao.php";
+            include_once "../../controller/SupermercadoController.php";
+            include_once '../../controller/ProdutoController.php';
         ?>
     </head>
     <body>

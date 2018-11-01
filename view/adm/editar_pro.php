@@ -45,28 +45,28 @@
                     <div class="row">
                         <div class="input-field col s12">
                             <input id="nome" type="text" class="validate" name="nome" required="" />
-                            <label><i class="material-icons left">shopping_basket</i>Nome</label>
+                            <label class="active"><i class="material-icons left">shopping_basket</i>Nome</label>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field col s12">
                             <input id="marca" type="text" class="validate" name="marca" required="" />
-                            <label><i class="material-icons left">receipt</i>Marca</label>
+                            <label class="active"><i class="material-icons left">receipt</i>Marca</label>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field col s12">
                             <input id="descricao" type="text" class="validate" name="descricao" required />
-                            <label><i class="material-icons left">insert_comment</i>Descrição</label>
+                            <label class="active"><i class="material-icons left">insert_comment</i>Descrição</label>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field col s12">
                             <input id="valor" type="text" class="validate" name="valor" required />
-                            <label><i class="material-icons left">monetization_on</i>Valor</label>
+                            <label class="active"><i class="material-icons left">monetization_on</i>Valor</label>
                         </div>
                     </div>
 

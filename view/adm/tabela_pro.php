@@ -7,7 +7,8 @@
             <th>Descrição</th>
             <th>Valor</th>
             <th>Supermercado</th>
-            <th>Ações</th>
+            <th></th>
+            <th></th>
 
 
         </tr>

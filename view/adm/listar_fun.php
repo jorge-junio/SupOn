@@ -22,25 +22,9 @@
 
                     <?php
                         include "titulo_fun.php";
+                        include './tabela_fun.php';
                     ?>
-                    <table class="highlight centered waves-teal ">
-                        <thead>
-                            <tr>
-                                <th>Cpf</th>
-                                <th>Nome</th>
-                                <th>Endereço</th>
-                                <th>Login</th>
-                                <th>Senha</th>
-                                <th>Ações</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                                $ClienteController = new ClienteController();
-                                $ClienteController->listaCliente();
-                            ?>
-                        </tbody>
-                    </table>
+                    
                 </div>
                 <div class="section"></div>
             </div>
