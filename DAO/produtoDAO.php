@@ -11,8 +11,8 @@ class produtoDAO{
      }
      
     function remover(conexao $con, produto $pro){
-        if($pro->getCnpj() > 0){
-            $consulta = "DELETE FROM Supermercado WHERE cnpj = '{$pro->getCnpj()}'";
+        if($pro->getCodigo() > 0){
+            $consulta = "DELETE FROM Produto WHERE codigo = '{$pro->getCodigo()}'";
             mysqli_query($con->conecta(), $consulta);
         }
     }
@@ -35,12 +35,21 @@ class produtoDAO{
                     
                     echo '<td align="center">
                              <form name="formItem1" action="../view/editar_pro.php" method="POST">
-                                    <button type="submit" name="editar1" value="" class="btn btn-primary btn-xs"><i class="material-icons prefix" title="Editar Cliente">edit</i></button>
+                                    <button type="submit" name="editar1" value="" class="btn-primary" style="color: #4488FF;"><i class="material-icons prefix" title="Editar Produto">edit</i></button>
                                     <input type="hidden" name="codigo" value="'.$row["codigo"].'">
                                     </form>
                                  ';
 
-                    echo        '                                
+                    echo '<td align="center">
+                             <form name="formItem1" action="../view/excluir_pro.php" method="POST">
+                                    <button type="submit" name="excluir1" value="" class="btn-primary" style="color: #FF0000;"><i class="material-icons prefix" title="Editar Produto">delete</i></button>
+                                    <input type="hidden" name="codigo" value="'.$row["codigo"].'">
+                                    </form>
+                                 </td>';
+
+            }
+        }
+                    /*echo        '                                
                         <button name="excluir" value="" class="btn btn-danger btn-xs"
                         type="button" data-toggle="modal" data-target="#modalDeleteItem'.$row["codigo"].$row["nome"].'"><i class="material-icons prefix" title="Excluir Cliente">delete</i></button>                                    
                      </td>';
@@ -74,7 +83,7 @@ class produtoDAO{
                 }
         } else {
             echo "0 results";
-        }  
+        }  */
         
     }
     

@@ -11,12 +11,8 @@
         <?php
         include "../conexao.php";
 
-        $codigo = (INT) isset($_GET["codigo"]) ? $_GET["codigo"] : 0;
-
-        $consulta = "DELETE FROM Produto WHERE codigo = '$codigo'";
-
-        if ($codigo > 0)
-            $con = $dao->query($consulta) or die($dao->error);
+        //pega o cpf que passei via post pelo botão da tabela
+        $codigo = filter_input(INPUT_POST, "codigo", FILTER_SANITIZE_STRING);
         ?>
     </head>
     <body>
@@ -33,21 +29,27 @@
                 <div class="section"></div>
 
                 <div class="section" style="text-align: center; font-size: 25px;">Excluir Produtos</div>
+                <div class="section" style="text-align: center; font-size: 18px;">Deseja Realmente excluir o Produto de CÓDIGO '<?php echo "$codigo"; ?>' ?</div>
                 <div class="raw" style="text-align: right; font-size: 16px; ">
                     <div class="section"></div><div class="section"></div>
                 </div>
 
-                <form class="col s8 offset-s2" method="get" action="excluir_pro.php" id="for_fun">
+                <form class="col s8 offset-s2" method="post" action="../controller/ProdutoController.php" id="for_fun">
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="cnpj" type="text" class="validate" name="codigo" required="" />
-                            <label class="active" for="codigo"><i class="material-icons left">verified_user</i>Código</label>
+                            <?php  
+                               echo '<input type="hidden" name="codigo" value="'.$codigo.'">';
+                            ?> 
                         </div>
                     </div>
 
                     <div class="row">
-                        <button class="btn waves-effect waves-light col s6 offset-s3" type="submit" name="action" >
-                            Excluir<i class="material-icons right">send</i>
+                        <button class="btn waves-effect waves-light col s6 offset-s3" type="submit" name="excluir" value="excluir" >
+                            SIM<i class="material-icons right">check_circle</i>
+                        </button>
+
+                        <button class="btn waves-effect waves-light col s6 offset-s3" type="submit" name="direcionaListar" value="direcionaListar" >
+                            NÃO<i class="material-icons right">cancel</i>
                         </button>
                     </div>
 

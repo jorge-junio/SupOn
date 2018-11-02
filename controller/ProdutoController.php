@@ -30,14 +30,12 @@ class ProdutoController {
     }
  
     public function excluiProduto() {
-        if($_POST['nome'] != ""){
-            $nome = $_POST['nome'];
+            $codigo = $_POST['codigo'];
             $conexao = new conexao();
             $produto = new produto();
-            $produto->setNome($nome);
+            $produto->setCodigo($codigo);
             $produtoDAO = new produtoDAO();
             $produtoDAO->remover($conexao, $produto);
-        }
         
     }
     
@@ -66,6 +64,7 @@ $produto = new ProdutoController();
 $cadastrar = filter_input(INPUT_POST,"cadastrar",FILTER_SANITIZE_STRING);
 $excluir = filter_input(INPUT_POST,"excluir",FILTER_SANITIZE_STRING);
 $editar = filter_input(INPUT_POST,"editar",FILTER_SANITIZE_STRING);
+$direcionaListar = filter_input(INPUT_POST,"direcionaListar",FILTER_SANITIZE_STRING);
 
 if (isset($cadastrar)) {
     $produto->insereProduto();
@@ -79,5 +78,9 @@ if (isset($excluir)) {
 
 if (isset($editar)) {
     $produto->editaProduto();
+    header("Location: ../view/listar_pro.php");
+}
+
+if (isset($direcionaListar)) {
     header("Location: ../view/listar_pro.php");
 }

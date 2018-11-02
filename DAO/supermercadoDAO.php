@@ -34,14 +34,23 @@ class supermercadoDAO{
                     echo '<td>' . $row["valorMaximoDistancia"] . '</td>';
                     echo '<td>' . $row["valorMinimoPreco"] . '</td>';
 
-                 echo '<td align="center">
-                             <form name="formItem1" action="../view/editar_sup.php" method="POST">
-                                    <button type="submit" name="editar1" value="" class="btn-primary" style="color: #4488FF;"><i class="material-icons prefix" title="Editar Cliente">edit</i></button>
+                    echo '<td align="center">
+                            <form name="formItem1" action="../view/editar_sup.php" method="POST">
+                                <button type="submit" name="editar1" value="" class="btn-primary" style="color: #4488FF;"><i class="material-icons prefix" title="Editar Supermercado">edit</i></button>
                                     <input type="hidden" name="cnpj" value="'.$row["cnpj"].'">
-                                    </form>
-                                 </td>';
+                            </form>
+                        </td>';
 
-                    echo        '                                
+                    echo '<td align="center">
+                            <form name="formItem1" action="../view/excluir_sup.php" method="POST">
+                                <button type="submit" name="excluir1" value="" class="btn-primary" style="color: #FF0000;"><i class="material-icons prefix" title="Excluir Supermercado">delete</i></button>
+                                    <input type="hidden" name="cnpj" value="'.$row["cnpj"].'">
+                            </form>
+                        </td>';
+
+            }
+        }
+                    /*echo        '                                
                         <td><button name="excluir" value="" class="btn-primary"
                         type="button" data-toggle="modal" data-target="#modalDeleteItem'.$row["cnpj"].$row["nomeF"].'" style="color: #FF0000;"><i class="material-icons prefix" title="Excluir Cliente">delete</i></button>                                    
                      </td>';
@@ -75,7 +84,7 @@ class supermercadoDAO{
                 }
         } else {
             echo "0 results";
-        }
+        }*/
     }
     
     function alterar(conexao $con, supermercado $sup){

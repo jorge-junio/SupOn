@@ -39,15 +39,12 @@ class SupermercadoController {
     }
     
     public function excluiSupermercado() {
-        if($_POST['cnpj'] != ""){
             $cnpj = $_POST['cnpj'];
             $conexao = new conexao();
             $supermercado = new supermercado();
-            $supermercado->setCpf($cnpj);
+            $supermercado->setCnpj($cnpj);
             $supermercadoDAO = new supermercadoDAO();
             $supermercadoDAO->remover($conexao, $supermercado);
-        }
-        
     }
     
     public function editaSupermercado() {
@@ -81,6 +78,7 @@ $supermercado = new SupermercadoController();
 $cadastrar = filter_input(INPUT_POST,"cadastrar",FILTER_SANITIZE_STRING);
 $excluir = filter_input(INPUT_POST,"excluir",FILTER_SANITIZE_STRING);
 $editar = filter_input(INPUT_POST,"editar",FILTER_SANITIZE_STRING);
+$direcionaListar = filter_input(INPUT_POST,"direcionaListar",FILTER_SANITIZE_STRING);
 
 if (isset($cadastrar)) {
     $supermercado->insereSupermercado();
@@ -94,5 +92,9 @@ if (isset($excluir)) {
 
 if (isset($editar)) {
     $supermercado->editaSupermercado();
+    header("Location: ../view/listar_sup.php");
+}
+
+if (isset($direcionaListar)) {
     header("Location: ../view/listar_sup.php");
 }
