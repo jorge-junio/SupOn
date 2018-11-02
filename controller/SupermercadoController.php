@@ -20,7 +20,7 @@ class SupermercadoController {
 
         $supermercado = new supermercado();
         $supermercado->setNomeFantasia($nomeF);
-        $supermercado->setNomeOficial($nomeF);
+        $supermercado->setNomeOficial($nomeO);
         $supermercado->setCnpj($cnpj);
         $supermercado->setEndereco($endereco);
         $supermercado->setLogin($login);

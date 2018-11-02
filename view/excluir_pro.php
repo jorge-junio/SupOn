@@ -4,7 +4,7 @@
     <head>
         <?php
             include "../valida.php";
-            include "../conexao.php";
+            include "../DAO/conexao.php";
             include "../model/produto.php";
             include "../controller/ProdutoController.php";
             

@@ -10,16 +10,8 @@
             include "includes/headTop.html";
             include "../DAO/conexao.php";
             include "../controller/ProdutoController.php";
-        ?>
 
-        <?php
-        include "../conexao.php";
-
-        $consulta = "SELECT codigo, nome, marca, preco, descricao FROM Produto";
-        //lembrar de por o atributo cnpj depois que fazer a sessão
-
-        $con = $dao->query($consulta) or die($dao->error);
-        ?>
+            ?>
     </head>
     <body>
 

@@ -6,10 +6,8 @@
             include "../valida.php";
             
             include "includes/headTop.html";
-        ?>
 
-        <?php
-            include "../conexao.php";
+            include "../DAO/conexao.php";
         ?>
     </head>
     <body>
