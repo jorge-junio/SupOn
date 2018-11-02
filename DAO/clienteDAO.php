@@ -83,7 +83,7 @@ class clienteDAO{
                 }
         } else {
             echo "0 results";
-        }  */
+        }*/
         
     }
 
@@ -93,18 +93,16 @@ class clienteDAO{
         mysqli_query($con->conecta(), $consulta);
     }
 
-    function selecionarCliente(conexao $con, cliente $cli){
+    function selecionar(conexao $con, cliente $cli){
         $consulta = "SELECT cpf, nome, endereco, senha FROM Cliente WHERE cpf = '{$cli->getCpf()}' ";
-
         $result = mysqli_query($con->conecta(), $consulta);
 
         if (mysqli_num_rows($result) > 0) {
-            while ($row = mysqli_fetch_assoc($result)) { 
+            while ($row = mysqli_fetch_assoc($result)) {
                 $cli->setNome($row["nome"]);
-                $endereco = $row["endereco"];
-                $senha = $row["senha"];
+                $cli->setEndereco($row["endereco"]);
+                $cli->setSenha($row["senha"]);
             }
-
         }
         return $cli;
     }

@@ -70,6 +70,15 @@ class SupermercadoController {
         $supermercadoDAO = new supermercadoDAO();
         $supermercadoDAO->alterar($conexao, $supermercado);
     }
+
+    public function selecionaSupermercado($cnpj) {
+        $conexao = new conexao();
+        $supermercado = new supermercado();
+        $supermercado->setCnpj($cnpj);
+        $supermercadoDAO = new supermercadoDAO();
+        return $supermercadoDAO->selecionar($conexao, $supermercado);
+         
+    }
 }
 
 $supermercado = new SupermercadoController();

@@ -92,6 +92,24 @@ class supermercadoDAO{
             endereco = '{$sup->getEndereco()}', valorMaximoDistancia = '{$sup->getDistanciaMax()}',valorMinimoPreco = '{$sup->getValorMinimo()}', senha = '{$sup->getSenha()}' WHERE cnpj = '{$sup->getCnpj()}' ";
         mysqli_query($con->conecta(), $consulta);
     }
+
+     function selecionar(conexao $con, supermercado $sup){
+        $consulta = "SELECT nomeF, nomeO, endereco, senha, valorMaximoDistancia, valorMinimoPreco FROM Supermercado WHERE cnpj = '{$sup->getCnpj()}' ";
+        
+        $result = mysqli_query($con->conecta(), $consulta);
+
+        if (mysqli_num_rows($result) > 0) {
+            while ($row = mysqli_fetch_assoc($result)) {
+                $sup->setNomeFantasia($row["nomeF"]);
+                $sup->setNomeOficial($row["nomeO"]);
+                $sup->setEndereco($row["endereco"]);
+                $sup->setSenha($row["senha"]);
+                $sup->setDistanciaMax($row["valorMaximoDistancia"]);
+                $sup->setValorMinimo($row["valorMinimoPreco"]);
+            }
+        }
+        return $sup;
+    }
 }
 
 

@@ -56,6 +56,16 @@ class ProdutoController {
         $produtoDAO = new produtoDAO();
         $produtoDAO->alterar($conexao, $produto);
     }
+
+    public function selecionaProduto($codigo) {
+
+        $conexao = new conexao();
+        $produto = new produto();
+        $produto->setCodigo($codigo);
+        $produtoDAO = new produtoDAO();
+        return $produtoDAO->selecionar($conexao, $produto);
+         
+    }
 }
 
 $produto = new ProdutoController();

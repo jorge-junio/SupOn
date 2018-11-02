@@ -91,7 +91,22 @@ class produtoDAO{
         $consulta = "UPDATE Produto SET nome = '{$pro->getNome()}', marca = '{$pro->getMarca()}', descricao = '{$pro->getDescricao()}', 
             preco = '{$pro->getValor()}' WHERE codigo = '{$pro->getCodigo()}' ";
         mysqli_query($con->conecta(), $consulta);
+    }
 
+    function selecionar(conexao $con, produto $pro){
+        $consulta = "SELECT nome, marca, preco, descricao, cnpj FROM Produto WHERE codigo = '{$pro->getCodigo()}'";
+        $result = mysqli_query($con->conecta(), $consulta);
+
+        if (mysqli_num_rows($result) > 0) {
+            while ($row = mysqli_fetch_assoc($result)) {
+                $pro->setNome($row["nome"]);
+                $pro->setMarca($row["marca"]);
+                $pro->setValor($row["preco"]);
+                $pro->setDescricao($row["descricao"]);
+                $pro->setSupermercado($row["cnpj"]);
+            }
+        }
+        return $pro;
     }
 }
 
