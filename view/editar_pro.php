@@ -47,6 +47,7 @@
                 <div class="section"></div>
 
                 <div class="section" style="text-align: center; font-size: 25px;">Editar Produtos</div>
+                <div class="section" style="text-align: center; font-size: 18px;">Editando o Produto de CÓDIGO '<?php echo "$codigo"; ?>' ?</div>
                 <div class="raw" style="text-align: right; font-size: 16px; ">
                     <div class="section"></div><div class="section"></div>
                 </div>
@@ -55,8 +56,9 @@
 
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="codigo" type="text" class="validate" name="codigo" required="" value="<?php echo $codigo; ?>" />
-                            <label><i class="material-icons left">shopping_basket</i>Código</label>
+                            <?php  
+                               echo '<input type="hidden" name="codigo" value="'.$codigo.'">';
+                            ?>
                         </div>
                     </div>
 
@@ -93,6 +95,10 @@
                     <div class="row">
                         <button class="btn waves-effect waves-light col s6 offset-s3" type="submit" name="editar" value="editar" >
                             Atualizar<i class="material-icons right">send</i>
+                        </button>
+
+                        <button class="btn waves-effect waves-light col s6 offset-s3" type="submit" name="direcionaListar" value="direcionaListar" >
+                            Cancelar<i class="material-icons right">cancel</i>
                         </button>
                     </div>
 

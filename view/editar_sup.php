@@ -50,6 +50,7 @@
                 <div class="section"></div>
 
                 <div class="section" style="text-align: center; font-size: 25px;">Editar Supermercados</div>
+                <div class="section" style="text-align: center; font-size: 18px;">Editando o Supermercado de CNPJ '<?php echo "$cnpj"; ?>'</div>
                 <div class="raw" style="text-align: right; font-size: 16px; ">
                     <div class="section"></div><div class="section"></div>
                 </div>
@@ -58,8 +59,9 @@
 
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="cnpj" type="text" class="validate" name="cnpj" required="" value="<?php echo $cnpj; ?>" />
-                            <label class="active"><i class="material-icons left">verified_user</i>CNPJ</label>
+                            <?php  
+                               echo '<input type="hidden" name="cnpj" value="'.$cnpj.'">';
+                            ?> 
                         </div>
                     </div>
 
@@ -108,6 +110,10 @@
                     <div class="row">
                         <button class="btn waves-effect waves-light col s6 offset-s3" type="submit" name="editar" value="editar" >
                             Atualizar<i class="material-icons right">send</i>
+                        </button>
+
+                        <button class="btn waves-effect waves-light col s6 offset-s3" type="submit" name="direcionaListar" value="direcionaListar" >
+                            Cancelar<i class="material-icons right">cancel</i>
                         </button>
                     </div>
 
