@@ -52,7 +52,7 @@
 		$_SESSION["id_usuario"]= $dados["cpf"]; 
 		$_SESSION["nome_usuario"] = $dados["nome"];
 
-		exit('<script>location.href = "view/adm/listar_fun.php"</script>');
+		exit('<script>location.href = "view/listar_fun.php"</script>');
 		
 	}else{
 		$consulta = "SELECT * FROM Supermercado WHERE login = '$login' and senha = '$senha' "; 
@@ -66,7 +66,7 @@
 			$_SESSION["id_usuario"]= $dados["cnpj"]; 
 			$_SESSION["nome_usuario"] = $dados["nomeF"];
 
-			exit('<script>location.href = "view/adm/listar_fun.php"</script>');
+			exit('<script>location.href = "view/listar_fun.php"</script>');
 			
 		}else{
 			exit('<script>location.href = "index.html"</script>');

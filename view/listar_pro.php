@@ -4,16 +4,16 @@
     <head>
         <?php
             //valida a sessão
-            include "../../valida.php";
+            include "../valida.php";
 
             //imports
-            include "../includes/headTop.html";
-            include "../../DAO/conexao.php";
-            include "../../controller/ProdutoController.php";
+            include "includes/headTop.html";
+            include "../DAO/conexao.php";
+            include "../controller/ProdutoController.php";
         ?>
 
         <?php
-        include "../../conexao.php";
+        include "../conexao.php";
 
         $consulta = "SELECT codigo, nome, marca, preco, descricao FROM Produto";
         //lembrar de por o atributo cnpj depois que fazer a sessão
@@ -24,7 +24,7 @@
     <body>
 
         <?php
-        include "../includes/menuAdm.html";
+        include "includes/menuAdm.html";
         ?>
 
         <div class="container">
@@ -64,7 +64,7 @@
         </div>
 
         <?php
-        include "../includes/scriptFim.html";
+        include "includes/scriptFim.html";
         ?>
 
     </body>

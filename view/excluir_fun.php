@@ -3,13 +3,13 @@
 <html>
     <head>
         <?php
-            include "../../valida.php";
+            include "../valida.php";
             
-            include "../includes/headTop.html";
+            include "includes/headTop.html";
         ?>
 
         <?php
-        include "../../conexao.php";
+        include "../conexao.php";
 
         $cpf = (INT) isset($_GET["cpf"]) ? $_GET["cpf"] : 0;
 
@@ -22,7 +22,7 @@
     <body>
 
         <?php
-        include "../includes/menuAdm.html";
+        include "includes/menuAdm.html";
         ?>
 
         <div class="section"></div>
@@ -62,7 +62,7 @@
         </div>
 
         <?php
-        include "../includes/scriptFim.html";
+        include "includes/scriptFim.html";
         ?>
 
     </body>

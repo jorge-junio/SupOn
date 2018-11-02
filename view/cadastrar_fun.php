@@ -3,33 +3,19 @@
 <html>
     <head>
         <?php
-            include "../../valida.php";
+            include "../valida.php";
             
-            include "../includes/headTop.html";
+            include "includes/headTop.html";
         ?>
 
         <?php
-        include "../../conexao.php";
-
-        //$cargo = isset($_GET["tipo"])?$_GET["tipo"]:null;
-        $nome = isset($_GET["nome"]) ? $_GET["nome"] : "";
-        $cpf = (INT) isset($_GET["cpf"]) ? $_GET["cpf"] : 0;
-        $endereco = isset($_GET["endereco"]) ? $_GET["endereco"] : "";
-        $login = isset($_GET["login"]) ? $_GET["login"] : "";
-        //$login = (INT) isset($_GET["login"])?$_GET["login"]:0;
-        $senha = isset($_GET["senha"]) ? $_GET["senha"] : "";
-
-        if ($cpf != 0) {
-            $consulta = "INSERT INTO Cliente(tipo, cpf, nome, endereco, login, senha) VALUES
-            ('cli','$cpf', '$nome', '$endereco', '$login', '$senha')";
-            $con = $dao->query($consulta) or die($dao->error);
-        }
+            include "../conexao.php";
         ?>
     </head>
     <body>
 
         <?php
-        include "../includes/menuAdm.html";
+        include "includes/menuAdm.html";
         ?>
 
         <div class="section"></div>
@@ -44,19 +30,7 @@
                     <div class="section"></div><div class="section"></div>
                 </div>
 
-                <form class="col s8 offset-s2" method="get" action="cadastrar_fun.php">
-
-                    <!--<div class="row">
-                        <div class="input-field col s12">
-                            <select id="tipo" name="tipo" required />
-                                <option value="" disabled selected>Opções:</option>
-                                <option value="0">Funcionário</option>
-                                <option value="1">Administrador</option>
-                            </select>
-                            <label><i class="material-icons left">supervisor_account</i>Tipo:</label>
-                        </div>
-                    </div>-->
-
+                <form class="col s8 offset-s2" method="post" action="../controller/ClienteController.php">
                     <div class="row">
                         <div class="input-field col s12">
                             <input id="nome" type="text" class="validate" name="nome" required="" />
@@ -78,20 +52,6 @@
                         </div>
                     </div>
 
-                    <!--<div class="row">
-                        <div class="input-field col s12">
-                            <input id="salario" type="text" class="validate" name="salario" required />
-                            <label><i class="material-icons left">work</i>Salário</label>
-                        </div>
-                    </div>
-                    
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="email" type="email" class="validate" name="email" required>
-                            <label><i class="material-icons left">email</i>Email</label>
-                        </div>
-                    </div>-->
-
                     <div class="row">
                         <div class="input-field col s12">
                             <input id="telefone" type="text" class="validate" name="login" required>
@@ -107,7 +67,7 @@
                     </div>
 
                     <div class="row">
-                        <button class="btn waves-effect waves-light col s6 offset-s3" type="submit" name="action" >
+                        <button class="btn waves-effect waves-light col s6 offset-s3" type="submit" name="cadastrar" value="cadastrar" >
                             Cadastrar<i class="material-icons right">send</i>
                         </button>
                     </div>
@@ -123,7 +83,7 @@
         </div>
 
         <?php
-        include "../includes/scriptFim.html";
+        include "includes/scriptFim.html";
         ?>
 
     </body>

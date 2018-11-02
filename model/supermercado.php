@@ -50,7 +50,7 @@ class supermercado{
     function setDistanciaMax($distanciaMax) {
         $this->distanciaMax = $distanciaMax;
     }
-    function setValorMin($valorMinimo) {
+    function setValorMinimo($valorMinimo) {
         $this->valorMinimo = $valorMinimo;
     }
 

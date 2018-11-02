@@ -1,4 +1,4 @@
-<?php include "../../valida.php"; ?>
+<?php include "../valida.php"; ?>
 
 <form class="col s8 offset-s2" action="#">
 

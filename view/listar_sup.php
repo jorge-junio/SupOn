@@ -3,17 +3,17 @@
 <html>
     <head>
         <?php
-            include "../../valida.php";
+            include "../valida.php";
 
-            include "../includes/headTop.html";
-            include "../../DAO/conexao.php";
-            include_once "../../controller/SupermercadoController.php";
+            include "includes/headTop.html";
+            include "../DAO/conexao.php";
+            include_once "../controller/SupermercadoController.php";
         ?>
     </head>
     <body>
 
         <?php
-        include "../includes/menuAdm.html";
+        include "includes/menuAdm.html";
         ?>
 
         <div class="container">
@@ -33,7 +33,7 @@
         </div>
 
         <?php
-        include "../includes/scriptFim.html";
+        include "includes/scriptFim.html";
         ?>
 
     </body>

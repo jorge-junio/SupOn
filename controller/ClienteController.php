@@ -1,30 +1,23 @@
 <?php
 
-include_once '../../DAO/clienteDAO.php';
-include_once '../../DAO/conexao.php';
-include_once '../../model/cliente.php';
+include_once '../DAO/clienteDAO.php';
+include_once '../DAO/conexao.php';
+include_once '../model/cliente.php';
 
 class ClienteController {
     
     public function insereCliente() {
         //recuperando os dados do formulário
-        //$tipo = filter_input(INPUT_POST,"tipo",FILTER_SANITIZE_STRING);
-        //var_dump($tipo);
         $cpf = filter_input(INPUT_POST,"cpf",FILTER_SANITIZE_STRING);
-        var_dump($cpf);
         $nome = filter_input(INPUT_POST,"nome",FILTER_SANITIZE_STRING);
-        var_dump($nome);
         $endereco = filter_input(INPUT_POST,"endereco",FILTER_SANITIZE_STRING);
-        var_dump($endereco);
         $login = filter_input(INPUT_POST,"login",FILTER_SANITIZE_STRING);
-        var_dump($login);
         $senha = filter_input(INPUT_POST,"senha",FILTER_SANITIZE_STRING);
-        var_dump($senha);
 
         $conexao = new conexao();
 
         $cliente = new cliente();
-        $cliente->setTipo($tipo);
+        $cliente->setTipo("cli");
         $cliente->setCpf($cpf);
         $cliente->setNome($nome);
         $cliente->setEndereco($endereco);
@@ -32,7 +25,7 @@ class ClienteController {
         $cliente->setSenha($senha);
 
         $clienteDAO = new clienteDAO();
-        $clientelDAO->adicionar($conexao, $cliente);
+        $clienteDAO->adicionar($conexao, $cliente);
     }
     
     public function listaCliente() {
@@ -62,7 +55,6 @@ class ClienteController {
         
         $conexao = new conexao();       
         $cliente = new cliente();
-        $cliente->setTipo($tipo);
         $cliente->setCpf($cpf);
         $cliente->setNome($nome);
         $cliente->setEndereco($endereco);
@@ -84,3 +76,24 @@ class ClienteController {
     }
 }
 
+$cliente = new ClienteController();
+
+// se apertou casdastar, $cadastrar recebe $_POST['cadastrar(name do input)']...
+$cadastrar = filter_input(INPUT_POST,"cadastrar",FILTER_SANITIZE_STRING);
+$excluir = filter_input(INPUT_POST,"excluir",FILTER_SANITIZE_STRING);
+$editar = filter_input(INPUT_POST,"editar",FILTER_SANITIZE_STRING);
+
+if (isset($cadastrar)) {
+    $cliente->insereCliente();
+    header("Location: ../view/listar_fun.php");
+}
+
+if (isset($excluir)) {
+    $cliente->excluiCliente();
+    header("Location: ../view/listar_fun.php");
+}
+
+if (isset($editar)) {
+    $cliente->editaCliente();
+    header("Location: ../view/listar_fun.php");
+}

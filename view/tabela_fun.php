@@ -12,8 +12,8 @@
     </thead>
     <tbody>
         <?php
-        $ClienteController = new ClienteController();
-        $ClienteController->listaCliente();
+            $ClienteController = new ClienteController();
+            $ClienteController->listaCliente();
         ?>
     </tbody>
 </table>

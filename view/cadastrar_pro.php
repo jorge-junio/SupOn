@@ -3,31 +3,19 @@
 <html>
     <head>
         <?php
-            include "../../valida.php";
+            include "../valida.php";
             
-            include "../includes/headTop.html";
+            include "includes/headTop.html";
         ?>
 
         <?php
-        include "../../conexao.php";
-
-        //$cargo = isset($_GET["tipo"])?$_GET["tipo"]:null;
-        $nome = isset($_GET["nome"]) ? $_GET["nome"] : "";
-        $marca = isset($_GET["marca"]) ? $_GET["marca"] : "";
-        $descricao = isset($_GET["descricao"]) ? $_GET["descricao"] : "";
-        $preco = (FLOAT) isset($_GET["valor"]) ? $_GET["valor"] : 0;
-
-        if ($nome != " ") {
-            $consulta = "INSERT INTO Produto(nome, marca, preco, descricao) VALUES
-            ('$nome', '$marca', '$preco', '$descricao');";
-            $con = $dao->query($consulta) or die($dao->error);
-        }
+            include "../conexao.php";
         ?>
     </head>
     <body>
 
         <?php
-        include "../includes/menuAdm.html";
+        include "includes/menuAdm.html";
         ?>      
 
         <div class="section"></div>
@@ -42,7 +30,7 @@
                     <div class="section"></div><div class="section"></div>
                 </div>
 
-                <form class="col s8 offset-s2" method="get" action="cadastrar_pro.php">
+                <form class="col s8 offset-s2" method="post" action="../controller/ProdutoController.php">
 
                     <div class="row">
                         <div class="input-field col s12">
@@ -75,7 +63,7 @@
 
 
                     <div class="row">
-                        <button class="btn waves-effect waves-light col s6 offset-s3" type="submit" name="action" >
+                        <button class="btn waves-effect waves-light col s6 offset-s3" type="submit" name="cadastrar" value="cadastrar">
                             Cadastrar<i class="material-icons right">send</i>
                         </button>
                     </div>
@@ -91,7 +79,7 @@
         </div>
 
         <?php
-        include "../includes/scriptFim.html";
+        include "includes/scriptFim.html";
         ?>
 
     </body>

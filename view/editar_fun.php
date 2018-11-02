@@ -3,30 +3,13 @@
 <html>
     <head>
         <?php
-            include "../../valida.php";
+            include "../valida.php";
             
-            include "../includes/headTop.html";
+            include "includes/headTop.html";
         ?>
 
         <?php
-        include "../../conexao.php";
-
-        //pega os dados que são enviados para essa mesma página
-        $nome = isset($_GET["nome"]) ? $_GET["nome"] : "";
-        $cpf = (INT) isset($_GET["cpf"]) ? $_GET["cpf"] : 0;
-        $endereco = isset($_GET["endereco"]) ? $_GET["endereco"] : "";
-        $senha = isset($_GET["senha"]) ? $_GET["senha"] : "";
-
-        //cria a consulta de update no bd
-        $consulta = "UPDATE Cliente SET cpf = '$cpf', nome = '$nome', 
-            endereco = '$endereco', senha = '$senha' WHERE cpf = '$cpf' ";
-
-        //verifica se cpf é diferente de 0 e se sim ele realiza o update no banco e redireciona para a página de listar funcionario
-        if ($cpf != 0){
-            $con1 = $dao->query($consulta) or die($dao->error);
-            exit('<script>location.href = "listar_fun.php"</script>');
-        }
-
+        include "../conexao.php";
 
         //pega o cpf que passei via post pelo botão da tabela
         $cpf = filter_input(INPUT_POST, "cpf", FILTER_SANITIZE_STRING);
@@ -54,7 +37,7 @@
     <body>
 
         <?php
-        include "../includes/menuAdm.html";
+        include "includes/menuAdm.html";
         ?>
 
         <div class="section"></div>
@@ -69,7 +52,7 @@
                     <div class="section"></div><div class="section"></div>
                 </div>
 
-                <form class="col s8 offset-s2" method="get" action="editar_fun.php" id="for_fun">
+                <form class="col s8 offset-s2" method="post" action="../controller/ClienteController.php" id="for_fun">
 
                     <!--<div class="row">
                         <div class="input-field col s12">
@@ -104,27 +87,6 @@
                         </div>
                     </div>
 
-                    <!--<div class="row">
-                        <div class="input-field col s12">
-                            <input id="salario" type="text" class="validate" name="salario" />
-                            <label class="active" for="salario"><i class="material-icons left">work</i>Salário</label>
-                        </div>
-                    </div>
-                    
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="email" type="email" class="validate" name="email">
-                            <label class="active" for="email"><i class="material-icons left">email</i>Email</label>
-                        </div>
-                    </div>
-                    
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="telefone" type="tel" class="validate" name="telefone">
-                            <label class="active" for="telefone"><i class="material-icons left">phone</i>Telefone</label>
-                        </div>
-                    </div>-->
-
                     <div class="row">
                         <div class="input-field col s12">
                             <input id="senha" type="password" class="validate" name="senha" value="<?php echo $senha; ?>">
@@ -133,7 +95,7 @@
                     </div>
 
                     <div class="row">
-                        <button class="btn waves-effect waves-light col s6 offset-s3" type="submit" name="action" >
+                        <button class="btn waves-effect waves-light col s6 offset-s3" type="submit" name="editar" value="editar">
                             Atualizar<i class="material-icons right">send</i>
                         </button>
                     </div>
@@ -148,7 +110,7 @@
         </div>
 
         <?php
-        include "../includes/scriptFim.html";
+        include "includes/scriptFim.html";
         ?>
 
     </body>

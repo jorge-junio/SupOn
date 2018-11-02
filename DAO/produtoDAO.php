@@ -5,7 +5,7 @@ class produtoDAO{
     function adicionar(conexao $con, produto $pro){
          if ($pro->getNome() != ''){
             $consulta = "INSERT INTO Produto(nome, marca, preco, descricao) VALUES
-                ('{$pro->getNome()}', '{$pro->getMarca()}', '{$pro->getPreco()}', '{$pro->getDescricao()}');";
+                ('{$pro->getNome()}', '{$pro->getMarca()}', '{$pro->getValor()}', '{$pro->getDescricao()}');";
             mysqli_query($con->conecta(), $consulta);
         }
      }
@@ -34,7 +34,7 @@ class produtoDAO{
 
                     
                     echo '<td align="center">
-                             <form name="formItem1" action="../adm/editar_pro.php" method="POST">
+                             <form name="formItem1" action="../view/editar_pro.php" method="POST">
                                     <button type="submit" name="editar1" value="" class="btn btn-primary btn-xs"><i class="material-icons prefix" title="Editar Cliente">edit</i></button>
                                     <input type="hidden" name="codigo" value="'.$row["codigo"].'">
                                     </form>
@@ -80,8 +80,9 @@ class produtoDAO{
     
     function alterar(conexao $con, produto $pro){
         $consulta = "UPDATE Produto SET nome = '{$pro->getNome()}', marca = '{$pro->getMarca()}', descricao = '{$pro->getDescricao()}', 
-            preco = '{$pro->getPreco()}' WHERE codigo = '{$pro->getCodigo()}' ";
+            preco = '{$pro->getValor()}' WHERE codigo = '{$pro->getCodigo()}' ";
         mysqli_query($con->conecta(), $consulta);
+
     }
 }
 

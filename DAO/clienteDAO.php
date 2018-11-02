@@ -33,7 +33,7 @@ class clienteDAO{
                     echo '<td>' . $row["senha"] . '</td>';
                     
                     echo '<td align="center">
-                             <form name="formItem1" action="../adm/editar_fun.php" method="POST">
+                             <form name="formItem1" action="../view/editar_fun.php" method="POST">
                                     <button type="submit" name="editar1" value="" class="btn-primary" style="color: #4488FF;"><i class="material-icons prefix" title="Editar Cliente">edit</i></button>
                                     <input type="hidden" name="cpf" value="'.$row["cpf"].'">
                                     </form>
@@ -79,7 +79,7 @@ class clienteDAO{
 
     function alterar(conexao $con, cliente $cli){
         $consulta = "UPDATE Cliente SET cpf = '{$cli->getCpf()}', nome = '{$cli->getNome()}', 
-            endereco = '{$cli->getEndereco}', senha = '{$cli->getSenha}' WHERE cpf = '{$cli->getCpf}' ";
+            endereco = '{$cli->getEndereco()}', senha = '{$cli->getSenha()}' WHERE cpf = '{$cli->getCpf()}' ";
         mysqli_query($con->conecta(), $consulta);
     }
 

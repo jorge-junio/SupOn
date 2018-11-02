@@ -3,36 +3,19 @@
 <html>
     <head>
         <?php
-            include "../../valida.php";
+            include "../valida.php";
             
-            include "../includes/headTop.html";
+            include "includes/headTop.html";
         ?>
 
         <?php
-        include "../../conexao.php";
-
-        //$cargo = isset($_GET["tipo"])?$_GET["tipo"]:null;
-        $nomeFantasia = isset($_GET["nomeF"]) ? $_GET["nomeF"] : "";
-        $nomeOficial = isset($_GET["nomeO"]) ? $_GET["nomeO"] : "";
-        $cnpj = (INT) isset($_GET["cnpj"]) ? $_GET["cnpj"] : 0;
-        $endereco = isset($_GET["endereco"]) ? $_GET["endereco"] : "";
-        $login = isset($_GET["login"]) ? $_GET["login"] : "";
-        //$login = (INT) isset($_GET["login"])?$_GET["login"]:0;
-        $senha = isset($_GET["senha"]) ? $_GET["senha"] : "";
-        $valorMaximoDistancia = (FLOAT) isset($_GET["valorMaximoDistancia"]) ? $_GET["valorMaximoDistancia"] : 0;
-        $valorMinimoPreco = (FLOAT) isset($_GET["valorMinimoPreco"]) ? $_GET["valorMinimoPreco"] : 0;
-
-        if ($cnpj != 0) {
-            $consulta = "INSERT INTO Supermercado(cnpj, nomeO, nomeF, endereco, login, senha, valorMaximoDistancia, valorMinimoPreco) VALUES
-            ('$cnpj', '$nomeOficial', '$nomeFantasia', '$endereco', '$login', '$senha', '$valorMaximoDistancia', '$valorMinimoPreco');";
-            $con = $dao->query($consulta) or die($dao->error);
-        }
+        include "../conexao.php";
         ?>
     </head>
     <body>
 
         <?php
-        include "../includes/menuAdm.html";
+        include "includes/menuAdm.html";
         ?>      
 
         <div class="section"></div>
@@ -47,7 +30,7 @@
                     <div class="section"></div><div class="section"></div>
                 </div>
 
-                <form class="col s8 offset-s2" method="get" action="cadastrar_sup.php">
+                <form class="col s8 offset-s2" method="post" action="../controller/SupermercadoController.php">
 
                     <div class="row">
                         <div class="input-field col s12">
@@ -106,7 +89,7 @@
                     </div>
 
                     <div class="row">
-                        <button class="btn waves-effect waves-light col s6 offset-s3" type="submit" name="action" >
+                        <button class="btn waves-effect waves-light col s6 offset-s3" type="submit" name="cadastrar" value="cadastrar" >
                             Cadastrar<i class="material-icons right">send</i>
                         </button>
                     </div>
@@ -122,7 +105,7 @@
         </div>
 
         <?php
-        include "../includes/scriptFim.html";
+        include "includes/scriptFim.html";
         ?>
 
     </body>

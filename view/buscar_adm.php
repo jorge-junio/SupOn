@@ -2,16 +2,16 @@
 <html>
     <head>
         <?php
-            include "../includes/headTop.html";
-            include "../../DAO/conexao.php";
-            include_once "../../controller/SupermercadoController.php";
-            include_once '../../controller/ProdutoController.php';
+            include "includes/headTop.html";
+            include "../DAO/conexao.php";
+            include_once "../controller/SupermercadoController.php";
+            include_once '../controller/ProdutoController.php';
         ?>
     </head>
     <body>
 
         <?php
-        include "../includes/menuAdm.html";
+        include "includes/menuAdm.html";
         ?>
 
         <div class="section"></div>
@@ -30,7 +30,7 @@
         </div>
 
         <?php
-                include_once "../includes/scriptFim.html";
+                include_once "includes/scriptFim.html";
         ?>
 
     </body>

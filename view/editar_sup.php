@@ -3,29 +3,13 @@
 <html>
     <head>
         <?php
-            include "../../valida.php";
+            include "../valida.php";
             
-            include "../includes/headTop.html";
+            include "includes/headTop.html";
         ?>
 
         <?php
-        include "../../conexao.php";
-
-        $nomeF = isset($_GET["nomeF"]) ? $_GET["nomeF"] : "";
-        $nomeO = isset($_GET["nomeO"]) ? $_GET["nomeO"] : "";
-        $cnpj = (INT) isset($_GET["cnpj"]) ? $_GET["cnpj"] : 0;
-        $endereco = isset($_GET["endereco"]) ? $_GET["endereco"] : "";
-        $valorMaximoDistancia = isset($_GET["valorMaximoDistancia"]) ? $_GET["valorMaximoDistancia"] : "";
-        $valorMinimoPreco = isset($_GET["valorMinimoPreco"]) ? $_GET["valorMinimoPreco"] : "";
-        $senha = isset($_GET["senha"]) ? $_GET["senha"] : "";
-
-        $consulta = "UPDATE Supermercado SET cnpj = '$cnpj', nomeF = '$nomeF', nomeO = '$nomeO', 
-            endereco = '$endereco', valorMaximoDistancia = '$valorMaximoDistancia',valorMinimoPreco = '$valorMinimoPreco', senha = '$senha' WHERE cnpj = '$cnpj' ";
-
-        if ($cnpj != 0) {
-            $con = $dao->query($consulta) or die($dao->error);
-            exit('<script>location.href = "listar_sup.php"</script>');
-        }
+        include "../conexao.php";
 
         //pega a cnpj que passei via post pelo botão da tabela
         $cnpj = filter_input(INPUT_POST, "cnpj", FILTER_SANITIZE_STRING);
@@ -55,7 +39,7 @@
     <body>
 
         <?php
-        include "../includes/menuAdm.html";
+        include "includes/menuAdm.html";
         ?>
 
         <div class="section"></div>
@@ -70,7 +54,7 @@
                     <div class="section"></div><div class="section"></div>
                 </div>
 
-                <form class="col s8 offset-s2" method="get" action="editar_sup.php" id="for_fun">
+                <form class="col s8 offset-s2" method="post" action="../controller/SupermercadoController.php" id="for_fun">
 
                     <div class="row">
                         <div class="input-field col s12">
@@ -122,7 +106,7 @@
                     </div>
 
                     <div class="row">
-                        <button class="btn waves-effect waves-light col s6 offset-s3" type="submit" name="action" >
+                        <button class="btn waves-effect waves-light col s6 offset-s3" type="submit" name="editar" value="editar" >
                             Atualizar<i class="material-icons right">send</i>
                         </button>
                     </div>
@@ -137,7 +121,7 @@
         </div>
 
         <?php
-        include "../includes/scriptFim.html";
+        include "includes/scriptFim.html";
         ?>
 
     </body>

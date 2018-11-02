@@ -22,7 +22,7 @@ class cliente{
         return $this->senha;
     }
    
-    function setTipo(){
+    function setTipo($tipo){
         $this->tipo = $tipo;
     }
     function setCpf($cpf) {
@@ -38,7 +38,7 @@ class cliente{
         $this->login = $login;
     }
     function setSenha($senha) {
-        $this->senha = senha;
+        $this->senha = $senha;
     }     
 }
 

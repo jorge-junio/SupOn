@@ -3,27 +3,13 @@
 <html>
     <head>
         <?php
-            include "../../valida.php";
+            include "../valida.php";
             
-            include "../includes/headTop.html";
+            include "includes/headTop.html";
         ?>
 
         <?php
-            include "../../conexao.php";
-
-            $codigo = isset($_GET["codigo"]) ? $_GET["codigo"] : "";
-            $nome = isset($_GET["nome"]) ? $_GET["nome"] : "";
-            $marca = isset($_GET["marca"]) ? $_GET["marca"] : "";
-            $descricao = isset($_GET["descricao"]) ? $_GET["descricao"] : "";
-            $preco = (FLOAT) isset($_GET["valor"]) ? $_GET["valor"] : 0;
-
-            $consulta = "UPDATE Produto SET nome = '$nome', marca = '$marca', descricao = '$descricao', 
-                preco = '$preco' WHERE codigo = '$codigo' ";
-
-            if ($codigo != 0) {
-                $con = $dao->query($consulta) or die($dao->error);
-                exit('<script>location.href = "listar_pro.php"</script>');
-            }
+            include "../conexao.php";
 
             //pega o codigo do produto que passei via post pelo botão da tabela
             $codigo = filter_input(INPUT_POST, "codigo", FILTER_SANITIZE_STRING);
@@ -50,7 +36,7 @@
     <body>
 
         <?php
-        include "../includes/menuAdm.html";
+        include "includes/menuAdm.html";
         ?>
 
         <div class="section"></div>
@@ -65,7 +51,7 @@
                     <div class="section"></div><div class="section"></div>
                 </div>
 
-                <form class="col s8 offset-s2" method="get" action="editar_pro.php">
+                <form class="col s8 offset-s2" method="post" action="../controller/ProdutoController.php">
 
                     <div class="row">
                         <div class="input-field col s12">
@@ -105,7 +91,7 @@
 
 
                     <div class="row">
-                        <button class="btn waves-effect waves-light col s6 offset-s3" type="submit" name="action" >
+                        <button class="btn waves-effect waves-light col s6 offset-s3" type="submit" name="editar" value="editar" >
                             Atualizar<i class="material-icons right">send</i>
                         </button>
                     </div>
@@ -121,7 +107,7 @@
         </div>
 
         <?php
-        include "../includes/scriptFim.html";
+        include "includes/scriptFim.html";
         ?>
 
     </body>
