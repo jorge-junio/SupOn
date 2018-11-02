@@ -4,15 +4,19 @@
     <head>
         <?php
             include "../valida.php";
+            include "../conexao.php";
+            include "../model/produto.php";
+            include "../controller/ProdutoController.php";
             
             include "includes/headTop.html";
-        ?>
 
-        <?php
-        include "../conexao.php";
+            //pega o cpf que passei via post pelo botão da tabela
+            $codigo = filter_input(INPUT_POST, "codigo", FILTER_SANITIZE_STRING);
 
-        //pega o cpf que passei via post pelo botão da tabela
-        $codigo = filter_input(INPUT_POST, "codigo", FILTER_SANITIZE_STRING);
+            $produto = new produto();
+            $produtoController = new ProdutoController();
+
+            $produto = $produtoController->selecionaProduto($codigo);
         ?>
     </head>
     <body>
@@ -29,7 +33,7 @@
                 <div class="section"></div>
 
                 <div class="section" style="text-align: center; font-size: 25px;">Excluir Produtos</div>
-                <div class="section" style="text-align: center; font-size: 18px;">Deseja Realmente excluir o Produto de CÓDIGO '<?php echo "$codigo"; ?>' ?</div>
+                <div class="section" style="text-align: center; font-size: 18px;">Deseja Realmente excluir o Produto de CÓDIGO '<?php echo "$codigo' e NOME '{$produto->getNome()}"; ?>' ?</div>
                 <div class="raw" style="text-align: right; font-size: 16px; ">
                     <div class="section"></div><div class="section"></div>
                 </div>

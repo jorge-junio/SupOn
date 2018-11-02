@@ -4,15 +4,20 @@
     <head>
         <?php
             include "../valida.php";
+            include "../conexao.php";
+            include "../model/supermercado.php";
+            include "../controller/SupermercadoController.php";
             
             include "includes/headTop.html";
-        ?>
 
-        <?php
-        include "../conexao.php";
+            //pega a cnpj que passei via post pelo botão da tabela
+            $cnpj = filter_input(INPUT_POST, "cnpj", FILTER_SANITIZE_STRING);
 
-        //pega a cnpj que passei via post pelo botão da tabela
-        $cnpj = filter_input(INPUT_POST, "cnpj", FILTER_SANITIZE_STRING);
+            $supermercado = new supermercado();
+            $supermercadoController = new SupermercadoController();
+
+
+            $supermercado = $supermercadoController->selecionaSupermercado($cnpj);
         ?>
     </head>
     <body>
@@ -29,7 +34,7 @@
                 <div class="section"></div>
 
                 <div class="section" style="text-align: center; font-size: 25px;">Excluir Supermercados</div>
-                <div class="section" style="text-align: center; font-size: 18px;">Deseja Realmente excluir o Supermercado de CNPJ '<?php echo "$cnpj"; ?>'</div>
+                <div class="section" style="text-align: center; font-size: 18px;">Deseja Realmente excluir o Supermercado de CNPJ '<?php echo "$cnpj' e NOME OFICIAL '{$supermercado->getNomeOficial()}"; ?>'</div>
 
                 <div class="raw" style="text-align: right; font-size: 16px; ">
                     <div class="section"></div><div class="section"></div>
