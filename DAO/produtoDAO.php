@@ -38,15 +38,21 @@ class produtoDAO{
                                     <button type="submit" name="editar1" value="" class="btn-primary" style="color: #4488FF;"><i class="material-icons prefix" title="Editar Produto">edit</i></button>
                                     <input type="hidden" name="codigo" value="'.$row["codigo"].'">
                                     </form>
-                                 ';
+                                 </td>';
 
                     echo '<td align="center">
                              <form name="formItem1" action="../view/excluir_pro.php" method="POST">
-                                    <button type="submit" name="excluir1" value="" class="btn-primary" style="color: #FF0000;"><i class="material-icons prefix" title="Editar Produto">delete</i></button>
+                                    <button type="submit" name="excluir1" value="" class="btn-primary" style="color: #FF0000;"><i class="material-icons prefix" title="Excluir Produto">delete</i></button>
                                     <input type="hidden" name="codigo" value="'.$row["codigo"].'">
                                     </form>
                                  </td>';
 
+                    /*echo '<td align="center">
+                             <form name="formItem1" action="#openModal" method="POST">
+                                    <button type="submit" name="excluir2" value="" class="btn-primary" style="color: #FF0000;"><i class="material-icons prefix" title="Excluir Produto">delete</i></button>
+                                    <input type="hidden" name="codigo" value="'.$row["codigo"].'">
+                                    </form>
+                                 </td>';*/
             }
         }
                     /*echo        '                                
@@ -85,6 +91,7 @@ class produtoDAO{
             echo "0 results";
         }  */
         
+       include 'modal_pro.php';
     }
     
     function alterar(conexao $con, produto $pro){

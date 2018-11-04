@@ -77,7 +77,7 @@
         </div>
 
         <?php
-        include "includes/scriptFim.html";
+        include './includes/scriptFim.html';
         ?>
 
     </body>

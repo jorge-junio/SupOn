@@ -91,11 +91,11 @@
                     </div>
 
                     <div class="row">
-                        <button class="btn waves-effect waves-light col s6 offset-s3" type="submit" name="editar" value="editar" >
+                        <button class="btn waves-effect waves-light col s4 offset-s1" type="submit" name="editar" value="editar" >
                             Atualizar<i class="material-icons right">send</i>
                         </button>
 
-                        <button class="btn waves-effect waves-light col s6 offset-s3" type="submit" name="direcionaListar" value="direcionaListar" >
+                        <button class="btn waves-effect waves-light col s4 offset-s2" type="submit" name="direcionaListar" value="direcionaListar" >
                             Cancelar<i class="material-icons right">cancel</i>
                         </button>
                     </div>

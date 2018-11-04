@@ -3,15 +3,14 @@
 <html>
     <head>
         <?php
-            //valida a sessão
-            include "../valida.php";
+        //valida a sessão
+        include "../valida.php";
 
-            //imports
-            include "includes/headTop.html";
-            include "../DAO/conexao.php";
-            include "../controller/ProdutoController.php";
-
-            ?>
+        //imports
+        include "includes/headTop.html";
+        include "../DAO/conexao.php";
+        include "../controller/ProdutoController.php";
+        ?>
     </head>
     <body>
 
@@ -26,29 +25,9 @@
                 <div class="container">
 
                     <?php
-                        include "titulo_pro.php";
+                    include "titulo_pro.php";
+                    include './tabela_pro.php';
                     ?>
-                    <table class="highlight centered waves-teal ">
-                        <thead>
-                            <tr>
-                                <th>Código</th>
-                                <th>Nome</th>
-                                <th>Marca</th>
-                                <th>Descrição</th>
-                                <th>Valor</th>
-                                <th>Supermercado</th>
-                                <th>Ações</th>
-
-
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                                $ProdutoController = new ProdutoController();
-                                $ProdutoController->listaProduto();
-                            ?>
-                        </tbody>
-                    </table>
 
                 </div>
                 <div class="section"></div>

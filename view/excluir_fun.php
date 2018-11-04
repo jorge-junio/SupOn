@@ -49,11 +49,11 @@
                     </div>
 
                     <div class="row">
-                        <button class="btn waves-effect waves-light col s6 offset-s3" type="submit" name="excluir" value="excluir" >
+                        <button class="btn waves-effect waves-light col s4 offset-s1" type="submit" name="excluir" value="excluir" >
                             SIM<i class="material-icons right">check_circle</i>
                         </button>
 
-                        <button class="btn waves-effect waves-light col s6 offset-s3" type="submit" name="direcionaListar" value="direcionaListar" >
+                        <button class="btn waves-effect waves-light col s4 offset-s2" type="submit" name="direcionaListar" value="direcionaListar" >
                             NÃO<i class="material-icons right">cancel</i>
                         </button>
                     </div>
