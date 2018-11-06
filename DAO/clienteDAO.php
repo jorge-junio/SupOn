@@ -39,8 +39,15 @@ class clienteDAO{
                                     </form>
                                  </td>';
 
-                    echo '<td align="center">
+                    /*echo '<td align="center">
                              <form name="formItem1" action="../view/excluir_fun.php" method="POST">
+                                    <button type="submit" name="excluir1" value="" class="btn-primary" style="color: #FF0000;"><i class="material-icons prefix" title="Editar Cliente">delete</i></button>
+                                    <input type="hidden" name="cpf" value="'.$row["cpf"].'">
+                                    </form>
+                                 </td>';*/
+                    
+                    echo '<td align="center">
+                             <form name="formItem1" action="#openModal" method="POST">
                                     <button type="submit" name="excluir1" value="" class="btn-primary" style="color: #FF0000;"><i class="material-icons prefix" title="Editar Cliente">delete</i></button>
                                     <input type="hidden" name="cpf" value="'.$row["cpf"].'">
                                     </form>
@@ -84,6 +91,8 @@ class clienteDAO{
         } else {
             echo "0 results";
         }*/
+        
+     include 'modal_fun.php';
         
     }
 

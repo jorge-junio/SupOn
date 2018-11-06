@@ -40,19 +40,19 @@ class produtoDAO{
                                     </form>
                                  </td>';
 
-                    echo '<td align="center">
+                    /*echo '<td align="center">
                              <form name="formItem1" action="../view/excluir_pro.php" method="POST">
                                     <button type="submit" name="excluir1" value="" class="btn-primary" style="color: #FF0000;"><i class="material-icons prefix" title="Excluir Produto">delete</i></button>
                                     <input type="hidden" name="codigo" value="'.$row["codigo"].'">
                                     </form>
-                                 </td>';
+                                 </td>';*/
 
-                    /*echo '<td align="center">
+                    echo '<td align="center">
                              <form name="formItem1" action="#openModal" method="POST">
                                     <button type="submit" name="excluir2" value="" class="btn-primary" style="color: #FF0000;"><i class="material-icons prefix" title="Excluir Produto">delete</i></button>
                                     <input type="hidden" name="codigo" value="'.$row["codigo"].'">
                                     </form>
-                                 </td>';*/
+                                 </td>';
             }
         }
                     /*echo        '                                

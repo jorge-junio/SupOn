@@ -41,13 +41,20 @@ class supermercadoDAO{
                             </form>
                         </td>';
 
-                    echo '<td align="center">
+                    /*echo '<td align="center">
                             <form name="formItem1" action="../view/excluir_sup.php" method="POST">
                                 <button type="submit" name="excluir1" value="" class="btn-primary" style="color: #FF0000;"><i class="material-icons prefix" title="Excluir Supermercado">delete</i></button>
                                     <input type="hidden" name="cnpj" value="'.$row["cnpj"].'">
                             </form>
+                        </td>';*/
+                    
+                    echo '<td align="center">
+                            <form name="formItem1" action="#openModal" method="POST">
+                                <button type="submit" name="excluir1" value="" class="btn-primary" style="color: #FF0000;"><i class="material-icons prefix" title="Excluir Supermercado">delete</i></button>
+                                    <input type="hidden" name="cnpj" value="'.$row["cnpj"].'">
+                            </form>
                         </td>';
-
+                    
             }
         }
                     /*echo        '                                
@@ -85,6 +92,8 @@ class supermercadoDAO{
         } else {
             echo "0 results";
         }*/
+        
+     include 'modal_sup.php';
     }
     
     function alterar(conexao $con, supermercado $sup){
