@@ -19,7 +19,7 @@
                 <h4>Excluir Cliente</h4>
                 <p>Deseja realmente excluir este Cliente?</p>
                 <form class="col s8 offset-s2" method="post" action="../controller/ClienteController.php" id="for_fun">
-                    <?php echo '<input type="hidden" name="codigo" value="'.$cpf.'"><br/>'; ?>
+                    <?php echo '<input type="hidden" name="cpf" value="'.$cpf.'"><br/>'; ?>
                     <p>CPF: <?php echo $cpf; ?></p>
                     <p>Nome: <?php echo $cliente->getNome(); ?></p>
                     <hr>

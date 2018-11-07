@@ -35,7 +35,7 @@ class ClienteController {
     }
 
     public function excluiCliente() {
-            $cpf = $_POST['cpf'];
+            $cpf = filter_input(INPUT_POST,"cpf",FILTER_SANITIZE_STRING);
             $conexao = new conexao();
             $cliente = new cliente();
             $cliente->setCpf($cpf);
