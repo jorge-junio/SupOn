@@ -33,7 +33,6 @@
                 <div class="section"></div>
 
                 <div class="section" style="text-align: center; font-size: 25px;">Editar Produtos</div>
-                <div class="section" style="text-align: center; font-size: 18px;">Editando o Produto de CÓDIGO '<?php echo "$codigo"; ?>' ?</div>
                 <div class="raw" style="text-align: right; font-size: 16px; ">
                     <div class="section"></div><div class="section"></div>
                 </div>
@@ -48,6 +47,13 @@
                         </div>
                     </div>
 
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input disabled id="nome" type="text" class="validate" name="codigo_off" required="" value="<?php echo $produto->getCodigo(); ?>" />
+                            <label class="active"><i class="material-icons left">verified_user</i>Código</label>
+                        </div>
+                    </div>
+                    
                     <div class="row">
                         <div class="input-field col s12">
                             <input id="nome" type="text" class="validate" name="nome" required="" value="<?php echo $produto->getNome(); ?>" />

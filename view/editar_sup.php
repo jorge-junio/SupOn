@@ -33,7 +33,6 @@
                 <div class="section"></div>
 
                 <div class="section" style="text-align: center; font-size: 25px;">Editar Supermercados</div>
-                <div class="section" style="text-align: center; font-size: 18px;">Editando o Supermercado de CNPJ '<?php echo "$cnpj"; ?>'</div>
                 <div class="raw" style="text-align: right; font-size: 16px; ">
                     <div class="section"></div><div class="section"></div>
                 </div>
@@ -45,6 +44,13 @@
                             <?php  
                                echo '<input type="hidden" name="cnpj" value="'.$cnpj.'">';
                             ?> 
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input disabled id="nomeF" type="text" class="validate" name="cnpj_off" required="" value="<?php echo $supermercado->getCnpj(); ?>"/>
+                            <label class="active"><i class="material-icons left">verified_user</i>CNPJ</label>
                         </div>
                     </div>
 
@@ -71,8 +77,15 @@
 
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="senha" type="tel" class="validate" name="senha" required="" value="<?php echo $supermercado->getSenha(); ?>" >
-                            <label class="active"><i class="material-icons left">vpn_key</i>Senha</label>
+                            <input disabled id="senha" type="text" class="validate" name="login_off" required="" value="<?php echo $supermercado->getLogin(); ?>" >
+                            <label class="active"><i class="material-icons left">star</i>Login</label>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="senha" type="text" class="validate" name="senha" required="" value="<?php echo $supermercado->getSenha(); ?>" >
+                            <label class="active"><i class="material-icons left">lock</i>Senha</label>
                         </div>
                     </div>
 

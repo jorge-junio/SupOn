@@ -35,7 +35,6 @@
                 <div class="section"></div>
 
                 <div class="section" style="text-align: center; font-size: 25px;">Editar Clientes</div>
-                <div class="section" style="text-align: center; font-size: 18px;">Editando o Cliente de CPF '<?php echo "$cpf"; ?>'</div>
                 <div class="raw" style="text-align: right; font-size: 16px; ">
                     <div class="section"></div><div class="section"></div>
                 </div>
@@ -49,7 +48,14 @@
                             ?> 
                         </div>
                     </div>
-
+                    
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input disabled id="nome" type="text" class="validate" name="cpf_off" value="<?php echo $cliente->getCpf(); ?>" />
+                            <label class="active" for="CPF"><i class="material-icons left">verified_user</i>CPF</label>
+                        </div>
+                    </div>
+                    
                     <div class="row">
                         <div class="input-field col s12">
                             <input id="nome" type="text" class="validate" name="nome" value="<?php echo $cliente->getNome(); ?>" />
@@ -66,7 +72,14 @@
 
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="senha" type="password" class="validate" name="senha" value="<?php echo $cliente->getSenha(); ?>">
+                            <input disabled id="senha" type="text" class="validate" name="login_off" value="<?php echo $cliente->getLogin(); ?>">
+                            <label class="active" for="login_off"><i class="material-icons left">star</i>Login</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="senha" type="text" class="validate" name="senha" value="<?php echo $cliente->getSenha(); ?>">
                             <label class="active" for="senha"><i class="material-icons left">lock</i>Senha</label>
                         </div>
                     </div>
