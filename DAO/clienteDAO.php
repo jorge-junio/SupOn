@@ -103,13 +103,14 @@ class clienteDAO{
     }
 
     function selecionar(conexao $con, cliente $cli){
-        $consulta = "SELECT cpf, nome, endereco, senha FROM Cliente WHERE cpf = '{$cli->getCpf()}' ";
+        $consulta = "SELECT cpf, nome, endereco, login, senha FROM Cliente WHERE cpf = '{$cli->getCpf()}' ";
         $result = mysqli_query($con->conecta(), $consulta);
 
         if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_assoc($result)) {
                 $cli->setNome($row["nome"]);
                 $cli->setEndereco($row["endereco"]);
+                $cli->setLogin($row["login"]);
                 $cli->setSenha($row["senha"]);
             }
         }

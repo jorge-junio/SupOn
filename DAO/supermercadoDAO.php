@@ -103,7 +103,7 @@ class supermercadoDAO{
     }
 
      function selecionar(conexao $con, supermercado $sup){
-        $consulta = "SELECT nomeF, nomeO, endereco, senha, valorMaximoDistancia, valorMinimoPreco FROM Supermercado WHERE cnpj = '{$sup->getCnpj()}' ";
+        $consulta = "SELECT nomeF, nomeO, endereco, login, senha, valorMaximoDistancia, valorMinimoPreco FROM Supermercado WHERE cnpj = '{$sup->getCnpj()}' ";
         
         $result = mysqli_query($con->conecta(), $consulta);
 
@@ -112,6 +112,7 @@ class supermercadoDAO{
                 $sup->setNomeFantasia($row["nomeF"]);
                 $sup->setNomeOficial($row["nomeO"]);
                 $sup->setEndereco($row["endereco"]);
+                $sup->setLogin($row["login"]);
                 $sup->setSenha($row["senha"]);
                 $sup->setDistanciaMax($row["valorMaximoDistancia"]);
                 $sup->setValorMinimo($row["valorMinimoPreco"]);
