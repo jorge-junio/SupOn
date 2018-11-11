@@ -77,6 +77,7 @@ $cliente = new ClienteController();
 $cadastrar = filter_input(INPUT_POST,"cadastrar",FILTER_SANITIZE_STRING);
 $excluir = filter_input(INPUT_POST,"excluir",FILTER_SANITIZE_STRING);
 $editar = filter_input(INPUT_POST,"editar",FILTER_SANITIZE_STRING);
+$editarPerfil = filter_input(INPUT_POST,"editarPerfil",FILTER_SANITIZE_STRING);
 $direcionaListar = filter_input(INPUT_POST,"direcionaListar",FILTER_SANITIZE_STRING);
 
 if (isset($cadastrar)) {
@@ -92,6 +93,11 @@ if (isset($excluir)) {
 if (isset($editar)) {
     $cliente->editaCliente();
     header("Location: ../view/listar_fun.php");
+}
+
+if (isset($editarPerfil)) {
+    $cliente->editaCliente();
+    header("Location: ../view/editarPerfil_cli.php");
 }
 
 if (isset($direcionaListar)) {
