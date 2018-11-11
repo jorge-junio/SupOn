@@ -6,7 +6,6 @@
             include "../valida.php";
             
             include "includes/headTop.html";
-
             include "../DAO/conexao.php";
         ?>
     </head>

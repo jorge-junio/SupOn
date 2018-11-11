@@ -5,8 +5,14 @@ include_once '../DAO/conexao.php';
 include_once '../model/supermercado.php';
 
 class SupermercadoController {
+	public function verificaNumero($valor){
+		if(!is_int($valor) && !is_float($valor)){
+			throw new InvalidArgumentException('Uma letra foi digitada onde um número é requisitado');
+		}
+		return $valor;
+	}
     public function insereSupermercado() {
-
+    	try{
         $nomeF = filter_input(INPUT_POST,"nomeF",FILTER_SANITIZE_STRING);
         $nomeO = filter_input(INPUT_POST,"nomeO",FILTER_SANITIZE_STRING);
         $cnpj = filter_input(INPUT_POST,"cnpj",FILTER_SANITIZE_STRING);
@@ -18,6 +24,10 @@ class SupermercadoController {
 
         $conexao = new conexao();
 
+        $cnpj = SupermercadoController::verificaNumero($cnpj);
+        $valorMaximoDistancia = SupermercadoController::verificaNumero($valorMaximoDistancia);
+        $valorMinimoPreco = SupermercadoController::verificaNumero($valorMinimoPreco);
+        
         $supermercado = new supermercado();
         $supermercado->setNomeFantasia($nomeF);
         $supermercado->setNomeOficial($nomeO);
@@ -30,6 +40,10 @@ class SupermercadoController {
 
         $supermercadoDAO = new supermercadoDAO();
         $supermercadoDAO->adicionar($conexao, $supermercado);
+    	}
+    	catch(Exception $e){
+    		echo 'Exceção capturada: ',  $e->getMessage(), "\n";
+    	}
     }
     
     public function listaSupermercado() {
@@ -48,6 +62,7 @@ class SupermercadoController {
     }
     
     public function editaSupermercado() {
+    	try{
         $nomeF = filter_input(INPUT_POST,"nomeF",FILTER_SANITIZE_STRING);
         $nomeO = filter_input(INPUT_POST,"nomeO",FILTER_SANITIZE_STRING);
         $cnpj = filter_input(INPUT_POST,"cnpj",FILTER_SANITIZE_STRING);
@@ -57,7 +72,11 @@ class SupermercadoController {
         $valorMaximoDistancia = filter_input(INPUT_POST,"valorMaximoDistancia",FILTER_SANITIZE_STRING);
         $valorMinimoPreco = filter_input(INPUT_POST,"valorMinimoPreco",FILTER_SANITIZE_STRING);
         
-        $conexao = new conexao();       
+        $conexao = new conexao(); 
+
+        $valorMaximoDistancia = SupermercadoController::verificaNumero($valorMaximoDistancia);
+        $valorMinimoPreco = SupermercadoController::verificaNumero($valorMinimoPreco);
+
         $supermercado = new supermercado();
         $supermercado->setNomeFantasia($nomeF);
         $supermercado->setNomeOficial($nomeO);
@@ -69,6 +88,9 @@ class SupermercadoController {
         $supermercado->setValorMinimo($valorMinimoPreco);
         $supermercadoDAO = new supermercadoDAO();
         $supermercadoDAO->alterar($conexao, $supermercado);
+    }catch(InvalidArgumentException $e){
+    		echo 'Exceção capturada: ',  $e->getMessage(), "\n";
+    	}
     }
 
     public function selecionaSupermercado($cnpj) {
@@ -80,6 +102,7 @@ class SupermercadoController {
          
     }
 }
+
 
 $supermercado = new SupermercadoController();
 
