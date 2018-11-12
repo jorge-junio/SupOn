@@ -2,6 +2,7 @@
 <html>
     <head>
         <?php
+            include "../valida.php";
             include "includes/headTop.html";
             include "../DAO/conexao.php";
             include_once "../controller/SupermercadoController.php";
@@ -11,7 +12,7 @@
     <body>
 
         <?php
-        include "includes/menuAdm.html";
+        include "../menu.php";
         ?>
 
         <div class="section"></div>

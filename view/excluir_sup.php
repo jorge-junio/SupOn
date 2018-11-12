@@ -23,7 +23,7 @@
     <body>
 
         <?php
-            include "includes/menuAdm.html";
+            include "../menu.php";
         ?>    
 
         <div class="section"></div>
