@@ -8,7 +8,11 @@ class ClienteController {
     
     public function insereCliente() {
         //recuperando os dados do formulário
-        $cpf = filter_input(INPUT_POST,"cpf",FILTER_SANITIZE_STRING);
+        try {
+            $cpf = (INT) filter_input(INPUT_POST,"cpf",FILTER_SANITIZE_STRING);
+        } catch (Exception $e) {
+            //msg de erro: echo "cpf deve ser um número inteiro";
+        }
         $nome = filter_input(INPUT_POST,"nome",FILTER_SANITIZE_STRING);
         $endereco = filter_input(INPUT_POST,"endereco",FILTER_SANITIZE_STRING);
         $login = filter_input(INPUT_POST,"login",FILTER_SANITIZE_STRING);
@@ -23,9 +27,9 @@ class ClienteController {
         $cliente->setEndereco($endereco);
         $cliente->setLogin($login);
         $cliente->setSenha($senha);
-
         $clienteDAO = new clienteDAO();
         $clienteDAO->adicionar($conexao, $cliente);
+        //mensagem de cadastro realizado com sucesso
     }
     
     public function listaCliente() {
