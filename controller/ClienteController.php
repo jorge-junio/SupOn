@@ -83,6 +83,7 @@ $excluir = filter_input(INPUT_POST,"excluir",FILTER_SANITIZE_STRING);
 $editar = filter_input(INPUT_POST,"editar",FILTER_SANITIZE_STRING);
 $editarPerfil = filter_input(INPUT_POST,"editarPerfil",FILTER_SANITIZE_STRING);
 $direcionaListar = filter_input(INPUT_POST,"direcionaListar",FILTER_SANITIZE_STRING);
+$direcionaLogin = filter_input(INPUT_POST,"direcionaLogin",FILTER_SANITIZE_STRING);
 
 if (isset($cadastrar)) {
     $cliente->insereCliente();
@@ -106,4 +107,8 @@ if (isset($editarPerfil)) {
 
 if (isset($direcionaListar)) {
     header("Location: ../view/listar_fun.php");
+}
+
+if (isset($direcionaLogin)) {
+    header("Location: ../index.html");
 }
