@@ -63,35 +63,35 @@ class SupermercadoController {
     
     public function editaSupermercado() {
     	try{
-        $nomeF = filter_input(INPUT_POST,"nomeF",FILTER_SANITIZE_STRING);
-        $nomeO = filter_input(INPUT_POST,"nomeO",FILTER_SANITIZE_STRING);
-        $cnpj = filter_input(INPUT_POST,"cnpj",FILTER_SANITIZE_STRING);
-        $endereco = filter_input(INPUT_POST,"endereco",FILTER_SANITIZE_STRING);
-        $login = filter_input(INPUT_POST,"login",FILTER_SANITIZE_STRING);
-        $senha = filter_input(INPUT_POST,"senha",FILTER_SANITIZE_STRING);
-        $valorMaximoDistancia = filter_input(INPUT_POST,"valorMaximoDistancia",FILTER_SANITIZE_STRING);
-        $valorMinimoPreco = filter_input(INPUT_POST,"valorMinimoPreco",FILTER_SANITIZE_STRING);
-        
-        $conexao = new conexao(); 
+            $nomeF = filter_input(INPUT_POST,"nomeF",FILTER_SANITIZE_STRING);
+            $nomeO = filter_input(INPUT_POST,"nomeO",FILTER_SANITIZE_STRING);
+            $cnpj = filter_input(INPUT_POST,"cnpj",FILTER_SANITIZE_STRING);
+            $endereco = filter_input(INPUT_POST,"endereco",FILTER_SANITIZE_STRING);
+            $login = filter_input(INPUT_POST,"login",FILTER_SANITIZE_STRING);
+            $senha = filter_input(INPUT_POST,"senha",FILTER_SANITIZE_STRING);
+            $valorMaximoDistancia = filter_input(INPUT_POST,"valorMaximoDistancia",FILTER_SANITIZE_STRING);
+            $valorMinimoPreco = filter_input(INPUT_POST,"valorMinimoPreco",FILTER_SANITIZE_STRING);
+            
+            $conexao = new conexao(); 
 
-        $valorMaximoDistancia = SupermercadoController::verificaNumero($valorMaximoDistancia);
-        $valorMinimoPreco = SupermercadoController::verificaNumero($valorMinimoPreco);
+            $valorMaximoDistancia = SupermercadoController::verificaNumero($valorMaximoDistancia);
+            $valorMinimoPreco = SupermercadoController::verificaNumero($valorMinimoPreco);
 
-        $supermercado = new supermercado();
-        $supermercado->setNomeFantasia($nomeF);
-        $supermercado->setNomeOficial($nomeO);
-        $supermercado->setCnpj($cnpj);
-        $supermercado->setEndereco($endereco);
-        $supermercado->setLogin($login);
-        $supermercado->setSenha($senha);
-        $supermercado->setDistanciaMax($valorMaximoDistancia);
-        $supermercado->setValorMinimo($valorMinimoPreco);
-        $supermercadoDAO = new supermercadoDAO();
-        $supermercadoDAO->alterar($conexao, $supermercado);
-    }catch(InvalidArgumentException $e){
-    		echo 'Exceção capturada: ',  $e->getMessage(), "\n";
-    	}
-    }
+            $supermercado = new supermercado();
+            $supermercado->setNomeFantasia($nomeF);
+            $supermercado->setNomeOficial($nomeO);
+            $supermercado->setCnpj($cnpj);
+            $supermercado->setEndereco($endereco);
+            $supermercado->setLogin($login);
+            $supermercado->setSenha($senha);
+            $supermercado->setDistanciaMax($valorMaximoDistancia);
+            $supermercado->setValorMinimo($valorMinimoPreco);
+            $supermercadoDAO = new supermercadoDAO();
+            $supermercadoDAO->alterar($conexao, $supermercado);
+        }catch(InvalidArgumentException $e){
+        		echo 'Exceção capturada: ',  $e->getMessage(), "\n";
+        	}
+        }
 
     public function selecionaSupermercado($cnpj) {
         $conexao = new conexao();
