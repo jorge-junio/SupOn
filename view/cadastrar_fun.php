@@ -38,28 +38,28 @@
 
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="cpf" type="text" class="validate" name="cpf" required />
-                            <label><i class="material-icons left">verified_user</i>CPF</label>
+                            <input id="cpf" type="text" class="validate" name="cpf" required="" data-length="11"/>
+                            <label><i class="material-icons left">verified_user</i>CPF (digite somente números Ex: 12345678910)</label>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="endereco" type="text" class="validate" name="endereco" required />
-                            <label><i class="material-icons left">location_on</i>Endereço</label>
+                            <input id="endereco" type="text" class="validate" name="endereco" required="" />
+                            <label><i class="material-icons left">location_on</i>Endereço (Ex: rua, bairro, número da casa)</label>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="telefone" type="text" class="validate" name="login" required>
+                            <input id="telefone" type="text" class="validate" name="login" required="">
                             <label><i class="material-icons left">account_box</i>login</label>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="senha" type="tel" class="validate" name="senha" required>
+                            <input id="senha" type="tel" class="validate" name="senha" required="">
                             <label><i class="material-icons left">vpn_key</i>Senha</label>
                         </div>
                     </div>
