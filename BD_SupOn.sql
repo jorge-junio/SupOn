@@ -25,9 +25,9 @@ CREATE TABLE Supermercado(
     PRIMARY KEY(cnpj)
 );
 
-CREATE TABLE Pedido(
+CREATE TABLE Carrinho(
 	codigo INT AUTO_INCREMENT NOT NULL,
-    valorTotal FLOAT NOT NULL,
+    data DATE NOT NULL,
     cpfCliente BIGINT NOT NULL,
     PRIMARY KEY(codigo),
     FOREIGN KEY(cpfCliente) REFERENCES Cliente(cpf)
@@ -39,6 +39,7 @@ CREATE TABLE Produto(
     marca VARCHAR(80) NOT NULL,
     preco FLOAT NOT NULL,
     descricao VARCHAR(80) NOT NULL,
+    quantidade INT NOT NULL,
     cnpj INT,
     PRIMARY KEY(codigo),
     FOREIGN KEY(cnpj) REFERENCES Supermercado(cnpj)
@@ -54,15 +55,14 @@ CREATE TABLE Pagamento(
     FOREIGN KEY(cpfCliente) REFERENCES Cliente(cpf)
 );
 
-CREATE TABLE Item_Produto(
-	codigoPedido INT NOT NULL,
-    quantidade INT NOT NULL,
-    valaorUnidade FLOAT NOT NULL,
-    valorTotal FLOAT NOT NULL,
-    codigoProduto INT NOT NULL,
-    PRIMARY KEY(codigoPedido),
-    FOREIGN KEY(codigoPedido) REFERENCES Pedido(codigo),
-    FOREIGN KEY(codigoProduto) REFERENCES Produto(codigo)
+CREATE TABLE Item_Carrinho(
+	codCarrinho INT NOT NULL,
+    qtdProduto INT NOT NULL,
+    valaorProduto FLOAT NOT NULL,
+    codProduto INT NOT NULL,
+    PRIMARY KEY(codCarrinho),
+    FOREIGN KEY(codCarrinho) REFERENCES Carrinho(codigo),
+    FOREIGN KEY(codProduto) REFERENCES Produto(codigo)
 );
 
 insert into Cliente(tipo, nome, endereco, cpf, login, senha) values ('adm', 'Chico', 'Rua tal e tal', 12312312312, 'qwe', 'qwe');
