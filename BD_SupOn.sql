@@ -58,7 +58,7 @@ CREATE TABLE Pagamento(
 CREATE TABLE Item_Carrinho(
 	codCarrinho INT NOT NULL,
     qtdProduto INT NOT NULL,
-    valaorProduto FLOAT NOT NULL,
+    valorProduto FLOAT NOT NULL,
     codProduto INT NOT NULL,
     PRIMARY KEY(codCarrinho),
     FOREIGN KEY(codCarrinho) REFERENCES Carrinho(codigo),

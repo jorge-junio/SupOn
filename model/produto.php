@@ -2,7 +2,7 @@
 
 class produto{
     
-    private $codigo, $nome, $marca, $descricao, $valor, $supermercado;
+    private $codigo, $nome, $marca, $descricao, $valor, $qtd, $supermercado;
             
     function getCodigo() {
         return $this->codigo;
@@ -18,6 +18,9 @@ class produto{
     }
     function getValor() {
         return $this->valor;
+    }
+    function getQtd() {
+        return $this->qtd;
     }
     function getSupermercado() {
         return $this->supermercado;
@@ -37,6 +40,9 @@ class produto{
     }
     function setValor($valor) {
         $this->valor = $valor;
+    }
+    function setQtd($qtd) {
+        $this->qtd = $qtd;
     }
     function setSupermercado($supermercado) {
         $this->supermercado = $supermercado;

@@ -53,12 +53,23 @@
 
                     <div class="row">
                         <div class="input-field col s12">
+                            <input id="quantidade" type="text" class="validate" name="quantidade" required />
+                            <label><i class="material-icons left">insert_comment</i>Quantidade</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s12">
                             <input id="valor" type="text" class="validate" name="valor" required />
                             <label><i class="material-icons left">monetization_on</i>Valor</label>
                         </div>
                     </div>
 
-
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <?php echo '<input type="hidden" name="cnpj" value="'.$_SESSION["id_usuario"].'">'; ?>
+                        </div>
+                    </div>
 
                     <div class="row">
                         <button class="btn waves-effect waves-light col s6 offset-s3" type="submit" name="cadastrar" value="cadastrar">

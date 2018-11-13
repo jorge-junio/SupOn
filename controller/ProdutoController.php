@@ -12,6 +12,8 @@ class ProdutoController {
         $marca = filter_input(INPUT_POST,"marca",FILTER_SANITIZE_STRING);
         $valor = filter_input(INPUT_POST,"valor",FILTER_SANITIZE_STRING);
         $descricao = filter_input(INPUT_POST,"descricao",FILTER_SANITIZE_STRING);
+        $qtd = filter_input(INPUT_POST,"quantidade",FILTER_SANITIZE_STRING);
+        $cnpj = filter_input(INPUT_POST,"cnpj",FILTER_SANITIZE_STRING);
         
         $conexao = new conexao();
         $produto = new produto();
@@ -19,6 +21,8 @@ class ProdutoController {
         $produto->setMarca($marca);
         $produto->setValor($valor);
         $produto->setDescricao($descricao);
+        $produto->setQtd($qtd);
+        $produto->setSupermercado($cnpj);
         $produtoDAO = new produtoDAO();
         $produtoDAO->adicionar($conexao, $produto);
     }
@@ -45,6 +49,7 @@ class ProdutoController {
         $marca = filter_input(INPUT_POST,"marca",FILTER_SANITIZE_STRING);   
         $valor = (FLOAT) filter_input(INPUT_POST,"valor",FILTER_SANITIZE_STRING);
         $descricao = filter_input(INPUT_POST,"descricao",FILTER_SANITIZE_STRING);
+        $qtd = filter_input(INPUT_POST,"quantidade",FILTER_SANITIZE_STRING);
         
         $conexao = new conexao();       
         $produto = new produto();
@@ -53,6 +58,7 @@ class ProdutoController {
         $produto->setMarca($marca);
         $produto->setValor($valor);
         $produto->setDescricao($descricao);
+        $produto->setQtd($qtd);
         $produtoDAO = new produtoDAO();
         $produtoDAO->alterar($conexao, $produto);
     }

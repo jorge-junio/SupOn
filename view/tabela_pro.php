@@ -5,6 +5,7 @@
             <th>Nome</th>
             <th>Marca</th>
             <th>Descrição</th>
+            <th>Quantidade</th>
             <th>Valor</th>
             <th>Supermercado</th>
             <th></th>
