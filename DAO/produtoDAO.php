@@ -1,19 +1,43 @@
 <?php
+//valida a sessão
+include "../valida.php";
 
 class produtoDAO{
     
     function adicionar(conexao $con, produto $pro){
          if ($pro->getNome() != ''){
+            
             $consulta = "INSERT INTO Produto(nome, marca, preco, descricao, quantidade, cnpj) VALUES
                 ('{$pro->getNome()}', '{$pro->getMarca()}', '{$pro->getValor()}', '{$pro->getDescricao()}', '{$pro->getQtd()}', '{$pro->getSupermercado()}');";
-            mysqli_query($con->conecta(), $consulta);
+
+            $verifica = $con->conecta();
+            $verifica->query($consulta);
+
+            if (($verifica->affected_rows) > 0) {
+                $_SESSION['message'] = 'Registro cadastrado com sucesso.';
+                $_SESSION['type'] = 'green';
+            } else {
+                $_SESSION['message'] = 'Registro não foi cadastrado no sistema';
+                $_SESSION['type'] = 'red';
+            }
+
         }
      }
      
     function remover(conexao $con, produto $pro){
         if($pro->getCodigo() > 0){
             $consulta = "DELETE FROM Produto WHERE codigo = '{$pro->getCodigo()}'";
-            mysqli_query($con->conecta(), $consulta);
+            
+            $verifica = $con->conecta();
+            $verifica->query($consulta);
+
+            if (($verifica->affected_rows) > 0) {
+                $_SESSION['message'] = 'Registro removido com sucesso.';
+                $_SESSION['type'] = 'green';
+            } else {
+                $_SESSION['message'] = 'Registro não removido no sistema';
+                $_SESSION['type'] = 'red';
+            }
         }
     }
     
@@ -64,7 +88,17 @@ class produtoDAO{
     function alterar(conexao $con, produto $pro){
         $consulta = "UPDATE Produto SET nome = '{$pro->getNome()}', marca = '{$pro->getMarca()}', descricao = '{$pro->getDescricao()}', 
             preco = '{$pro->getValor()}', quantidade = '{$pro->getQtd()}' WHERE codigo = '{$pro->getCodigo()}' ";
-        mysqli_query($con->conecta(), $consulta);
+        
+        $verifica = $con->conecta();
+        $verifica->query($consulta);
+            
+        if (($verifica->affected_rows) > 0) {
+            $_SESSION['message'] = 'Registro alterado com sucesso.';
+            $_SESSION['type'] = 'green';
+        } else {
+            $_SESSION['message'] = 'Registro não alterado no sistema';
+            $_SESSION['type'] = 'red';
+        }
     }
 
     function selecionar(conexao $con, produto $pro){

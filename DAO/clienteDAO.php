@@ -1,20 +1,42 @@
 <?php
 
+//valida a sessão
+include "../valida.php";
+
 class clienteDAO{
     
     function adicionar(conexao $con, cliente $cli){
         if($cli->getCpf() != 0 and $cli->getEndereco() != '' and $cli->getLogin() != '' and $cli->getSenha() != ''){
-        $consulta = "INSERT INTO Cliente(tipo, cpf, nome, endereco, login, senha) VALUES
-            ('cli','{$cli->getCpf()}', '{$cli->getNome()}', '{$cli->getEndereco()}', '{$cli->getLogin()}', '{$cli->getSenha()}')";
-       
-        mysqli_query($con->conecta(), $consulta);
+            $consulta = "INSERT INTO Cliente(tipo, cpf, nome, endereco, login, senha) VALUES
+                ('cli','{$cli->getCpf()}', '{$cli->getNome()}', '{$cli->getEndereco()}', '{$cli->getLogin()}', '{$cli->getSenha()}')";
+           
+            $verifica = $con->conecta();
+            $verifica->query($consulta);
+
+            if (($verifica->affected_rows) > 0) {
+                $_SESSION['message'] = 'Registro cadastrado com sucesso.';
+                $_SESSION['type'] = 'green';
+            } else {
+                $_SESSION['message'] = 'Registro não foi cadastrado no sistema';
+                $_SESSION['type'] = 'red';
+            }
         }
      }
      
     function remover(conexao $con, cliente $cli){
         if($cli->getCpf() > 0){
             $consulta = "DELETE FROM Cliente WHERE cpf = '{$cli->getCpf()}'";
-            mysqli_query($con->conecta(), $consulta);
+            
+            $verifica = $con->conecta();
+            $verifica->query($consulta);
+
+            if (($verifica->affected_rows) > 0) {
+                $_SESSION['message'] = 'Registro removido com sucesso.';
+                $_SESSION['type'] = 'green';
+            } else {
+                $_SESSION['message'] = 'Registro não foi removido no sistema';
+                $_SESSION['type'] = 'red';
+            }
         }
     }
     
@@ -54,43 +76,6 @@ class clienteDAO{
                                  </td>';
             }
         }
-    
-
-                    /*echo        '                                
-                        <td><button name="excluir" value="" class="btn-primary"
-                        type="button" data-toggle="modal" data-target="#modalDelCliente'.$row["cpf"].$row["nome"].'" style="color: #FF0000;"><i class="material-icons prefix" title="Excluir Cliente">delete</i></button>                                    
-                     </td>';
-    
-                    //Modal para confirmar a exclusão dos itens selecionados
-                    //Devemos passar tanto o ID como a SIGLA para que o modal possa exibir e exluir o item
-                    echo        '<!-- Modal -->
-                                <div class="modal fade" id="modalDelCliente'.$row["cpf"].$row["nome"].'" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered" role="document">
-                                    <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="TituloModalCentralizado">Aviso de exclusão</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-                                        <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        Deseja realmente excluir o item <strong>'.$row["nome"].'</strong>?
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                        <form name="formunidade2" action="../controller/ClienteController.php" method="POST">
-                                            <button type="submit" name="excluir" value="" class="btn btn-danger">Excluir</button>
-                                            <input type="hidden" name="cpf" value="'.$row["cpf"].'">
-                                        </form>
-                                    </div>
-                                    </div>
-                                </div>
-                                </div>';
-                    echo    '</tr>';                  
-                }
-        } else {
-            echo "0 results";
-        }*/
         
      include 'modal_fun.php';
         
@@ -99,7 +84,17 @@ class clienteDAO{
     function alterar(conexao $con, cliente $cli){
         $consulta = "UPDATE Cliente SET cpf = '{$cli->getCpf()}', nome = '{$cli->getNome()}', 
             endereco = '{$cli->getEndereco()}', senha = '{$cli->getSenha()}' WHERE cpf = '{$cli->getCpf()}' ";
-        mysqli_query($con->conecta(), $consulta);
+        
+        $verifica = $con->conecta();
+        $verifica->query($consulta);
+
+        if (($verifica->affected_rows) > 0) {
+            $_SESSION['message'] = 'Registro alterado com sucesso.';
+            $_SESSION['type'] = 'green';
+        } else {
+            $_SESSION['message'] = 'Registro não foi alterado no sistema';
+            $_SESSION['type'] = 'red';
+        }
     }
 
     function selecionar(conexao $con, cliente $cli){

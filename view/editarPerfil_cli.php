@@ -3,7 +3,6 @@
 <html>
     <head>
         <?php
-            include "../valida.php";
             include "../DAO/conexao.php";
             include "../model/cliente.php";
             include "../controller/ClienteController.php";

@@ -52,6 +52,9 @@
 		$_SESSION["id_usuario"]= $dados["cpf"]; 
 		$_SESSION["nome_usuario"] = $dados["nome"];
 
+		$_SESSION['message'] = 'Seja bem-vindo, '.$_SESSION["nome_usuario"];
+        $_SESSION['type'] = 'green';
+
 		exit('<script>location.href = "view/listar_fun.php"</script>');
 		
 	}else{
@@ -65,6 +68,9 @@
 			$_SESSION["permissao"] = "sup";
 			$_SESSION["id_usuario"]= $dados["cnpj"]; 
 			$_SESSION["nome_usuario"] = $dados["nomeF"];
+
+			$_SESSION['message'] = 'Seja bem-vindo, '.$_SESSION["nome_usuario"];
+        	$_SESSION['type'] = 'green';
 
 			exit('<script>location.href = "view/listar_fun.php"</script>');
 			

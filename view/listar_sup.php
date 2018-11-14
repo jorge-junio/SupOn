@@ -3,8 +3,6 @@
 <html>
     <head>
         <?php
-            include "../valida.php";
-
             include "includes/headTop.html";
             include "../DAO/conexao.php";
             include_once "../controller/SupermercadoController.php";
@@ -20,6 +18,7 @@
             <div class="section"></div>
             <div class="section"></div>
             <div class="row white darken-4 ">
+                <?php include "includes/alert.php"; ?>
                 <div class="container">
 
                     <?php

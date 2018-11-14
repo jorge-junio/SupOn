@@ -1,20 +1,40 @@
 <?php
+session_start();
 
 class supermercadoDAO{
     
     function adicionar(conexao $con, supermercado $sup){
         if($sup->getCnpj() != 0 and $sup->getLogin() != '' and $sup->getSenha() != ''){
-        $consulta = "INSERT INTO Supermercado(cnpj, nomeO, nomeF, endereco, login, senha, valorMaximoDistancia, valorMinimoPreco) VALUES
-            ('{$sup->getCnpj()}', '{$sup->getNomeOficial()}', '{$sup->getNomeFantasia()}', '{$sup->getEndereco()}', '{$sup->getLogin()}', '{$sup->getSenha()}', '{$sup->getDistanciaMax()}', '{$sup->getValorMinimo()}')";
+            $consulta = "INSERT INTO Supermercado(cnpj, nomeO, nomeF, endereco, login, senha, valorMaximoDistancia, valorMinimoPreco) VALUES
+                ('{$sup->getCnpj()}', '{$sup->getNomeOficial()}', '{$sup->getNomeFantasia()}', '{$sup->getEndereco()}', '{$sup->getLogin()}', '{$sup->getSenha()}', '{$sup->getDistanciaMax()}', '{$sup->getValorMinimo()}')";
 
-        mysqli_query($con->conecta(), $consulta);
+            $verifica = $con->conecta();
+            $verifica->query($consulta);
+
+            if (($verifica->affected_rows) > 0) {
+                $_SESSION['message'] = 'Registro cadastrado com sucesso.';
+                $_SESSION['type'] = 'green';
+            } else {
+                $_SESSION['message'] = 'Registro não foi cadastrado no sistema';
+                $_SESSION['type'] = 'red';
+            }
         }
      }
      
     function remover(conexao $con, supermercado $sup){
         if($sup->getCnpj() > 0){
-           $consulta = "DELETE FROM Supermercado WHERE cnpj = '{$sup->getCnpj()}'";
-            mysqli_query($con->conecta(), $consulta);
+            $consulta = "DELETE FROM Supermercado WHERE cnpj = '{$sup->getCnpj()}'";
+            
+            $verifica = $con->conecta();
+            $verifica->query($consulta);
+
+            if (($verifica->affected_rows) > 0) {
+                $_SESSION['message'] = 'Registro removido com sucesso.';
+                $_SESSION['type'] = 'green';
+            } else {
+                $_SESSION['message'] = 'Registro não foi removido no sistema';
+                $_SESSION['type'] = 'red';
+            }
         }
     }
     
@@ -99,7 +119,17 @@ class supermercadoDAO{
     function alterar(conexao $con, supermercado $sup){
         $consulta = "UPDATE Supermercado SET cnpj = '{$sup->getCnpj()}', nomeF = '{$sup->getNomeFantasia()}', nomeO = '{$sup->getNomeOficial()}', 
             endereco = '{$sup->getEndereco()}', valorMaximoDistancia = '{$sup->getDistanciaMax()}',valorMinimoPreco = '{$sup->getValorMinimo()}', senha = '{$sup->getSenha()}' WHERE cnpj = '{$sup->getCnpj()}' ";
-        mysqli_query($con->conecta(), $consulta);
+        
+        $verifica = $con->conecta();
+        $verifica->query($consulta);
+
+        if (($verifica->affected_rows) > 0) {
+            $_SESSION['message'] = 'Registro alterado com sucesso.';
+            $_SESSION['type'] = 'green';
+        } else {
+            $_SESSION['message'] = 'Registro não foi alterado no sistema';
+            $_SESSION['type'] = 'red';
+        }
     }
 
      function selecionar(conexao $con, supermercado $sup){

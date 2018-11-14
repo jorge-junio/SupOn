@@ -3,8 +3,7 @@
 <html>
     <head>
         <?php
-        //valida a sessão
-        include "../valida.php";
+        
 
         //imports
         include "includes/headTop.html";
@@ -20,8 +19,11 @@
 
         <div class="container">
             <div class="section"></div>
+
             <div class="section"></div>
+
             <div class="row white darken-4 ">
+                <?php include "includes/alert.php"; ?>
                 <div class="container">
 
                     <?php
