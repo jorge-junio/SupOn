@@ -5,11 +5,11 @@
         <div class="input-field">
             <i class="material-icons prefix">description</i>
             <input id="first_name2" type="text" name="q_b">
-            <label for="first_name2">Nome do Produto ou Supermercado</label>
+            <label for="first_name2">Nome</label>
         </div>
     </div>
 
-    <div class="input-field col s5">
+    <!--<div class="input-field col s5">
         <select name="tipo_b">
             <option value="0" disabled selected>Escolha uma opção:</option>
             <option value="1">Supermercados</option>
@@ -18,7 +18,7 @@
         <label> </label>
         <div class="section"></div>
         <div class="section"></div>
-    </div>
+    </div>-->
 
     <div class="section"></div>
 

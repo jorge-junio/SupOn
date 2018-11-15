@@ -19,7 +19,7 @@
             <div class="row white darken-2">
                 <div class="section"></div>
 
-                <div class="section" style="text-align: center; font-size: 25px;">Cadastrar-se Sistema como Cliente</div>
+                <div class="section" style="text-align: center; font-size: 25px;">Cadastrar-se como Cliente</div>
                 <div class="raw" style="text-align: right; font-size: 16px; ">
                     <div class="section"></div><div class="section"></div>
                 </div>
@@ -61,25 +61,22 @@
                     </div>
 
                     <div class="row">
-                        <button class="btn waves-effect waves-light col s6 offset-s3" type="submit" name="cadastrar" value="cadastrar" >
+                        <button class="btn waves-effect waves-light col s4 offset-s1" type="submit" name="cadastrar" value="cadastrar" >
                             Cadastrar-se<i class="material-icons right">send</i>
                         </button>
-                    </div>
-
-                    <div class="section"></div>
+                    
 
                 </form>
-                <form class="col s8 offset-s2" method="post" action="../controller/ClienteController.php">
-                    <div class="row">
-                        <button class="btn waves-effect waves-light col s4 offset-s4" type="submit" name="direcionaLogin" value="direcionaLogin">
+                <form method="post" action="../controller/ClienteController.php">
+                        <button class="btn waves-effect waves-light col s4 offset-s2" type="submit" name="direcionaLogin" value="direcionaLogin">
                                 Cancelar
                             <i class="material-icons right">cancel</i>
-                        </button>  
-                    </div>
+                        </button> 
                     
                     <div class="section"></div>
 
                 </form>
+                </div>
                 <div class="section"></div>
             </div>
             <div class="section"></div>

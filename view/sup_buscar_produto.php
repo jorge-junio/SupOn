@@ -10,7 +10,7 @@
     <body>
 
         <?php
-        include "../view/includes/menuAdm.php";
+        include "../view/includes/menuSup.php";
         ?>
 
         <div class="section"></div>

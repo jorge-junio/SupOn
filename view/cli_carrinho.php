@@ -3,20 +3,16 @@
 <html>
     <head>
         <?php
-        //valida a sessão
-        include "../valida.php";
-
-        //imports
         include "includes/headTop.html";
         include "../DAO/conexao.php";
-        include "../controller/ProdutoController.php";
+        include_once '../controller/ProdutoController.php';
         ?>
     </head>
     <body>
 
         <!-- Navbar goes here -->
         <?php
-        include "./includes/menuCliente.html";
+        include "./includes/menuCliente.php";
         ?>
 
         <div class="container">

@@ -12,9 +12,9 @@
                 <a href="listar_fun.php" class="left brand-logo">  SupOn</a>
                 <ul class="right">
                     <!-- Dropdown Trigger -->
-                    <li><a href="../view/buscar_adm.php?q_b=&tipo_b=0&action=#">Buscar Produtos</a></li>
+                    <li><a href="sup_buscar_produto.php?q_b=&action=#">Buscar Produtos</a></li>
                     <li><a href="listar_pro.php">Produtos</a></li>
-                    <li><a class="dropdown-button" href="index.html" data-activates="dropdown4"><?php echo $_SESSION["nome_usuario"]; ?><i class="material-icons right">arrow_drop_down</i></a></li>
+                    <li><a class="dropdown-button" href="index.html" data-activates="dropdown4"><i class="material-icons left">business</i> <?php echo $_SESSION["nome_usuario"]; ?><i class="material-icons right">arrow_drop_down</i></a></li>
                 </ul>
 
             </div>
