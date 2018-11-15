@@ -16,4 +16,10 @@
 
     $(document).ready(function () {
         $('select').formSelect();
-    });</script>
+    });
+
+    $('#alert_close').click(function () {
+        $("#alert_box").fadeOut("slow", function () {
+        });
+    });
+</script>
