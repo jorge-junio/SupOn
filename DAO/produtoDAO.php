@@ -42,7 +42,9 @@ class produtoDAO{
     }
     
     function listar(conexao $con){
-        $consulta = "SELECT codigo, nome, marca, preco, descricao, quantidade, cnpj FROM Produto";
+        //$consulta = "SELECT codigo, nome, marca, preco, descricao, quantidade, cnpj FROM Produto";
+
+        $consulta = "SELECT p.codigo, p.nome, p.marca, p.preco, p.descricao, p.quantidade, s.nomeF FROM Produto p, Supermercado s WHERE p.cnpj = s.cnpj";
 
         $result = mysqli_query($con->conecta(), $consulta);
 
@@ -55,7 +57,7 @@ class produtoDAO{
                     echo '<td>' . $row["descricao"] . '</td>';
                     echo '<td>' . $row["quantidade"] . '</td>';
                     echo '<td>' . $row["preco"] . '</td>';
-                    echo '<td>' . $row["cnpj"] . '</td>';
+                    echo '<td>' . $row["nomeF"] . '</td>';
 
                     
                     echo '<td align="center">
@@ -116,6 +118,50 @@ class produtoDAO{
             }
         }
         return $pro;
+    }
+
+    function listarBusca(conexao $con, $nome){
+        $consulta = "SELECT p.codigo, p.nome, p.marca, p.preco, p.descricao, p.quantidade, s.nomeF FROM Produto p, Supermercado s WHERE p.nome = '$nome' AND p.cnpj = s.cnpj";
+
+        $result = mysqli_query($con->conecta(), $consulta);
+
+        if (mysqli_num_rows($result) > 0) {
+            while ($row = mysqli_fetch_assoc($result)) { 
+                echo '<tr class="hoverable">';
+                    echo '<td>' . $row["codigo"] . '</td>';
+                    echo '<td>' . $row["nome"] . '</td>';
+                    echo '<td>' . $row["marca"] . '</td>';
+                    echo '<td>' . $row["descricao"] . '</td>';
+                    echo '<td>' . $row["quantidade"] . '</td>';
+                    echo '<td>' . $row["preco"] . '</td>';
+                    echo '<td>' . $row["nomeF"] . '</td>';
+
+                    
+                    /*echo '<td align="center">
+                             <form name="formItem1" action="../view/editar_pro.php" method="POST">
+                                    <button type="submit" name="editar1" value="" class="btn-primary" style="color: #4488FF;"><i class="material-icons prefix" title="Editar Produto">edit</i></button>
+                                    <input type="hidden" name="codigo" value="'.$row["codigo"].'">
+                                    </form>
+                                 </td>';*/
+
+                    /*echo '<td align="center">
+                             <form name="formItem1" action="../view/excluir_pro.php" method="POST">
+                                    <button type="submit" name="excluir1" value="" class="btn-primary" style="color: #FF0000;"><i class="material-icons prefix" title="Excluir Produto">delete</i></button>
+                                    <input type="hidden" name="codigo" value="'.$row["codigo"].'">
+                                    </form>
+                                 </td>';*/
+
+                    /*echo '<td align="center">
+                             <form name="formItem1" action="#openModal" method="POST">
+                                    <button type="submit" name="excluir2" value="" class="btn-primary" style="color: #FF0000;"><i class="material-icons prefix" title="Excluir Produto">delete</i></button>
+                                    <input type="hidden" name="codigo" value="'.$row["codigo"].'">
+                                    </form>
+                                 </td>';*/
+            }
+        }
+    
+        
+       //include 'modal_pro.php';
     }
 }
 

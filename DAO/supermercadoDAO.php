@@ -150,6 +150,49 @@ class supermercadoDAO{
         }
         return $sup;
     }
+
+    function listarBusca(conexao $con, $nomeSup){
+        $consulta = "SELECT cnpj, nomeF, nomeO, endereco, login, senha, valorMaximoDistancia, valorMinimoPreco FROM Supermercado WHERE nomeF = '$nomeSup'";
+        $result = mysqli_query($con->conecta(), $consulta);
+
+        if (mysqli_num_rows($result) > 0) {
+            while ($row = mysqli_fetch_assoc($result)) { 
+                echo '<tr class="hoverable">';
+                    echo '<td>' . $row["cnpj"] . '</td>';
+                    echo '<td>' . $row["nomeF"] . '</td>';
+                    echo '<td>' . $row["nomeO"] . '</td>';
+                    echo '<td>' . $row["endereco"] . '</td>';
+                    echo '<td>' . $row["login"] . '</td>';
+                    echo '<td>' . $row["senha"] . '</td>';
+                    echo '<td>' . $row["valorMaximoDistancia"] . '</td>';
+                    echo '<td>' . $row["valorMinimoPreco"] . '</td>';
+
+                    /*echo '<td align="center">
+                            <form name="formItem1" action="../view/editar_sup.php" method="POST">
+                                <button type="submit" name="editar1" value="" class="btn-primary" style="color: #4488FF;"><i class="material-icons prefix" title="Editar Supermercado">edit</i></button>
+                                    <input type="hidden" name="cnpj" value="'.$row["cnpj"].'">
+                            </form>
+                        </td>';*/
+
+                    /*echo '<td align="center">
+                            <form name="formItem1" action="../view/excluir_sup.php" method="POST">
+                                <button type="submit" name="excluir1" value="" class="btn-primary" style="color: #FF0000;"><i class="material-icons prefix" title="Excluir Supermercado">delete</i></button>
+                                    <input type="hidden" name="cnpj" value="'.$row["cnpj"].'">
+                            </form>
+                        </td>';*/
+                    
+                    /*echo '<td align="center">
+                            <form name="formItem1" action="#openModal" method="POST">
+                                <button type="submit" name="excluir1" value="" class="btn-primary" style="color: #FF0000;"><i class="material-icons prefix" title="Excluir Supermercado">delete</i></button>
+                                    <input type="hidden" name="cnpj" value="'.$row["cnpj"].'">
+                            </form>
+                        </td>';*/
+                    
+            }
+        }
+        
+     //include 'modal_sup.php';
+    }
 }
 
 

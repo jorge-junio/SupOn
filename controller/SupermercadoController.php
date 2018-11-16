@@ -102,6 +102,12 @@ class SupermercadoController {
         $supermercadoDAO = new supermercadoDAO();
         return $supermercadoDAO->selecionar($conexao, $supermercado);
     }
+
+    public function listaBusca($nomeSup) {
+        $conexao = new conexao();
+        $supermercadoDAO = new supermercadoDAO();
+        $supermercadoDAO->listarBusca($conexao, $nomeSup);
+    }
 }
 
 

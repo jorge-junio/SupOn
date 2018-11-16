@@ -72,6 +72,12 @@ class ProdutoController {
         return $produtoDAO->selecionar($conexao, $produto);
          
     }
+
+    public function listaBusca($nomeProd) {
+        $conexao = new conexao();
+        $produtoDAO = new produtoDAO();
+        $produtoDAO->listarBusca($conexao, $nomeProd);
+    }
 }
 
 $produto = new ProdutoController();
