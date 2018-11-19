@@ -72,6 +72,7 @@
 
 			$_SESSION['message'] = 'Seja bem-vindo, '.$_SESSION["nome_usuario"];
         	$_SESSION['type'] = 'green';
+        	$_SESSION['ativaMsg'] = 1;
 
 			exit('<script>location.href = "view/listar_fun.php"</script>');
 			

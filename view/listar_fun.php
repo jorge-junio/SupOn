@@ -3,10 +3,9 @@
 <html>
     <head>
         <?php
-
-        include "includes/headTop.html";
-        include "../DAO/conexao.php";
-        include "../controller/ClienteController.php";
+            include "includes/headTop.html";
+            include "../DAO/conexao.php";
+            include "../controller/ClienteController.php";
         ?>
     </head>
     <body>
