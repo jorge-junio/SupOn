@@ -10,7 +10,7 @@
         <div class="container">
             <div class="nav-wrapper">
                 <!-- Implementar carrinho --> 
-                <a href="../view/listar_fun.php" class="left brand-logo">  SupOn</a> 
+                <a href="./home.php" class="left brand-logo">  SupOn</a> 
                 <ul class="right">
                     <!-- Dropdown Trigger -->
                     <li><a href="../view/buscar_adm.php?q_b=&tipo_b=0&action=#">Buscar Produtos</a></li>

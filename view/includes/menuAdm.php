@@ -13,7 +13,7 @@
     <nav style="background: #37474f;">
         <div class="container">
             <div class="nav-wrapper">
-                <a href="listar_fun.php" class="left brand-logo">  SupOn</a>
+                <a href="./home.php" class="left brand-logo">  SupOn</a>
                 <ul class="right">
                     <!-- Dropdown Trigger -->
                     <li><a href="listar_fun.php">Clientes</a></li>
