@@ -8,11 +8,13 @@ class ClienteController {
     
     public function insereCliente() {
         //recuperando os dados do formulário
-        try {
-            $cpf = (INT) filter_input(INPUT_POST,"cpf",FILTER_SANITIZE_STRING);
-        } catch (Exception $e) {
-            //msg de erro: echo "cpf deve ser um número inteiro";
+        $cpf = (INT) filter_input(INPUT_POST,"cpf",FILTER_SANITIZE_STRING);
+        if ($cpf == 0) {
+            $_SESSION['message'] = 'Registro não foi cadastrado no sistema pois foi digitado string no campo cpf';
+            $_SESSION['type'] = 'red';
+            $_SESSION['ativaMsg'] = 1;
         }
+            
         $nome = filter_input(INPUT_POST,"nome",FILTER_SANITIZE_STRING);
         $endereco = filter_input(INPUT_POST,"endereco",FILTER_SANITIZE_STRING);
         $login = filter_input(INPUT_POST,"login",FILTER_SANITIZE_STRING);

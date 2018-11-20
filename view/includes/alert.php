@@ -28,5 +28,5 @@
             <?php $_SESSION['message'] = "";
                   $_SESSION['ativaMsg'] = 0;  ?>
         });
-    }, 3000);
+    }, 5000);
 </script>

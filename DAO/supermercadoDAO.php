@@ -14,9 +14,11 @@ class supermercadoDAO{
             if (($verifica->affected_rows) > 0) {
                 $_SESSION['message'] = 'Registro cadastrado com sucesso.';
                 $_SESSION['type'] = 'green';
+                $_SESSION['ativaMsg'] = 1;
             } else {
                 $_SESSION['message'] = 'Registro não foi cadastrado no sistema';
                 $_SESSION['type'] = 'red';
+                $_SESSION['ativaMsg'] = 1;
             }
         }
      }
@@ -31,9 +33,11 @@ class supermercadoDAO{
             if (($verifica->affected_rows) > 0) {
                 $_SESSION['message'] = 'Registro removido com sucesso.';
                 $_SESSION['type'] = 'green';
+                $_SESSION['ativaMsg'] = 1;
             } else {
                 $_SESSION['message'] = 'Registro não foi removido no sistema';
                 $_SESSION['type'] = 'red';
+                $_SESSION['ativaMsg'] = 1;
             }
         }
     }
@@ -126,9 +130,11 @@ class supermercadoDAO{
         if (($verifica->affected_rows) > 0) {
             $_SESSION['message'] = 'Registro alterado com sucesso.';
             $_SESSION['type'] = 'green';
+                $_SESSION['ativaMsg'] = 1;
         } else {
             $_SESSION['message'] = 'Registro não foi alterado no sistema';
             $_SESSION['type'] = 'red';
+                $_SESSION['ativaMsg'] = 1;
         }
     }
 
