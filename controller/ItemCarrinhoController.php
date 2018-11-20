@@ -4,7 +4,7 @@ include_once '../DAO/itemcarrinhoDAO.php';
 include_once '../DAO/conexao.php';
 include_once '../model/itemcarrinho.php';
 
-class ProdutoController {
+class ItemCarrinhoController {
 
     public function insereItemCarrinho() {
     
@@ -30,10 +30,10 @@ class ProdutoController {
     }
  
     public function excluiItemCarrinho() {
-            $codigo = $_POST['codigo'];
+            $codigo = $_POST['codCarrinho'];
             $conexao = new conexao();
             $itemcarrinho = new itemcarrinho();
-            $itemcarrinho->setCodigo($codigo);
+            $itemcarrinho->setcodcarrinho($codigo);
             $itemcarrinhoDAO = new itemcarrinhoDAO();
             $itemcarrinhoDAO->remover($conexao, $itemcarrinho);
         
@@ -57,7 +57,7 @@ class ProdutoController {
 
     }
 
-    public function selecionaCarrinho($codigo) {
+    public function selecionaItemCarrinho($codigo) {
 
         $conexao = new conexao();
         $itemcarrinho = new itemcarrinho();
@@ -77,10 +77,10 @@ class ProdutoController {
 $itemcarrinho = new ItemCarrinhoController();
 
 // se apertou casdastar, $cadastrar recebe $_POST['cadastrar(name do input)']...
-        $codigo = filter_input(INPUT_POST,"codigo",FILTER_SANITIZE_STRING);
-        $data = filter_input(INPUT_POST,"data",FILTER_SANITIZE_STRING);
-        $cpfCliente = filter_input(INPUT_POST,"cpfCliente",FILTER_SANITIZE_STRING);
-        $produtos = filter_input(INPUT_POST,"´produtos",FILTER_SANITIZE_STRING);
+        $codcarrinho = filter_input(INPUT_POST,"codcarrinho",FILTER_SANITIZE_STRING);
+        $codproduto = filter_input(INPUT_POST,"codproduto",FILTER_SANITIZE_STRING);
+        $qtdproduto = filter_input(INPUT_POST,"qtdproduto",FILTER_SANITIZE_STRING);
+        $valorproduto = filter_input(INPUT_POST,"valorproduto",FILTER_SANITIZE_STRING);
 
 if (isset($cadastrar)) {
     $itemcarrinho->insereItemCarrinho();

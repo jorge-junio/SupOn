@@ -4,21 +4,19 @@ include_once '../DAO/carrinhoDAO.php';
 include_once '../DAO/conexao.php';
 include_once '../model/carrinho.php';
 
-class ProdutoController {
+class CarrinhoController {
     //codigo, $data, $cpfCliente, $produtos
     public function insereCarrinho() {
     
         $codigo = filter_input(INPUT_POST,"codigo",FILTER_SANITIZE_STRING);
         $data = filter_input(INPUT_POST,"data",FILTER_SANITIZE_STRING);
         $cpfCliente = filter_input(INPUT_POST,"cpfCliente",FILTER_SANITIZE_STRING);
-        $produtos = filter_input(INPUT_POST,"´produtos",FILTER_SANITIZE_STRING);
         
         $conexao = new conexao();
         $carrinho = new carrinho();
         $carrinho->setCodigo($codigo);
         $carrinho->setData($data);
         $carrinho->setCpfCliente($cpfCliente);
-        $carrinho->setProdutos($produtos);
         $carrinhoDAO = new carrinhoDAO();
         $carrinhoDAO->adicionar($conexao, $carrinho);
     }
@@ -43,14 +41,12 @@ class ProdutoController {
         $codigo = filter_input(INPUT_POST,"codigo",FILTER_SANITIZE_STRING);
         $data = filter_input(INPUT_POST,"data",FILTER_SANITIZE_STRING);
         $cpfCliente = filter_input(INPUT_POST,"cpfCliente",FILTER_SANITIZE_STRING);
-        $produtos = filter_input(INPUT_POST,"´produtos",FILTER_SANITIZE_STRING);
                 
         $conexao = new conexao();
         $carrinho = new carrinho();
         $carrinho->setCodigo($codigo);
         $carrinho->setData($data);
         $carrinho->setCpfCliente($cpfCliente);
-        $carrinho->setProdutos($produtos);
         $carrinhoDAO = new carrinhoDAO();
         $carrinhoDAO->alterar($conexao, $carrinho);
         
@@ -80,8 +76,7 @@ $carrinho = new CarrinhoController();
         $codigo = filter_input(INPUT_POST,"codigo",FILTER_SANITIZE_STRING);
         $data = filter_input(INPUT_POST,"data",FILTER_SANITIZE_STRING);
         $cpfCliente = filter_input(INPUT_POST,"cpfCliente",FILTER_SANITIZE_STRING);
-        $produtos = filter_input(INPUT_POST,"´produtos",FILTER_SANITIZE_STRING);
-
+//fazer views e concertar
 if (isset($cadastrar)) {
     $carrinho->insereCarrinho();
     header("Location: ../view/listar_carrinho.php");
