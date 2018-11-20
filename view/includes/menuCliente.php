@@ -10,10 +10,10 @@
         <div class="container">
             <div class="nav-wrapper">
                 <!-- Implementar carrinho --> 
-                <a href="./home.php" class="left brand-logo">  SupOn</a> 
+                <a href="./home.php" class="left brand-logo">  SUPON</a> 
                 <ul class="right">
                     <!-- Dropdown Trigger -->
-                    <li><a href="../view/buscar_adm.php?q_b=&tipo_b=0&action=#">Buscar Produtos</a></li>
+                    <li><a href="../view/cli_buscar_super.php?q_b=&tipo_b=0&action=#">Buscar Produtos</a></li>
                     <li><a href="./cli_carrinho.php">Carrinho</a></li>
                     <li><a class="dropdown-button" href="index.html" data-activates="dropdown4"><i class="material-icons left">account_circle</i> <?php echo $_SESSION["nome_usuario"]; ?><i class="material-icons right">arrow_drop_down</i></a></li>
                 </ul>

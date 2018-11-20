@@ -6,7 +6,7 @@
           <p></p>
         </div>
         <div class="card-action">
-          <a href="#">This is a link</a>
+          <a href="#">Visitar</a>
         </div>
       </div>
     </div>
@@ -17,7 +17,7 @@
           <p></p>
         </div>
         <div class="card-action">
-          <a href="#">This is a link</a>
+          <a href="#">Visitar</a>
         </div>
       </div>
     </div>
@@ -28,7 +28,7 @@
           <p></p>
         </div>
         <div class="card-action">
-          <a href="#">This is a link</a>
+          <a href="#">Visitar</a>
         </div>
       </div>
     </div>

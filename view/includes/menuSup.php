@@ -9,7 +9,7 @@
     <nav style="background: #37474f;">
         <div class="container">
             <div class="nav-wrapper">
-                <a href="./home.php" class="left brand-logo">  SupOn</a>
+                <a href="./home.php" class="left brand-logo">  SUPON</a>
                 <ul class="right">
                     <!-- Dropdown Trigger -->
                     <li><a href="sup_buscar_produto.php?q_b=&action=#">Buscar Produtos</a></li>

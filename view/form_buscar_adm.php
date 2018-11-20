@@ -3,7 +3,7 @@
     <div class="row">
         <div class="section"></div>
         <div class="input-field">
-            <i class="material-icons prefix">description</i>
+            <i class="material-icons prefix">search</i>
             <input id="first_name2" type="text" name="q_b">
             <label for="first_name2">Nome</label>
         </div>

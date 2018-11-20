@@ -54,7 +54,7 @@
                     <div class="row">
                         <div class="input-field col s12">
                             <input id="quantidade" type="text" class="validate" name="quantidade" required />
-                            <label><i class="material-icons left">insert_comment</i>Quantidade</label>
+                            <label><i class="material-icons left">playlist_add_check</i>Quantidade</label>
                         </div>
                     </div>
 
