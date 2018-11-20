@@ -56,7 +56,7 @@
         $_SESSION['type'] = 'green';
         $_SESSION['ativaMsg'] = 1;
 
-		exit('<script>location.href = "view/listar_fun.php"</script>');
+		exit('<script>location.href = "view/home.php"</script>');
 		
 	}else{
 		$consulta = "SELECT * FROM Supermercado WHERE login = '$login' and senha = '$senha' "; 
@@ -74,7 +74,7 @@
         	$_SESSION['type'] = 'green';
         	$_SESSION['ativaMsg'] = 1;
 
-			exit('<script>location.href = "view/listar_fun.php"</script>');
+			exit('<script>location.href = "view/home.php"</script>');
 			
 		}else{
 			exit('<script>location.href = "index.html"</script>');
