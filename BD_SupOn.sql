@@ -60,8 +60,7 @@ CREATE TABLE Item_Carrinho(
     qtdProduto INT NOT NULL,
     valorProduto FLOAT NOT NULL,
     codProduto INT NOT NULL,
-    PRIMARY KEY(codCarrinho),
-    PRIMARY KEY(codProduto),
+    PRIMARY KEY(codCarrinho, codProduto),
     FOREIGN KEY(codCarrinho) REFERENCES Carrinho(codigo),
     FOREIGN KEY(codProduto) REFERENCES Produto(codigo)
 );
