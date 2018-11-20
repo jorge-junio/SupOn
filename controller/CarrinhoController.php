@@ -35,7 +35,7 @@ class ProdutoController {
             $carrinho = new carrinho();
             $carrinho->setCodigo($codigo);
             $carrinhoDAO = new carrinhoDAO();
-            $carrinhooDAO->remover($conexao, $carrinho);
+            $carrinhoDAO->remover($conexao, $carrinho);
         
     }
     
