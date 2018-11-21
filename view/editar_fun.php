@@ -65,7 +65,7 @@
                     <div class="row">
                         <div class="input-field col s12">
                             <input  id="endereco" type="text" class="validate" name="endereco" value="<?php echo $cliente->getEndereco(); ?>" />
-                            <label class="active" for="endereco"><i class="material-icons left">location_on</i>Endereço</label>
+                            <label class="active" for="endereco"><i class="material-icons left">location_on</i>Endereço (Ex: rua, bairro, número da casa)</label>
                         </div>
                     </div>
 

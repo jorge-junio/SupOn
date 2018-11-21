@@ -96,19 +96,19 @@ $direcionaListar = filter_input(INPUT_POST,"direcionaListar",FILTER_SANITIZE_STR
 
 if (isset($cadastrar)) {
     $produto->insereProduto();
-    header("Location: ../view/listar_pro.php");
+    header("Location: ../view/home.php");
 }
 
 if (isset($excluir)) {
     $produto->excluiProduto();
-    header("Location: ../view/listar_pro.php");
+    header("Location: ../view/home.php");
 }
 
 if (isset($editar)) {
     $produto->editaProduto();
-    header("Location: ../view/listar_pro.php");
+    header("Location: ../view/home.php");
 }
 
 if (isset($direcionaListar)) {
-    header("Location: ../view/listar_pro.php");
+    header("Location: ../view/home.php");
 }

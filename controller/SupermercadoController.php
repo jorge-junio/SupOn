@@ -122,24 +122,24 @@ $direcionaListar = filter_input(INPUT_POST,"direcionaListar",FILTER_SANITIZE_STR
 
 if (isset($cadastrar)) {
     $supermercado->insereSupermercado();
-    header("Location: ../view/listar_sup.php");
+    header("Location: ../view/home.php");
 }
 
 if (isset($excluir)) {
     $supermercado->excluiSupermercado();
-    header("Location: ../view/listar_sup.php");
+    header("Location: ../view/home.php");
 }
 
 if (isset($editar)) {
     $supermercado->editaSupermercado();
-    header("Location: ../view/listar_sup.php");
+    header("Location: ../view/home.php");
 }
 
 if (isset($editarPerfil)) {
     $supermercado->editaSupermercado();
-    header("Location: ../view/editarPerfil_sup.php");
+    header("Location: ../view/home.php");
 }
 
 if (isset($direcionaListar)) {
-    header("Location: ../view/listar_sup.php");
+    header("Location: ../view/home.php");
 }
