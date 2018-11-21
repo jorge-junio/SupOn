@@ -78,6 +78,12 @@ class ProdutoController {
         $produtoDAO = new produtoDAO();
         $produtoDAO->listarBusca($conexao, $nomeProd);
     }
+
+    public function listaBuscaEsp($nomeProd, $cnpj) {
+        $conexao = new conexao();
+        $produtoDAO = new produtoDAO();
+        $produtoDAO->listarBuscaEsp($conexao, $nomeProd, $cnpj);
+    }
 }
 
 $produto = new ProdutoController();

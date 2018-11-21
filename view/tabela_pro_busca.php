@@ -14,8 +14,12 @@
     </thead>
     <tbody>
         <?php
-        $ProdutoController = new ProdutoController();
-        $ProdutoController->listaBusca($b_nome);
+            $ProdutoController = new ProdutoController();
+            if ($_SESSION['permissao'] == 'cli') {
+                $ProdutoController->listaBuscaEsp($b_nome, $cnpj);
+            }else{
+                $ProdutoController->listaBusca($b_nome); 
+            }
         ?>
     </tbody>
 </table>

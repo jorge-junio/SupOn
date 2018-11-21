@@ -299,6 +299,51 @@ class produtoDAO{
         }
         
     }
+
+    function listarBuscaEsp(conexao $con, $nome, $cnpj){
+
+        if ($_SESSION['permissao'] == "cli") {
+            $consulta = "SELECT p.codigo, p.nome, p.marca, p.preco, p.descricao, p.quantidade, s.nomeF FROM Produto p, Supermercado s WHERE p.nome = '$nome' AND p.cnpj = s.cnpj AND s.cnpj = '$cnpj'";
+
+            $result = mysqli_query($con->conecta(), $consulta);
+
+            if (mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_assoc($result)) { 
+                    echo '<tr class="hoverable">';
+                        echo '<td>' . $row["codigo"] . '</td>';
+                        echo '<td>' . $row["nome"] . '</td>';
+                        echo '<td>' . $row["marca"] . '</td>';
+                        echo '<td>' . $row["descricao"] . '</td>';
+                        echo '<td>' . $row["quantidade"] . '</td>';
+                        echo '<td>' . $row["preco"] . '</td>';
+                        echo '<td>' . $row["nomeF"] . '</td>';
+
+                        
+                        echo '<td align="center">
+                                 <form name="formItem1" action="#" method="POST">
+                                        <button type="submit" name="editar1" value="" class="btn-primary" style="color: #4488FF;"><i class="material-icons prefix" title="Adicionar produto ao Carrinho">add_shopping_cart</i></button>
+                                        <input type="hidden" name="codigo" value="'.$row["codigo"].'">
+                                        </form>
+                                     </td>';
+
+                        /*echo '<td align="center">
+                                 <form name="formItem1" action="../view/excluir_pro.php" method="POST">
+                                        <button type="submit" name="excluir1" value="" class="btn-primary" style="color: #FF0000;"><i class="material-icons prefix" title="Excluir Produto">delete</i></button>
+                                        <input type="hidden" name="codigo" value="'.$row["codigo"].'">
+                                        </form>
+                                     </td>';*/
+
+                        /*echo '<td align="center">
+                                 <form name="formItem1" action="#openModal" method="POST">
+                                        <button type="submit" name="excluir2" value="" class="btn-primary" style="color: #FF0000;"><i class="material-icons prefix" title="Excluir Produto">delete</i></button>
+                                        <input type="hidden" name="codigo" value="'.$row["codigo"].'">
+                                        </form>
+                                     </td>';*/
+                }
+            }
+           //include 'modal_pro.php';
+        }
+    }
 }
 
 
