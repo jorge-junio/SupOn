@@ -42,9 +42,12 @@ class carrinho {
         $this->cpfCliente = $cpfCliente;
     }
 
-    function setProdutos($produtos) {
-        $this->produtos = $produtos;
+    function setProdutos($itemCarrinho) {
+        array_push($this->produtos, $itemCarrinho);
     }
-
+    
+    function limpaProdutos(){
+        unset($this->produtos);
+    }
 
 }

@@ -6,19 +6,8 @@ include_once '../model/itemcarrinho.php';
 
 class ItemCarrinhoController {
 
-    public function insereItemCarrinho() {
-    
-        $codcarrinho = filter_input(INPUT_POST,"codcarrinho",FILTER_SANITIZE_STRING);
-        $codproduto = filter_input(INPUT_POST,"codproduto",FILTER_SANITIZE_STRING);
-        $qtdproduto = filter_input(INPUT_POST,"qtdproduto",FILTER_SANITIZE_STRING);
-        $valorproduto = filter_input(INPUT_POST,"valorproduto",FILTER_SANITIZE_STRING);
-        
+    public function insereItemCarrinho(itemCarrinho $itemcarrinho) {
         $conexao = new conexao();
-        $itemcarrinho = new itemcarrinho();
-        $itemcarrinho->setcodcarrinho($codcarrinho);
-        $itemcarrinho->setcodproduto($codproduto);
-        $itemcarrinho->setqtdproduto($qtdproduto);
-        $itemcarrinho->setvalorproduto($valorproduto);
         $itemcarrinhoDAO = new itemcarrinhoDAO();
         $itemcarrinhoDAO->adicionar($conexao, $itemcarrinho);
     }
