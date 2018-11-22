@@ -78,6 +78,12 @@ class ProdutoController {
         $produtoDAO = new produtoDAO();
         $produtoDAO->listarBusca($conexao, $nomeProd);
     }
+
+    public function listaBuscaEsp($nomeProd, $cnpj) {
+        $conexao = new conexao();
+        $produtoDAO = new produtoDAO();
+        $produtoDAO->listarBuscaEsp($conexao, $nomeProd, $cnpj);
+    }
 }
 
 $produto = new ProdutoController();
@@ -90,19 +96,19 @@ $direcionaListar = filter_input(INPUT_POST,"direcionaListar",FILTER_SANITIZE_STR
 
 if (isset($cadastrar)) {
     $produto->insereProduto();
-    header("Location: ../view/listar_pro.php");
+    header("Location: ../view/home.php");
 }
 
 if (isset($excluir)) {
     $produto->excluiProduto();
-    header("Location: ../view/listar_pro.php");
+    header("Location: ../view/home.php");
 }
 
 if (isset($editar)) {
     $produto->editaProduto();
-    header("Location: ../view/listar_pro.php");
+    header("Location: ../view/home.php");
 }
 
 if (isset($direcionaListar)) {
-    header("Location: ../view/listar_pro.php");
+    header("Location: ../view/home.php");
 }

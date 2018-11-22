@@ -38,7 +38,7 @@
 
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="cpf" type="text" class="validate" name="cpf" required="" data-length="11"/>
+                            <input id="Cpf" type="text" class="validate" name="cpf" required="" data-length="11"/>
                             <label><i class="material-icons left">verified_user</i>CPF (digite somente números Ex: 12345678910)</label>
                         </div>
                     </div>

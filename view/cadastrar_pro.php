@@ -54,14 +54,14 @@
                     <div class="row">
                         <div class="input-field col s12">
                             <input id="quantidade" type="text" class="validate" name="quantidade" required />
-                            <label><i class="material-icons left">playlist_add_check</i>Quantidade</label>
+                            <label><i class="material-icons left">playlist_add_check</i>Quantidade (digite somente números)</label>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field col s12">
                             <input id="valor" type="text" class="validate" name="valor" required />
-                            <label><i class="material-icons left">monetization_on</i>Valor</label>
+                            <label><i class="material-icons left">monetization_on</i>Valor (digite usando números e pontos Ex: 5.50)</label>
                         </div>
                     </div>
 

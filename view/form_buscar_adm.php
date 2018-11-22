@@ -1,4 +1,4 @@
-<form class="col s8 offset-s2" action="#">
+<form class="col s8 offset-s2" method="post" action="#">
 
     <div class="row">
         <div class="section"></div>

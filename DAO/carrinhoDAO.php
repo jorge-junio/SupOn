@@ -1,5 +1,5 @@
 <?php
-
+include_once '../model/itemCarrinho.php';
 class carrinhoDAO {
     function adicionar(conexao $con, carrinho $car){
         if($car->getCpf_cliente() != 0){
@@ -18,7 +18,7 @@ class carrinhoDAO {
     }
     
     function listar(conexao $con){
-        $consulta = "SELECT codigo, data, cpfCliente FROM Carrinho";
+        $consulta = "SELECT codigo, data, cpfCliente FROM Carrinho where cpfCliente = ".$_SESSION['id_usuario'];
 
         $result = mysqli_query($con->conecta(), $consulta);
 
@@ -95,24 +95,5 @@ class carrinhoDAO {
      //include 'modal_fun.php';
         
     }
-
-    function alterar(conexao $con, carrinho $car){
-        $consulta = "UPDATE Carrinho SET codigo = '{$car->getCodigo()}', data = '{$car->getData()}', 
-            cpfCliente = '{$car->getCpfCliente()}' WHERE codigo = '{$car->getCodigo()}' ";
-        mysqli_query($con->conecta(), $consulta);
-    }
-
-    function selecionar(conexao $con, carrinho $car){
-        $consulta = "SELECT data, cpfCliente WHERE codigo = '{$car->getCodigo()}' ";
-        $result = mysqli_query($con->conecta(), $consulta);
-
-        if (mysqli_num_rows($result) > 0) {
-            while ($row = mysqli_fetch_assoc($result)) {
-                $car->setData($row["data"]);
-                $car->setCpfCliente($row["cpfCliente"]);
-             
-            }
-        }
-        return $car;
-    }
+    
 }

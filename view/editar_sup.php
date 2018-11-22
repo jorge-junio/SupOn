@@ -70,7 +70,7 @@
                     <div class="row">
                         <div class="input-field col s12">
                             <input id="endereco" type="text" class="validate" name="endereco" required="" value="<?php echo $supermercado->getEndereco(); ?>" />
-                            <label class="active"><i class="material-icons left">location_on</i>Endereço</label>
+                            <label class="active"><i class="material-icons left">location_on</i>Endereço (Ex: rua, bairro, número da casa)</label>
                         </div>
                     </div>
 
@@ -91,14 +91,14 @@
                     <div class="row">
                         <div class="input-field col s12">
                             <input id="valorMaximoDistancia" type="text" class="validate" name="valorMaximoDistancia" required="" value="<?php echo $supermercado->getDistanciaMax(); ?>"  />
-                            <label class="active"><i class="material-icons left">explore</i>Distância Máxima de Entrega</label>
+                            <label class="active"><i class="material-icons left">explore</i>Distância Máxima de Entrega (digite somente números)</label>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field col s12">
                             <input id="valorMinimoPreco" type="text" class="validate" name="valorMinimoPreco" required="" value="<?php echo $supermercado->getValorMinimo(); ?>"  />
-                            <label class="active"><i class="material-icons left">work</i>Valor Mínimo de Entrega</label>
+                            <label class="active"><i class="material-icons left">work</i>Valor Mínimo de Entrega (digite usando números e pontos Ex: 5.50)</label>
                         </div>
                     </div>
 

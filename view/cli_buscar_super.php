@@ -28,7 +28,7 @@
                     </div>
 
 <!-- ******************************* Busca por Supermercado **************************************** -->
-                    <form class="col s12" action="#">
+                    <form class="col s12" method="post" action="#">
 
                         <div class="row">
                             <div class="section"></div>

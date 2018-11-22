@@ -45,15 +45,15 @@
 
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="cnpj" type="text" class="validate" name="cnpj" required />
-                            <label><i class="material-icons left">verified_user</i>CNPJ</label>
+                            <input id="cnpj" type="text" class="validate" name="cnpj" required="" data-length="14"//>
+                            <label><i class="material-icons left">verified_user</i>CNPJ (digite somente números Ex: 12345678910121)</label>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field col s12">
                             <input id="endereco" type="text" class="validate" name="endereco" required />
-                            <label><i class="material-icons left">location_on</i>Endereço</label>
+                            <label><i class="material-icons left">location_on</i>Endereço (Ex: rua, bairro, número da casa)</label>
                         </div>
                     </div>
 
@@ -74,14 +74,14 @@
                     <div class="row">
                         <div class="input-field col s12">
                             <input id="valorMaximoDistancia" type="text" class="validate" name="valorMaximoDistancia" required />
-                            <label><i class="material-icons left">explore</i>Distância Máxima de Entrega</label>
+                            <label><i class="material-icons left">explore</i>Distância Máxima de Entrega (digite somente números)</label>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field col s12">
                             <input id="valorMinimoPreco" type="text" class="validate" name="valorMinimoPreco" required />
-                            <label><i class="material-icons left">work</i>Valor Mínimo de Entrega</label>
+                            <label><i class="material-icons left">work</i>Valor Mínimo de Entrega (digite usando números e ponto Ex: 5.50)</label>
                         </div>
                     </div>
 

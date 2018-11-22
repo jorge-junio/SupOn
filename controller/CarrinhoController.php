@@ -3,20 +3,19 @@
 include_once '../DAO/carrinhoDAO.php';
 include_once '../DAO/conexao.php';
 include_once '../model/carrinho.php';
+include "ItemCarrinhoController.php";
 
 class CarrinhoController {
     //codigo, $data, $cpfCliente, $produtos
     public function insereCarrinho() {
     
-        $codigo = filter_input(INPUT_POST,"codigo",FILTER_SANITIZE_STRING);
         $data = filter_input(INPUT_POST,"data",FILTER_SANITIZE_STRING);
-        $cpfCliente = filter_input(INPUT_POST,"cpfCliente",FILTER_SANITIZE_STRING);
+
         
         $conexao = new conexao();
         $carrinho = new carrinho();
-        $carrinho->setCodigo($codigo);
         $carrinho->setData($data);
-        $carrinho->setCpfCliente($cpfCliente);
+        $carrinho->setCpfCliente($_SESSION['id_usuario']);
         $carrinhoDAO = new carrinhoDAO();
         $carrinhoDAO->adicionar($conexao, $carrinho);
     }
@@ -68,6 +67,19 @@ class CarrinhoController {
         $carrinhoDAO = new carrinhoDAO();
         $carrinhoDAO->listarBusca($conexao, $codCarrinho);
     }
+    
+    
+    public function finalizarCompra(carrinho $car){
+        foreach($car->getProdutos() as $ic){
+            $itemCarControl = new ItemCarrinhoController();
+            $itemCarControl->insereItemCarrinho($ic);
+            
+        }
+        $car->limpaProdutos();
+            
+    }
+    
+    
 }
 
 $carrinho = new CarrinhoController();

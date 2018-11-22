@@ -77,14 +77,14 @@
                     <div class="row">
                         <div class="input-field col s12">
                             <input id="quantidade" type="text" class="validate" name="quantidade" required="" value="<?php echo $produto->getQtd(); ?>" />
-                            <label class="active"><i class="material-icons left">playlist_add_check</i>Quantidade</label>
+                            <label class="active"><i class="material-icons left">playlist_add_check</i>Quantidade (digite somente números)</label>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field col s12">
                             <input id="valor" type="text" class="validate" name="valor" required="" value="<?php echo $produto->getValor(); ?>" />
-                            <label class="active"><i class="material-icons left">monetization_on</i>Valor</label>
+                            <label class="active"><i class="material-icons left">monetization_on</i>Valor (digite usando números e ponto Ex: 5.50)</label>
                         </div>
                     </div>
 

@@ -4,8 +4,8 @@
 </ul>
 
 <ul id="dropdown3" class="dropdown-content">
-    <li><a href="buscar_adm.php?q_b=&action=#">Produto</a></li>
-    <li><a href="buscar_adm_sup.php?q_b=&action=#">Supermercado</a></li>
+    <li><a href="buscar_adm.php">Produto</a></li>
+    <li><a href="buscar_adm_sup.php">Supermercado</a></li>
 </ul>
 
 <div class="navbar-fixed">

@@ -118,4 +118,45 @@ class itemCarrinhoDAO {
         }
         return $icar;
     }
+    
+    //alterar para imprimir direto na tabela
+    function listarItens(conexao $con, carrinho $car){
+        $consulta = "SELECT codCarrinho, codProduto, qtdProduto, valorProduto FROM Item_Carrinho where codCarrinho = '{$car->getCodigo()}'";
+
+        $result = mysqli_query($con->conecta(), $consulta);
+        
+        if (mysqli_num_rows($result) > 0) {
+            while ($row = mysqli_fetch_assoc($result)) { 
+                echo '<tr class="hoverable">';
+                    echo '<td>' . $row["codCarrinho"] . '</td>';
+                    echo '<td>' . $row["codProduto"] . '</td>';
+                    echo '<td>' . $row["qtdProduto"] . '</td>';
+                    echo '<td>' . $row["valorProduto"] . '</td>';
+                    
+                    //deve ser alterado
+                    /*echo '<td align="center">
+                             <form name="formItem1" action="../view/editar_fun.php" method="POST">
+                                    <button type="submit" name="editar1" value="" class="btn-primary" style="color: #4488FF;"><i class="material-icons prefix" title="Editar Cliente">edit</i></button>
+                                    <input type="hidden" name="cpf" value="'.$row["cpf"].'">
+                                    </form>
+                                 </td>'; */
+                    
+
+                    /*echo '<td align="center">
+                             <form name="formItem1" action="../view/excluir_fun.php" method="POST">
+                                    <button type="submit" name="excluir1" value="" class="btn-primary" style="color: #FF0000;"><i class="material-icons prefix" title="Editar Cliente">delete</i></button>
+                                    <input type="hidden" name="cpf" value="'.$row["cpf"].'">
+                                    </form>
+                                 </td>';*/
+                    
+                    //deve ser alterado
+                    /*echo '<td align="center">
+                             <form name="formItem1" action="#openModal" method="POST">
+                                    <button type="submit" name="excluir1" value="" class="btn-primary" style="color: #FF0000;"><i class="material-icons prefix" title="Editar Cliente">delete</i></button>
+                                    <input type="hidden" name="cpf" value="'.$row["cpf"].'">
+                                    </form>
+                                 </td>'; */
+            }
+        }
+    }
 }

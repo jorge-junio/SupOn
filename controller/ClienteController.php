@@ -89,17 +89,17 @@ $direcionaLogin = filter_input(INPUT_POST,"direcionaLogin",FILTER_SANITIZE_STRIN
 
 if (isset($cadastrar)) {
     $cliente->insereCliente();
-    header("Location: ../view/listar_fun.php");
+    header("Location: ../view/home.php");
 }
 
 if (isset($excluir)) {
     $cliente->excluiCliente();
-    header("Location: ../view/listar_fun.php");
+    header("Location: ../view/home.php");
 }
 
 if (isset($editar)) {
     $cliente->editaCliente();
-    header("Location: ../view/listar_fun.php");
+    header("Location: ../view/home.php");
 }
 
 if (isset($editarPerfil)) {
@@ -108,7 +108,7 @@ if (isset($editarPerfil)) {
 }
 
 if (isset($direcionaListar)) {
-    header("Location: ../view/listar_fun.php");
+    header("Location: ../view/home.php");
 }
 
 if (isset($direcionaLogin)) {
