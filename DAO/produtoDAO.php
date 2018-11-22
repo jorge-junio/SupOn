@@ -88,8 +88,8 @@ class produtoDAO{
                 }
             }
         
-            
-           include 'modal_pro.php';
+            include 'cli_modal_quantidade.php'; 
+            include 'modal_pro.php';
         }elseif ($_SESSION['permissao'] == "sup") {
             //$consulta = "SELECT codigo, nome, marca, preco, descricao, quantidade, cnpj FROM Produto";
 
