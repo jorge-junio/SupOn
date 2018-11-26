@@ -66,7 +66,7 @@
 
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="senha" type="tel" class="validate" name="senha" required>
+                            <input id="senha" type="password" class="validate" name="senha" required>
                             <label><i class="material-icons left">vpn_key</i>Senha</label>
                         </div>
                     </div>

@@ -192,12 +192,9 @@ class supermercadoDAO{
             }elseif ($_SESSION['permissao'] == "cli") {
                  while ($row = mysqli_fetch_assoc($result)) { 
                     echo '<tr class="hoverable">';
-                        echo '<td>' . $row["cnpj"] . '</td>';
                         echo '<td>' . $row["nomeF"] . '</td>';
                         echo '<td>' . $row["nomeO"] . '</td>';
                         echo '<td>' . $row["endereco"] . '</td>';
-                        echo '<td>' . $row["login"] . '</td>';
-                        echo '<td>' . $row["senha"] . '</td>';
                         echo '<td>' . $row["valorMaximoDistancia"] . '</td>';
                         echo '<td>' . $row["valorMinimoPreco"] . '</td>';
 
