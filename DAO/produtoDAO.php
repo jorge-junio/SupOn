@@ -215,7 +215,7 @@ class produtoDAO{
             }
         
             
-           //include 'modal_pro.php';
+           include 'modal_pro.php';
         }elseif ($_SESSION['permissao'] == "adm") {
             $consulta = "SELECT p.codigo, p.nome, p.marca, p.preco, p.descricao, p.quantidade, s.nomeF FROM Produto p, Supermercado s WHERE p.nome = '$nome' AND p.cnpj = s.cnpj";
 
@@ -250,7 +250,7 @@ class produtoDAO{
             }
         
             
-           include 'modal_pro.php';
+           //include 'modal_pro.php';
         }elseif ($_SESSION['permissao'] == "sup") {
             $cnpj1 = $_SESSION['id_usuario'];
             //$consulta = "SELECT p.codigo, p.nome, p.marca, p.preco, p.descricao, p.quantidade, s.nomeF FROM Produto p WHERE p.nome = '$nome' AND p.cnpj = '$cnpj1'";
@@ -320,7 +320,7 @@ class produtoDAO{
 
                         
                         echo '<td align="center">
-                                 <form name="formItem1" action="#" method="POST">
+                                 <form name="formItem1" action="#openModalQnt" method="POST">
                                         <button type="submit" name="editar1" value="" class="btn-primary" style="color: #4488FF;"><i class="material-icons prefix" title="Adicionar produto ao Carrinho">add_shopping_cart</i></button>
                                         <input type="hidden" name="codigo" value="'.$row["codigo"].'">
                                         </form>
@@ -341,7 +341,7 @@ class produtoDAO{
                                      </td>';*/
                 }
             }
-           //include 'modal_pro.php';
+           include 'cli_modal_quantidade.php';
         }
     }
 }
