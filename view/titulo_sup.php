@@ -3,7 +3,7 @@
 <div class="raw" style="text-align: right; font-size: 16px; ">
 
     <div class="input-field">
-        <a href="cadastrar_sup.php" style="color: #00C853;" title="Cadastrar Supermercado">Cadastrar <i class=" material-icons">person_add</i></a>
+        <a href="cadastrar_sup.php" style="color: #0f9d58;" title="Cadastrar Supermercado">Cadastrar <i class=" material-icons">person_add</i></a>
     </div>
     <div class="section"></div><div class="section"></div>
 </div>
