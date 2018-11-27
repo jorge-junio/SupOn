@@ -2,7 +2,7 @@
 
 include_once '../DAO/carrinhoDAO.php';
 include_once '../DAO/conexao.php';
-include_once '../model/carrinho.php';
+//include_once '../model/carrinho.php';
 include "ItemCarrinhoController.php";
 
 class CarrinhoController {
@@ -79,6 +79,22 @@ class CarrinhoController {
             
     }
     
+    public function adicionaAoCarrinho(){
+        $codigo = filter_input(INPUT_POST,"codigo",FILTER_SANITIZE_STRING);
+        $data = filter_input(INPUT_POST,"data",FILTER_SANITIZE_STRING);
+        $cpfCliente = filter_input(INPUT_POST,"cpfCliente",FILTER_SANITIZE_STRING);
+
+        array_push($_SESSION["nomes"], $produto);
+        array_push($_SESSION["nomes"], $produto);
+        array_push($_SESSION["nomes"], $produto);
+        
+        $conexao = new conexao();
+        $itemCarrinho = new itemCarrinho();
+        $carrinho->setData($data);
+        $carrinho->setCpfCliente($_SESSION['id_usuario']);
+        $carrinhoDAO = new carrinhoDAO();
+        $carrinhoDAO->adicionar($conexao, $carrinho);
+    }
     
 }
 
@@ -88,6 +104,7 @@ $carrinho = new CarrinhoController();
         $codigo = filter_input(INPUT_POST,"codigo",FILTER_SANITIZE_STRING);
         $data = filter_input(INPUT_POST,"data",FILTER_SANITIZE_STRING);
         $cpfCliente = filter_input(INPUT_POST,"cpfCliente",FILTER_SANITIZE_STRING);
+        $adicionaAoCarrinho = filter_input(INPUT_POST,"adicionaAoCarrinho",FILTER_SANITIZE_STRING);
 //fazer views e concertar
 if (isset($cadastrar)) {
     $carrinho->insereCarrinho();
@@ -106,4 +123,9 @@ if (isset($editar)) {
 
 if (isset($direcionaListar)) {
     header("Location: ../view/listar_carrinho.php");
+}
+
+if (isset($adicionaAoCarrinho)) {
+    $carrinho->adicionaAoCarrinho();
+    header("Location: ../view/home.php");
 }

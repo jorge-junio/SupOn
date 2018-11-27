@@ -81,7 +81,7 @@ class clienteDAO{
             }
         }
         
-     include 'modal_fun.php';
+        include 'modal_fun.php';
         
     }
 

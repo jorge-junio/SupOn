@@ -6,11 +6,19 @@
         include "includes/headTop.html";
         include "../DAO/conexao.php";
         include "../controller/ClienteController.php";
+        include "../model/produto.php";
         ?>
     </head>
     <body>
 
         <?php
+        /*
+        for ($i=0; $i <= 3 ; $i++) { 
+            echo "---> codigo = ".$_SESSION["codigoProduto"][$i];
+            echo " ,quantidade = ".$_SESSION["qtdProduto"][$i];
+            echo " ,preco = ".$_SESSION["precoProduto"][$i];
+        }*/
+        
         include "../menu.php";
         ?>
 

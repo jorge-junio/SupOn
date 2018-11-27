@@ -14,7 +14,8 @@
                 <ul class="right">
                     <!-- Dropdown Trigger -->
                     <li><a href="../view/cli_buscar_super.php">Buscar Produtos</a></li>
-                    <li><a href="./cli_carrinho.php">Carrinho</a></li>
+                    <li><a href="./cli_compras.php">Compras</a></li>
+                    <li><a href="cli_carrinho.php">Carrinho</a></li>
                     <li><a class="dropdown-button" href="index.html" data-activates="dropdown4"><i class="material-icons left">account_circle</i> <?php echo $_SESSION["nome_usuario"]; ?><i class="material-icons right">arrow_drop_down</i></a></li>
                 </ul>
 

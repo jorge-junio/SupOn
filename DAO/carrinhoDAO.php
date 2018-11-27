@@ -18,7 +18,7 @@ class carrinhoDAO {
     }
     
     function listar(conexao $con){
-        $consulta = "SELECT codigo, data, cpfCliente FROM Carrinho where cpfCliente = ".$_SESSION['id_usuario'];
+        $consulta = "SELECT codigo, data FROM Carrinho where cpfCliente = ".$_SESSION['id_usuario'];
 
         $result = mysqli_query($con->conecta(), $consulta);
 
@@ -27,15 +27,14 @@ class carrinhoDAO {
                 echo '<tr class="hoverable">';
                     echo '<td>' . $row["codigo"] . '</td>';
                     echo '<td>' . $row["data"] . '</td>';
-                    echo '<td>' . $row["codCliente"] . '</td>';
                     
                     //deve ser alterado
-                    /*echo '<td align="center">
-                             <form name="formItem1" action="../view/editar_fun.php" method="POST">
+                    echo '<td align="center">
+                             <form name="formItem1" action="cli_produtos_car.php" method="POST">
                                     <button type="submit" name="editar1" value="" class="btn-primary" style="color: #4488FF;"><i class="material-icons prefix" title="Editar Cliente">edit</i></button>
-                                    <input type="hidden" name="cpf" value="'.$row["cpf"].'">
+                                    <input type="hidden" name="codCarrinho" value="'.$row["codigo"].'">
                                     </form>
-                                 </td>'; */
+                                 </td>'; 
                     
 
                     /*echo '<td align="center">

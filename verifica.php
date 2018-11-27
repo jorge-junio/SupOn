@@ -51,6 +51,15 @@
 		$_SESSION["permissao"] = $dados["tipo"];
 		$_SESSION["id_usuario"]= $dados["cpf"]; 
 		$_SESSION["nome_usuario"] = $dados["nome"];
+		
+		$_SESSION["codigoProduto"] = Array();
+		$_SESSION["qtdProduto"] = Array();
+		$_SESSION["precoProduto"] = Array();
+
+		array_push($_SESSION["codigoProduto"], 0);
+        array_push($_SESSION["qtdProduto"], 0);
+        array_push($_SESSION["precoProduto"], 0);
+
 
 		$_SESSION['message'] = 'Seja bem-vindo, '.$_SESSION["nome_usuario"];
         $_SESSION['type'] = 'green';

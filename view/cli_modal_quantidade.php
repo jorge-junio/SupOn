@@ -18,9 +18,9 @@
                 <a href="#close" title="Fechar" class="closeModal"></a>
                 <!-- Conteúdo do Modal -->
                 <h5>Adicionar ao Carrinho</h5>
-                <form class="col s8 offset-s2" method="post" action="../controller/CarrinhoController.php" id="for_fun">
+                <form class="col s8 offset-s2" method="post" action="../controller/ItemCarrinhoController.php" id="for_fun">
                     <?php echo '<input type="hidden" name="codigo" value="'.$codigo.'"><br/>'; ?>
-                    <?php echo '<input type="hidden" name="itemCarrinho" value="'.$produto.'"><br/>'; ?>
+                    <?php echo '<input type="hidden" name="preco" value="'.$produto->getValor().'"><br/>'; ?>
                     <p class="col offset-s1">Produto: <?php echo $produto->getNome(); ?></p>
                     
                     <div class="input-field col s10 offset-s1">
