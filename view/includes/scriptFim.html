@@ -1,4 +1,7 @@
-<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<!-- <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script> -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
 <script type="text/javascript" src="../js/materialize.min.js"></script>
 <script type="text/javascript"> $(".button-collapse").sideNav();</script>
 <script type="text/javascript"> $(document).ready(function () {
@@ -25,5 +28,13 @@
 </script>
 
 <!-- Masks -->
-<script src="../../js/jquery.mask.min.js"></script>
-<script src="../../js/main.js"></script>
+<script type="text/javascript" src="../js/jquery.mask.min.js" ></script>
+<script type="text/javascript" src="../js/formatter.js" ></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#cpf').formatter({
+            'pattern': '{{999}}.{{999}}.{{999}}-{{99}}',
+            'persistent': true
+        });
+    });
+</script>

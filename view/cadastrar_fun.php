@@ -3,11 +3,11 @@
 <html>
     <head>
         <?php
-            include "../valida.php";
-            
-            include "includes/headTop.html";
+        include "../valida.php";
 
-            include "../DAO/conexao.php";
+        include "includes/headTop.html";
+
+        include "../DAO/conexao.php";
         ?>
     </head>
     <body>
@@ -28,38 +28,37 @@
                     <div class="section"></div><div class="section"></div>
                 </div>
 
-                <form class="col s8 offset-s2" method="post" action="../controller/ClienteController.php">
+                <form class="col s8 offset-s2" method="post" action="../controller/ClienteController.php" id="cliForm">
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="nome" type="text" class="validate" name="nome" required="" />
+                            <input id="nome" type="text" class="validate" name="nome" required />
                             <label><i class="material-icons left">person_pin</i>Nome</label>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="Cpf" type="text" class="validate" name="cpf" required="" data-length="11"/>
-                            <label><i class="material-icons left">verified_user</i>CPF (digite somente números Ex: 12345678910)</label>
+                            <input id="cpf" type="text" class="validate" name="cpf" required />
+                            <label><i class="material-icons left">verified_user</i>CPF (digite somente números Ex: 11122233300)</label>
                         </div>
                     </div>
-
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="endereco" type="text" class="validate" name="endereco" required="" />
+                            <input id="endereco" type="text" class="validate" name="endereco" required />
                             <label><i class="material-icons left">location_on</i>Endereço (Ex: rua, bairro, número da casa)</label>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="telefone" type="text" class="validate" name="login" required="">
+                            <input id="telefone" type="text" class="validate" name="login" required />
                             <label><i class="material-icons left">account_box</i>login</label>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="senha" type="password" class="validate" name="senha" required="">
+                            <input id="senha" type="password" class="validate" name="senha" required />
                             <label><i class="material-icons left">vpn_key</i>Senha</label>
                         </div>
                     </div>
@@ -80,9 +79,15 @@
             <div class="section"></div>
         </div>
 
+        <script>$("#cliForm").validate({
+            
+        });</script>
+        
+        
         <?php
         include "includes/scriptFim.html";
         ?>
+
 
     </body>
 </html>

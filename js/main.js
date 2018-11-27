@@ -1,6 +1,6 @@
 
-$(document).ready(function () {
-    $("#Cpf").mask("000.000.000-00");
+$(document).ready(function() {
+    $("#cpf").mask('000.000.000-00', {reserve: true});
 });
 
 /*
