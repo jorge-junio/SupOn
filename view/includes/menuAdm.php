@@ -17,10 +17,10 @@
                 <ul class="right">
                     <!-- Dropdown Trigger -->
                     <li><a href="listar_fun.php">Clientes</a></li>
-                    <li><a href="listar_sup.php">Supermercados</a></li>
                     <li><a href="listar_pro.php">Produtos</a></li>
-                    <li><a class="dropdown-button" href="index.html" data-activates="dropdown3">Realizar Busca<i class="material-icons right">arrow_drop_down</i></a></li>
-                    <li><a class="dropdown-button" href="index.html" data-activates="dropdown4"><i class="material-icons left">account_circle</i> <?php echo $_SESSION["nome_usuario"]; ?><i class="material-icons right">arrow_drop_down</i></a></li>
+                    <li><a href="listar_sup.php">Supermercados</a></li>
+                    <li><a href="editarPerfil.php"><i class="material-icons left">account_circle</i> <?php echo $_SESSION["nome_usuario"]; ?></a></li>
+                    <li><a href="../destroySession.php"><i class="material-icons left">exit_to_app</i>Sair</a></li>
                 </ul>
 
             </div>
