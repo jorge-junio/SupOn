@@ -5,7 +5,7 @@
         <?php
         include "includes/headTop.html";
         include "../DAO/conexao.php";
-        include_once '../controller/SupermercadoController.php';
+        include_once '../controller/CarrinhoController.php';
         ?>
     </head>
     <body>
@@ -22,6 +22,8 @@
                 <div class="container">
 
                     <?php
+                        //include "titulo_car.php";
+                        include "tabela_carrinho.php";
                     ?>
 
                 </div>

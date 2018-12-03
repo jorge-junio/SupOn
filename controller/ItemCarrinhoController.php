@@ -66,8 +66,6 @@ class ItemCarrinhoController {
         // Arrays simples:
         $count = count($_SESSION["precoProduto"]) - 1;
 
-        echo "Quantidade de Itens na Lista: ".$count;
-
         for ($i = 1; $i <= $count; $i++) {
             if ($_SESSION["qtdProduto"][$i] != 0) {
                 echo '<tr class="hoverable">';
