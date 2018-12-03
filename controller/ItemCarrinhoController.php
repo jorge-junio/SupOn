@@ -5,7 +5,7 @@ include_once '../DAO/conexao.php';
 include_once '../model/itemcarrinho.php';
 
 class ItemCarrinhoController {
-
+    
     public function insereItemCarrinho(itemCarrinho $itemcarrinho) {
         $conexao = new conexao();
         $itemcarrinhoDAO = new itemcarrinhoDAO();
@@ -24,6 +24,8 @@ class ItemCarrinhoController {
         unset($_SESSION["codigoProduto"][$posicaoVetor]);
         unset($_SESSION["qtdProduto"][$posicaoVetor]);
         unset($_SESSION["precoProduto"][$posicaoVetor]);
+
+        array_push($_SESSION["quantItemExcluidos"], $posicaoVetor);
     }
     
     public function editaItemCarrinho() {
@@ -60,28 +62,50 @@ class ItemCarrinhoController {
     }
 
     public function listarProdutosNoCarrinho(){
+        $conexao = new conexao();
+        $itemCarrinhoDAO = new itemCarrinhoDAO();
         
+
         // Arrays simples:
         $count = count($_SESSION["codigoProduto"]) - 1;
-        for ($i = 1; $i <= $count; $i++) {
-            echo '<tr class="hoverable">';
-                echo '<td>' . $_SESSION["codigoProduto"][$i] . '</td>';
-                echo '<td>' . $_SESSION["qtdProduto"][$i] . '</td>';
-                echo '<td>' . $_SESSION["precoProduto"][$i] . '</td>';
+        $count1 = count($_SESSION["quantItemExcluidos"]) - 1;
 
-                echo '<td align="center">
-                             <form name="formItem1" action="#openModalEdt" method="POST">
-                                    <button type="submit" name="editar1" value="" class="btn-primary" style="color: #4488FF;"><i class="material-icons prefix" title="Editar Quantidade Deste Item">edit</i></button>
-                                    <input type="hidden" name="posicaoVetor" value="'.$i.'">
-                                    </form>
-                                 </td>';
+        echo " ---- Cadastrados no array: ".$_SESSION["codigoProduto"][0].", ";
 
-                echo '<td align="center">
-                             <form name="formItem1" action="#openModalExc" method="POST">
-                                    <button type="submit" name="excluir1" value="" class="btn-primary" style="color: #4488FF;"><i class="material-icons prefix" title="Excluir Item">cancel</i></button>
-                                    <input type="hidden" name="posicaoVetor" value="'.$i.'">
-                                    </form>
-                                 </td>'; 
+        echo "Quantidade de Itens na Lista: ";
+        echo $count;
+        echo " >>>> quantidadeExc: ".$count1;
+        echo " ---- Excluidos: ".$_SESSION["quantItemExcluidos"][1].", ".$_SESSION["quantItemExcluidos"][2];
+
+        for ($i = 1; $i <= $count+1; $i++) {
+            $imprime = true;
+            for ($j=1; $j < $count1; $j++) { 
+                if ($i == (INT) $_SESSION["quantItemExcluidos"][$j]) {
+                    $imprime = false;
+                    break;
+                }
+            }
+            if ($imprime == true) {
+                echo '<tr class="hoverable">';
+                        echo '<td>' . $_SESSION["codigoProduto"][$i] . '</td>';
+                        echo '<td>' . $itemCarrinhoDAO->getNomeNoBanco($conexao, $_SESSION["codigoProduto"][$i]) . '</td>';
+                        echo '<td>' . $_SESSION["qtdProduto"][$i] . '</td>';
+                        echo '<td>' . $_SESSION["precoProduto"][$i] . '</td>';
+
+                        echo '<td align="center">
+                                     <form name="formItem1" action="#openModalEdt" method="POST">
+                                            <button type="submit" name="editar1" value="" class="btn-primary" style="color: #4488FF;"><i class="material-icons prefix" title="Editar Quantidade Deste Item">edit</i></button>
+                                            <input type="hidden" name="posicaoVetor" value="'.$i.'">
+                                            </form>
+                                         </td>';
+
+                        echo '<td align="center">
+                                     <form name="formItem1" action="#openModalExc" method="POST">
+                                            <button type="submit" name="excluir1" value="" class="btn-primary" style="color: #4488FF;"><i class="material-icons prefix" title="Excluir Item">cancel</i></button>
+                                            <input type="hidden" name="posicaoVetor" value="'.$i.'">
+                                            </form>
+                                         </td>';
+            }
         }
 
         include 'modal_itemCar.php';

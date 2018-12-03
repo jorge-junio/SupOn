@@ -303,7 +303,12 @@ class produtoDAO{
     function listarBuscaEsp(conexao $con, $nome, $cnpj){
 
         if ($_SESSION['permissao'] == "cli") {
-            $consulta = "SELECT p.codigo, p.nome, p.marca, p.preco, p.descricao, p.quantidade, s.nomeF FROM Produto p, Supermercado s WHERE p.nome = '$nome' AND p.cnpj = s.cnpj AND s.cnpj = '$cnpj'";
+            if ($nome == "") {
+                $consulta = "SELECT p.codigo, p.nome, p.marca, p.preco, p.descricao, p.quantidade, s.nomeF FROM Produto p, Supermercado s WHERE p.cnpj = s.cnpj AND s.cnpj = '$cnpj'";
+            }else{
+                $consulta = "SELECT p.codigo, p.nome, p.marca, p.preco, p.descricao, p.quantidade, s.nomeF FROM Produto p, Supermercado s WHERE p.nome = '$nome' AND p.cnpj = s.cnpj AND s.cnpj = '$cnpj'";
+            }
+            
 
             $result = mysqli_query($con->conecta(), $consulta);
 

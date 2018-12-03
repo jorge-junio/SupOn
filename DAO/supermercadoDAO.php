@@ -158,7 +158,12 @@ class supermercadoDAO{
     }
 
     function listarBusca(conexao $con, $nomeSup){
-        $consulta = "SELECT cnpj, nomeF, nomeO, endereco, login, senha, valorMaximoDistancia, valorMinimoPreco FROM Supermercado WHERE nomeF = '$nomeSup'";
+        if ($nomeSup == "") {
+            $consulta = "SELECT cnpj, nomeF, nomeO, endereco, login, senha, valorMaximoDistancia, valorMinimoPreco FROM Supermercado";
+        }else{
+            $consulta = "SELECT cnpj, nomeF, nomeO, endereco, login, senha, valorMaximoDistancia, valorMinimoPreco FROM Supermercado WHERE nomeF = '$nomeSup'";
+        }
+        
         $result = mysqli_query($con->conecta(), $consulta);
 
         if (mysqli_num_rows($result) > 0) {

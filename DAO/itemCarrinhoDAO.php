@@ -123,4 +123,16 @@ class itemCarrinhoDAO {
             }
         }
     }
+
+    function getNomeNoBanco(conexao $con, $codItem){
+        $consulta = "SELECT nome FROM Produto WHERE codigo = '$codItem'";
+
+        $result = mysqli_query($con->conecta(), $consulta);
+
+        if (mysqli_num_rows($result) > 0) {
+            while ($row = mysqli_fetch_assoc($result)) {
+                return $row["nome"];
+            }
+        }
+    }
 }

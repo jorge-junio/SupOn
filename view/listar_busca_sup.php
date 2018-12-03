@@ -2,7 +2,7 @@
 
 
 <?php
-$b_nome = ' ';
+$b_nome = " ";
 $b_nome = filter_input(INPUT_POST,"q_b",FILTER_SANITIZE_STRING);
 
 	if ($_SESSION['permissao'] == 'cli') {

@@ -55,10 +55,12 @@
 		$_SESSION["codigoProduto"] = Array();
 		$_SESSION["qtdProduto"] = Array();
 		$_SESSION["precoProduto"] = Array();
+		$_SESSION["quantItemExcluidos"] = Array();
 
 		array_push($_SESSION["codigoProduto"], 0);
         array_push($_SESSION["qtdProduto"], 0);
         array_push($_SESSION["precoProduto"], 0);
+        array_push($_SESSION["quantItemExcluidos"], 0);
 
 
 		$_SESSION['message'] = 'Seja bem-vindo, '.$_SESSION["nome_usuario"];

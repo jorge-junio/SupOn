@@ -2,6 +2,7 @@
     <thead>
         <tr>
             <th>Código do Produto</th>
+            <th>Nome do Produto</th>
             <th>Quantidade</th>
             <th>Preço da Unidade (R$)</th>
             <th></th>
