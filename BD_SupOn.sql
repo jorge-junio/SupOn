@@ -16,7 +16,7 @@ CREATE TABLE  Cliente(
 CREATE TABLE Supermercado(
 	nomeF VARCHAR(80) NOT NULL,
     nomeO VARCHAR(80) NOT NULL,
-    cnpj INT NOT NULL,
+    cnpj BIGINT NOT NULL,
     endereco VARCHAR(255) NOT NULL,
     valorMaximoDistancia FLOAT NOT NULL,
     valorMinimoPreco FLOAT NOT NULL,
@@ -40,7 +40,7 @@ CREATE TABLE Produto(
     preco FLOAT NOT NULL,
     descricao VARCHAR(80) NOT NULL,
     quantidade INT NOT NULL,
-    cnpj INT,
+    cnpj BIGINT,
     PRIMARY KEY(codigo),
     FOREIGN KEY(cnpj) REFERENCES Supermercado(cnpj)
 );
