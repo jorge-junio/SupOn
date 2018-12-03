@@ -205,7 +205,7 @@ class supermercadoDAO{
 
                         echo '<td align="center">
                                 <form name="formItem1" action="../view/cli_buscar_produto.php" method="POST">
-                                    <button type="submit" name="editar1" value="" class="btn-primary" style="color: #4488FF;"><i class="material-icons prefix" title="Ver os produtos deste Supermercado">visibility</i></button>
+                                    <button type="submit" name="editar1" value="" class="btn-primary" style="color: #FFA500;"><i class="material-icons prefix" title="Ver os produtos deste Supermercado">visibility</i></button>
                                         <input type="hidden" name="cnpj" value="'.$row["cnpj"].'">
                                         <input type="hidden" name="nomeF" value="'.$row["nomeF"].'">
                                 </form>

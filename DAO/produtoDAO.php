@@ -326,7 +326,7 @@ class produtoDAO{
                         
                         echo '<td align="center">
                                  <form name="formItem1" action="#openModalQnt" method="POST">
-                                        <button type="submit" name="editar1" value="" class="btn-primary" style="color: #4488FF;"><i class="material-icons prefix" title="Adicionar produto ao Carrinho">add_shopping_cart</i></button>
+                                        <button type="submit" name="editar1" value="" class="btn-primary" style="color: #32CD32;"><i class="material-icons prefix" title="Adicionar produto ao Carrinho">add_shopping_cart</i></button>
                                         <input type="hidden" name="codigo" value="'.$row["codigo"].'">
                                         </form>
                                      </td>';

@@ -23,10 +23,10 @@
                     
                     <div class="section"></div>
                     <div class="row">
-                        <button class="btn waves-effect waves-light col s3 offset-s2" type="submit" name="editar" value="editar" ><i class="material-icons">check_circle</i>
+                        <button class="btn waves-effect waves-light col s3 offset-s2" type="submit" name="editar" value="editar" title="Confirmar" ><i class="material-icons">check_circle</i>
                         </button>
 
-                        <button class="btn waves-effect waves-red col s3 offset-s2" type="submit" name="direcionaHome" value="direcionaHome" ><i class="material-icons">cancel</i>
+                        <button class="btn waves-effect waves-red col s3 offset-s2" type="submit" name="direcionaHome" value="direcionaHome" title="Cancelar" ><i class="material-icons">cancel</i>
                         </button>
                     </div>
                 </form>

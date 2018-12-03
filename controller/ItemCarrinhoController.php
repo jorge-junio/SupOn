@@ -83,7 +83,7 @@ class ItemCarrinhoController {
 
                         echo '<td align="center">
                                      <form name="formItem1" action="#openModalExc" method="POST">
-                                            <button type="submit" name="excluir1" value="" class="btn-primary" style="color: #4488FF;"><i class="material-icons prefix" title="Excluir Item">cancel</i></button>
+                                            <button type="submit" name="excluir1" value="" class="btn-primary" style="color: #FF0000;"><i class="material-icons prefix" title="Excluir Item">delete</i></button>
                                             <input type="hidden" name="posicaoVetor" value="'.$i.'">
                                             </form>
                                          </td>';

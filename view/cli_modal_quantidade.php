@@ -31,10 +31,10 @@
                     
                     <div class="section"></div>
                     <div class="row">
-                        <button class="btn waves-effect waves-light col s3 offset-s2" type="submit" name="adicionaAoCarrinho" value="adicionaAoCarrinho" ><i class="material-icons">check_circle</i>
+                        <button class="btn waves-effect waves-light col s3 offset-s2" type="submit" name="adicionaAoCarrinho" value="adicionaAoCarrinho" title="Adicionar" ><i class="material-icons">check_circle</i>
                         </button>
 
-                        <button class="btn waves-effect waves-red col s3 offset-s2" type="submit" name="direcionaListar" value="direcionaListar" ><i class="material-icons">cancel</i>
+                        <button class="btn waves-effect waves-red col s3 offset-s2" type="submit" name="direcionaListar" value="direcionaListar" title="Cancelar" ><i class="material-icons">cancel</i>
                         </button>
                     </div>
                 </form>
