@@ -21,11 +21,8 @@ class ItemCarrinhoController {
     public function excluiItemCarrinho() {
         $posicaoVetor = filter_input(INPUT_POST,"posicaoVetor",FILTER_SANITIZE_STRING);
         
-        unset($_SESSION["codigoProduto"][$posicaoVetor]);
-        unset($_SESSION["qtdProduto"][$posicaoVetor]);
-        unset($_SESSION["precoProduto"][$posicaoVetor]);
-
-        array_push($_SESSION["quantItemExcluidos"], $posicaoVetor);
+        $_SESSION["codigoProduto"][$i] = 0;
+        $_SESSION["qtdProduto"][$posicaoVetor] = 0;
     }
     
     public function editaItemCarrinho() {
@@ -67,25 +64,12 @@ class ItemCarrinhoController {
         
 
         // Arrays simples:
-        $count = count($_SESSION["codigoProduto"]) - 1;
-        $count1 = count($_SESSION["quantItemExcluidos"]) - 1;
+        $count = count($_SESSION["precoProduto"]) - 1;
 
-        echo " ---- Cadastrados no array: ".$_SESSION["codigoProduto"][0].", ";
+        echo "Quantidade de Itens na Lista: ".$count;
 
-        echo "Quantidade de Itens na Lista: ";
-        echo $count;
-        echo " >>>> quantidadeExc: ".$count1;
-        echo " ---- Excluidos: ".$_SESSION["quantItemExcluidos"][1].", ".$_SESSION["quantItemExcluidos"][2];
-
-        for ($i = 1; $i <= $count+1; $i++) {
-            $imprime = true;
-            for ($j=1; $j < $count1; $j++) { 
-                if ($i == (INT) $_SESSION["quantItemExcluidos"][$j]) {
-                    $imprime = false;
-                    break;
-                }
-            }
-            if ($imprime == true) {
+        for ($i = 1; $i <= $count; $i++) {
+            if ($_SESSION["qtdProduto"][$i] != 0) {
                 echo '<tr class="hoverable">';
                         echo '<td>' . $_SESSION["codigoProduto"][$i] . '</td>';
                         echo '<td>' . $itemCarrinhoDAO->getNomeNoBanco($conexao, $_SESSION["codigoProduto"][$i]) . '</td>';
@@ -112,6 +96,24 @@ class ItemCarrinhoController {
         include 'modal_itemCar_excluir.php';
     }
 
+    public function efetuarCompra(){
+        
+    }
+
+    public function cancelarCompra(){
+        session_destroy($_SESSION["codigoProduto"]);
+        session_destroy($_SESSION["qtdProduto"]);
+        session_destroy($_SESSION["precoProduto"]);
+
+        $_SESSION["codigoProduto"] = Array();
+        $_SESSION["qtdProduto"] = Array();
+        $_SESSION["precoProduto"] = Array();
+
+        array_push($_SESSION["codigoProduto"], 0);
+        array_push($_SESSION["qtdProduto"], 0);
+        array_push($_SESSION["precoProduto"], 0);
+    }
+
 }
 
 $itemcarrinho = new ItemCarrinhoController();
@@ -121,6 +123,8 @@ $itemcarrinho = new ItemCarrinhoController();
         $editar = filter_input(INPUT_POST,"editar",FILTER_SANITIZE_STRING);
         $adicionaAoCarrinho = filter_input(INPUT_POST,"adicionaAoCarrinho",FILTER_SANITIZE_STRING);
         $direcionaHome = filter_input(INPUT_POST,"direcionaHome",FILTER_SANITIZE_STRING);
+        $efetuarCompra = filter_input(INPUT_POST,"efetuarCompra",FILTER_SANITIZE_STRING);
+        $cancelarCompra = filter_input(INPUT_POST,"cancelarCompra",FILTER_SANITIZE_STRING);
 
 if (isset($excluir)) {
     $itemcarrinho->excluiItemCarrinho();
@@ -139,6 +143,16 @@ if (isset($adicionaAoCarrinho)) {
 
 if (isset($direcionaHome)) {
     header("Location: ../view/home.php");
+}
+
+if (isset($efetuarCompra)) {
+    $itemcarrinho->efetuarCompra();
+    header("Location: ../view/home.php");
+}
+
+if (isset($cancelarCompra)) {
+    $itemcarrinho->cancelarCompra();
+    header("Location: ../view/cli_carrinho.php");
 }
 
 

@@ -27,12 +27,12 @@
                 <div class="section"></div>
                 <div class="section"></div>
                 <form method="post" action="../controller/ItemCarrinhoController.php">
-                        <button class="btn waves-effect waves-light col s4 offset-s2" type="submit" name="direcionaHome" value="direcionaHome">
+                        <button class="btn waves-effect waves-light col s4 offset-s2" type="submit" name="efetuarCompra" value="efetuarCompra">
                                 Efetuar Compra
                             <i class="material-icons right">check_circle</i>
                         </button> 
 
-                        <button class="btn waves-effect waves-light col s4 offset-s2" type="submit" name="direcionaHome" value="direcionaHome">
+                        <button class="btn waves-effect waves-light col s4 offset-s2" type="submit" name="cancelarCompra" value="cancelarCompra">
                                 Cancelar Compra
                             <i class="material-icons right">cancel</i>
                         </button> 
