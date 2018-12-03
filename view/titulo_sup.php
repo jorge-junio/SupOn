@@ -7,3 +7,7 @@
     </div>
     <div class="section"></div><div class="section"></div>
 </div>
+<div class="raw" style="text-align: left; font-size: 20px;">
+    <a href="buscar_adm_sup.php" style="color: #004d40;" title="Buscar Supermercado">Buscar Supermercado <i class=" material-icons">search</i></a><br/>
+    <div class="section"></div>
+</div>
