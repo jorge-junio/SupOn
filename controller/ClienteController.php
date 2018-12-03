@@ -8,7 +8,7 @@ class ClienteController {
     
     public function insereCliente() {
         //recuperando os dados do formulário
-        $cpf = (INT) filter_input(INPUT_POST,"cpf",FILTER_SANITIZE_STRING);
+        $cpf = (DOUBLE) filter_input(INPUT_POST,"cpf",FILTER_SANITIZE_STRING);
         if ($cpf == 0) {
             $_SESSION['message'] = 'Registro não foi cadastrado no sistema pois foi digitado string no campo cpf';
             $_SESSION['type'] = 'red';
