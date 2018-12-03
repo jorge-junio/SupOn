@@ -97,10 +97,25 @@ class ItemCarrinhoController {
     }
 
     public function efetuarCompra(){
-        
+
+        $count = count($_SESSION["precoProduto"]) - 1;
+        $contAux = 0;
+
+        for ($i = 1; $i <= $count; $i++) {
+            if ($_SESSION["qtdProduto"][$i] != 0) {
+                $contAux += 1;
+            }
+        }
+
+        if ($contAux > 0) {
+            $conexao = new conexao();
+            $itemcarrinhoDAO = new itemcarrinhoDAO();
+            $itemcarrinhoDAO->adicionar($conexao);
+        }
     }
 
-    public function cancelarCompra(){
+    //função que limpa o carrinho
+    public function limparCarrinho(){
         session_destroy($_SESSION["codigoProduto"]);
         session_destroy($_SESSION["qtdProduto"]);
         session_destroy($_SESSION["precoProduto"]);
@@ -147,11 +162,12 @@ if (isset($direcionaHome)) {
 
 if (isset($efetuarCompra)) {
     $itemcarrinho->efetuarCompra();
-    header("Location: ../view/home.php");
+    $itemcarrinho->limparCarrinho();
+    header("Location: ../view/cli_compras.php");
 }
 
 if (isset($cancelarCompra)) {
-    $itemcarrinho->cancelarCompra();
+    $itemcarrinho->limparCarrinho();
     header("Location: ../view/cli_carrinho.php");
 }
 

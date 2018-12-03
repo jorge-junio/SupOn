@@ -2,13 +2,27 @@
 include "../valida.php";
 
 class itemCarrinhoDAO {
-    function adicionar(conexao $con, itemCarrinho $icar){
-        if($icar->getCodCarrinho() != 0){
-        $consulta = "INSERT INTO Item_Carrinho(codCarrinho, codProduto, qtdProduto, valorProduto) VALUES
-            ('{$icar->getCodCarrinho()}', '{$icar->getCodProduto()}', '{$icar->getQtdProduto()}', '{$icar->getValorProduto()}')";
-       
-        mysqli_query($con->conecta(), $consulta);
+    function adicionar(conexao $con){
+        $consulta = "INSERT INTO carrinho (codigo, data, cpfCliente) VALUES (NULL, CURRENT_DATE(), ".$_SESSION['id_usuario'].")";
+        
+        $conexaoAberta = $con->conecta();
+        
+        mysqli_query($conexaoAberta, $consulta);
+
+        $codCarrinho = mysqli_insert_id($conexaoAberta);
+
+        //conta a quantidade de itens na lista -1 pois ao criar o vetor colocamos o valor do índice 0 como 0:
+        $count = count($_SESSION["precoProduto"]) - 1;
+
+        for ($i = 1; $i <= $count; $i++) {
+            if ($_SESSION["qtdProduto"][$i] != 0) {
+                $consulta = "INSERT INTO Item_Carrinho(codCarrinho, qtdProduto, codProduto, valorProduto) VALUES
+            (".$codCarrinho.", ".$_SESSION["qtdProduto"][$i].", ".$_SESSION["codigoProduto"][$i].", ".$_SESSION["precoProduto"][$i].")";
+
+            mysqli_query($con->conecta(), $consulta);
+            }
         }
+       
      }
      
     function remover(conexao $con, itemCarrinho $icar){
