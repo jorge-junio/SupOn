@@ -12,7 +12,7 @@
 
         <!-- Navbar goes here -->
         <?php
-        include "./includes/menuCliente.php";
+        include "../menu.php";
         ?>
 
         <div class="container">

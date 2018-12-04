@@ -41,7 +41,7 @@ class carrinhoDAO {
         }else{
 
             //modificar o banco e alterar esta consulta
-            $consulta = "SELECT c.codigo, c.data, c.cpfCliente FROM Carrinho c, Item_Carrinho i, Produto p WHERE c.codigo = i.codCarrinho AND p.cnpj =".$_SESSION['id_usuario'];
+            $consulta = "SELECT codigo, data, cpfCliente FROM Carrinho WHERE cnpjSup =".$_SESSION['id_usuario'];
 
             $result = mysqli_query($con->conecta(), $consulta);
 
@@ -56,7 +56,7 @@ class carrinhoDAO {
                             //deve ser alterado
                             echo '<td align="center">
                                      <form name="formItem1" action="cli_produtos_car.php" method="POST">
-                                            <button type="submit" name="editar1" value="" class="btn-primary" style="color: #4488FF;"><i class="material-icons prefix" title="Editar Cliente">edit</i></button>
+                                            <button type="submit" name="editar1" value="" class="btn-primary" style="color: #4488FF;"><i class="material-icons prefix" title="Editar Cliente">visibility</i></button>
                                             <input type="hidden" name="codCarrinho" value="'.$row["codigo"].'">
                                             </form>
                                          </td>'; 

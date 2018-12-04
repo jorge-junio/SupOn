@@ -29,8 +29,10 @@ CREATE TABLE Carrinho(
 	codigo INT AUTO_INCREMENT NOT NULL,
     data DATE NOT NULL,
     cpfCliente BIGINT NOT NULL,
+    cnpjSup BIGINT NOT NULL,
     PRIMARY KEY(codigo),
-    FOREIGN KEY(cpfCliente) REFERENCES Cliente(cpf)
+    FOREIGN KEY(cpfCliente) REFERENCES Cliente(cpf),
+    FOREIGN KEY(cnpjSup) REFERENCES Supermercado(cnpj)
 );
 
 CREATE TABLE Produto(

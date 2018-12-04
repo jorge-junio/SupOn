@@ -3,7 +3,7 @@ include "../valida.php";
 
 class itemCarrinhoDAO {
     function adicionar(conexao $con){
-        $consulta = "INSERT INTO carrinho (codigo, data, cpfCliente) VALUES (NULL, CURRENT_DATE(), ".$_SESSION['id_usuario'].")";
+        $consulta = "INSERT INTO carrinho (codigo, data, cpfCliente, cnpjSup) VALUES (NULL, CURRENT_DATE(), ".$_SESSION['id_usuario'].", ".$_SESSION["supEscolhido"].")";
         
         $conexaoAberta = $con->conecta();
         
