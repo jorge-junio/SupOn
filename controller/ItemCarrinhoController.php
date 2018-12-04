@@ -76,18 +76,18 @@ class ItemCarrinhoController {
         $conexao = new conexao();
         $itemCarrinhoDAO = new itemCarrinhoDAO();
         
-
-        // Arrays simples:
         $count = count($_SESSION["precoProduto"]) - 1;
+        $precoTotal = 0;
 
         for ($i = 1; $i <= $count; $i++) {
             if ($_SESSION["qtdProduto"][$i] != 0) {
+                $precoTotal += $_SESSION["qtdProduto"][$i] * $_SESSION["precoProduto"][$i];
+
                 echo '<tr class="hoverable">';
                         echo '<td>' . $_SESSION["codigoProduto"][$i] . '</td>';
                         echo '<td>' . $itemCarrinhoDAO->getNomeNoBanco($conexao, $_SESSION["codigoProduto"][$i]) . '</td>';
                         echo '<td>' . $_SESSION["qtdProduto"][$i] . '</td>';
                         echo '<td>' . $_SESSION["precoProduto"][$i] . '</td>';
-
                         echo '<td align="center">
                                      <form name="formItem1" action="#openModalEdt" method="POST">
                                             <button type="submit" name="editar1" value="" class="btn-primary" style="color: #4488FF;"><i class="material-icons prefix" title="Editar Quantidade Deste Item">edit</i></button>
@@ -103,6 +103,8 @@ class ItemCarrinhoController {
                                          </td>';
             }
         }
+
+        echo "Preço total da compra: R$ ".$precoTotal;
 
         include 'modal_itemCar.php';
         include 'modal_itemCar_excluir.php';

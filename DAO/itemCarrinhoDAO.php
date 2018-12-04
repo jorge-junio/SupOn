@@ -37,8 +37,12 @@ class itemCarrinhoDAO {
 
         $result = mysqli_query($con->conecta(), $consulta);
 
+        $precoTotal = 0;
+
         if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_assoc($result)) { 
+                $precoTotal += $row["qtdProduto"] * $row["valorProduto"];
+
                 echo '<tr class="hoverable">';
                     echo '<td>' . $row["codCarrinho"] . '</td>';
                     echo '<td>' . $row["codProduto"] . '</td>';
@@ -72,6 +76,7 @@ class itemCarrinhoDAO {
             }
         }
     
+    echo "Preço total da compra: R$ ".$precoTotal;
      //include 'modal_fun.php';
         
     }
