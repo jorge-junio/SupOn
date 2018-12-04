@@ -3,9 +3,9 @@
 <html>
     <head>
         <?php
-        include "includes/headTop.html";
-        include "../DAO/conexao.php";
-        include_once '../controller/CarrinhoController.php';
+            include "includes/headTop.html";
+            include "../DAO/conexao.php";
+            include_once '../controller/CarrinhoController.php';
         ?>
     </head>
     <body>
@@ -20,14 +20,17 @@
             <div class="section"></div>
             <div class="row white darken-4 ">
                 <div class="container">
-
+                    <div class="section"></div>
+                    <div class="section" style="text-align: center; font-size: 25px;">Listar Pedidos Requisitados</div>
+                        <div class="section"></div><div class="section"></div>
+                    </div>
                     <?php
-                        //include "titulo_car.php";
                         include "tabela_carrinho.php";
                     ?>
-
+                    <div class="section"></div>
                 </div>
                 <div class="section"></div>
+                
             </div>
         </div>
 

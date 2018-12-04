@@ -16,6 +16,11 @@
             include "./includes/menuCliente.php";
             $cnpj = filter_input(INPUT_POST,"cnpj",FILTER_SANITIZE_STRING);
             $nomeF = filter_input(INPUT_POST,"nomeF",FILTER_SANITIZE_STRING);
+            if ($cnpj) {
+                $_SESSION["supEscolhido"] = $cnpj;
+                $_SESSION["nomeSupEscolhido"] = $nomeF;
+            }
+            
         ?>
 
         <div class="container">
@@ -25,7 +30,7 @@
                 <div class="container">
 
                     <div class="section"></div>
-                    <div class="section" style="text-align: center; font-size: 25px;">Produtos do Supermercado <?php echo $nomeF; ?></div>
+                    <div class="section" style="text-align: center; font-size: 25px;">Produtos do Supermercado <?php echo $_SESSION["nomeSupEscolhido"]; ?></div>
                     <div class="raw" style="text-align: right; font-size: 16px; ">
                         <div class="section"></div><div class="section"></div>
                     </div>
@@ -39,8 +44,8 @@
                                 <i class="material-icons prefix">search</i>
                                 <input id="first_name2" type="text" name="q_b">
                                 <?php  
-                                   echo '<input type="hidden" name="cnpj" value="'.$cnpj.'">'; 
-                                   echo '<input type="hidden" name="nomeF" value="'.$nomeF.'">';
+                                   echo '<input type="hidden" name="cnpj" value="'.$_SESSION["supEscolhido"].'">'; 
+                                   echo '<input type="hidden" name="nomeF" value="'.$_SESSION["nomeSupEscolhido"].'">';
                                 ?> 
                                 <label for="first_name2">Nome do Produto</label>
                             </div>

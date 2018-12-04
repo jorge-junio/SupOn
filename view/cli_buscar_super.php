@@ -13,6 +13,10 @@
         <!-- Navbar goes here -->
         <?php
         include "./includes/menuCliente.php";
+
+        if ($_SESSION["supEscolhido"] != "") {
+            header("Location: ../view/cli_buscar_produto.php");
+        }
         ?>
 
         <div class="container">

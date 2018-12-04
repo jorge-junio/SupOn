@@ -18,7 +18,6 @@
             echo " ,quantidade = ".$_SESSION["qtdProduto"][$i];
             echo " ,preco = ".$_SESSION["precoProduto"][$i];
         }*/
-        
         include "../menu.php";
         ?>
 

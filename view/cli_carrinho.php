@@ -12,9 +12,9 @@
 
         <!-- Navbar goes here -->
         <?php
-        include "./includes/menuCliente.php";
+            include "./includes/menuCliente.php";
+            include "modal_car_excluir.php";
         ?>
-
         <div class="container">
             <div class="section"></div>
             <div class="section"></div>
@@ -31,14 +31,19 @@
                                 Efetuar Compra
                             <i class="material-icons right">check_circle</i>
                         </button> 
+                </form>
 
-                        <button class="btn waves-effect waves-light col s4 offset-s2" type="submit" name="cancelarCompra" value="cancelarCompra">
+                <form method="post" action="#openModalExcCar">
+                        <button class="btn waves-effect waves-light col s4 offset-s2" type="submit" name="" value="">
                                 Cancelar Compra
                             <i class="material-icons right">cancel</i>
                         </button> 
                     
                     <div class="section"></div>
                 </form>
+
+                
+
                 </div>
                 <div class="section"></div>
             </div>

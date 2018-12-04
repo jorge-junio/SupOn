@@ -304,7 +304,7 @@ class produtoDAO{
 
         if ($_SESSION['permissao'] == "cli") {
             if ($nome == "") {
-                $consulta = "SELECT p.codigo, p.nome, p.marca, p.preco, p.descricao, p.quantidade, s.nomeF FROM Produto p, Supermercado s WHERE p.cnpj = s.cnpj AND s.cnpj = '$cnpj'";
+                $consulta = "SELECT p.codigo, p.nome, p.marca, p.preco, p.descricao, p.quantidade, s.nomeF FROM Produto p, Supermercado s WHERE p.cnpj = s.cnpj AND s.cnpj = ".$_SESSION["supEscolhido"];
             }else{
                 $consulta = "SELECT p.codigo, p.nome, p.marca, p.preco, p.descricao, p.quantidade, s.nomeF FROM Produto p, Supermercado s WHERE p.nome = '$nome' AND p.cnpj = s.cnpj AND s.cnpj = '$cnpj'";
             }

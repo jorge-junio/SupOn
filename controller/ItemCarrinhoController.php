@@ -125,6 +125,8 @@ class ItemCarrinhoController {
         array_push($_SESSION["codigoProduto"], 0);
         array_push($_SESSION["qtdProduto"], 0);
         array_push($_SESSION["precoProduto"], 0);
+
+        $_SESSION["supEscolhido"] = "";
     }
 
 }
@@ -136,6 +138,7 @@ $itemcarrinho = new ItemCarrinhoController();
         $editar = filter_input(INPUT_POST,"editar",FILTER_SANITIZE_STRING);
         $adicionaAoCarrinho = filter_input(INPUT_POST,"adicionaAoCarrinho",FILTER_SANITIZE_STRING);
         $direcionaHome = filter_input(INPUT_POST,"direcionaHome",FILTER_SANITIZE_STRING);
+        $direcionaCar = filter_input(INPUT_POST,"direcionaCar",FILTER_SANITIZE_STRING);
         $efetuarCompra = filter_input(INPUT_POST,"efetuarCompra",FILTER_SANITIZE_STRING);
         $cancelarCompra = filter_input(INPUT_POST,"cancelarCompra",FILTER_SANITIZE_STRING);
 
@@ -151,11 +154,15 @@ if (isset($editar)) {
 
 if (isset($adicionaAoCarrinho)) {
     $itemcarrinho->adicionaAoCarrinho();
-    header("Location: ../view/home.php");
+    header("Location: ../view/cli_buscar_super.php");
 }
 
 if (isset($direcionaHome)) {
     header("Location: ../view/home.php");
+}
+
+if (isset($direcionaCar)) {
+    header("Location: ../view/cli_carrinho.php");
 }
 
 if (isset($efetuarCompra)) {

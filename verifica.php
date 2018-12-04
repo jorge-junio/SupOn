@@ -51,6 +51,9 @@
 		$_SESSION["permissao"] = $dados["tipo"];
 		$_SESSION["id_usuario"]= $dados["cpf"]; 
 		$_SESSION["nome_usuario"] = $dados["nome"];
+
+		$_SESSION["supEscolhido"] = "";
+		$_SESSION["nomeSupEscolhido"] = "";
 		
 		$_SESSION["codigoProduto"] = Array();
 		$_SESSION["qtdProduto"] = Array();
