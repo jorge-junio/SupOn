@@ -32,7 +32,7 @@ class carrinhoDAO {
                         //deve ser alterado
                         echo '<td align="center">
                                  <form name="formItem1" action="cli_produtos_car.php" method="POST">
-                                        <button type="submit" name="editar1" value="" class="btn-primary" style="color: #4488FF;"><i class="material-icons prefix" title="Visualizar Detalhes">visibility</i></button>
+                                        <button type="submit" name="editar1" value="" class="btn-primary" style="color: #FFA500;"><i class="material-icons prefix" title="Visualizar Detalhes">visibility</i></button>
                                         <input type="hidden" name="codCarrinho" value="'.$row["codigo"].'">
                                         </form>
                                      </td>';
@@ -56,7 +56,7 @@ class carrinhoDAO {
                             //deve ser alterado
                             echo '<td align="center">
                                      <form name="formItem1" action="cli_produtos_car.php" method="POST">
-                                            <button type="submit" name="editar1" value="" class="btn-primary" style="color: #4488FF;"><i class="material-icons prefix" title="Editar Cliente">visibility</i></button>
+                                            <button type="submit" name="editar1" value="" class="btn-primary" style="color: #FFA500;"><i class="material-icons prefix" title="Editar Cliente">visibility</i></button>
                                             <input type="hidden" name="codCarrinho" value="'.$row["codigo"].'">
                                             </form>
                                          </td>'; 
