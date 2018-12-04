@@ -53,9 +53,23 @@ class ItemCarrinhoController {
         $preco = filter_input(INPUT_POST,"preco",FILTER_SANITIZE_STRING);
         $quantidadePro = filter_input(INPUT_POST,"quantidadePro",FILTER_SANITIZE_STRING);
 
-        array_push($_SESSION["codigoProduto"], $codigo);
-        array_push($_SESSION["qtdProduto"], $quantidadePro);
-        array_push($_SESSION["precoProduto"], $preco);
+
+        $count = count($_SESSION["precoProduto"]) - 1;
+        $contAux = 0;
+
+        for ($i = 1; $i <= $count; $i++) {
+            if ($_SESSION["codigoProduto"][$i] == $codigo) {
+                $_SESSION["qtdProduto"][$i] += $quantidadePro;
+                $contAux += 1;
+            }
+        }
+        if ($contAux == 0) {
+            array_push($_SESSION["codigoProduto"], $codigo);
+            array_push($_SESSION["qtdProduto"], $quantidadePro);
+            array_push($_SESSION["precoProduto"], $preco);
+        }
+
+        
     }
 
     public function listarProdutosNoCarrinho(){
