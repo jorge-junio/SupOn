@@ -13,7 +13,7 @@
                 <a href="./home.php" class="left brand-logo">  SUPON</a> 
                 <ul class="right">
                     <!-- Dropdown Trigger -->
-                    <li><a href="../view/cli_buscar_super.php">Fazer Compras</a></li>
+                    <li><a href="../view/cli_buscar_super.php">Realizar Compras</a></li>
                     <li><a href="./cli_compras.php">Compras</a></li>
                     <li><a href="cli_carrinho.php">Carrinho</a></li>
                     <li><a href="editarPerfil.php"><i class="material-icons left">account_circle</i><?php echo $_SESSION["nome_usuario"]; ?></a></li>

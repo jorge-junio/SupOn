@@ -56,7 +56,7 @@ class carrinhoDAO {
                             //deve ser alterado
                             echo '<td align="center">
                                      <form name="formItem1" action="cli_produtos_car.php" method="POST">
-                                            <button type="submit" name="editar1" value="" class="btn-primary" style="color: #FFA500;"><i class="material-icons prefix" title="Editar Cliente">visibility</i></button>
+                                            <button type="submit" name="editar1" value="" class="btn-primary" style="color: #FFA500;"><i class="material-icons prefix" title="Detalhes do Pedido">visibility</i></button>
                                             <input type="hidden" name="codCarrinho" value="'.$row["codigo"].'">
                                             </form>
                                          </td>'; 
